@@ -251,6 +251,7 @@
         if (q.imageName) { qImg.src = `images/${q.imageName}`; qImg.style.display = "block"; } 
         else { qImg.style.display = "none"; }
 
+       // 渲染选项
         let optionsHtml = "";
         for (let key in q.options) {
             let opt = q.options[key];
@@ -271,11 +272,24 @@
 
             let clickEvent = (isEvaluated && currentMode !== 'exam') ? '' : `onclick="toggleOption('${key}')"`;
             
+            // 👇 这里是修复图片显示的核心逻辑 👇
             if (q.isOptionImage) {
-                let textPart = opt.text ? `${key}. ${opt.text}` : `${key}.`;
-                let imgPart = opt.img ? `<img class="option-img" src="images/${opt.img}">` : '';
+                let textPart = `${key}.`;
+                let imgPart = '';
+                
+                // 情况 1：选项是对象格式 {text: "...", img: "..."}
+                if (typeof opt === 'object') {
+                    if (opt.text) textPart += ` ${opt.text}`;
+                    if (opt.img) imgPart = `<img class="option-img" src="images/${opt.img}">`;
+                } 
+                // 情况 2：选项直接是纯图片名称字符串 "image123.jpg"
+                else if (typeof opt === 'string') {
+                    imgPart = `<img class="option-img" src="images/${opt}">`;
+                }
+                
                 optionsHtml += `<button class="${classNames}" id="opt-${key}" ${clickEvent}>${textPart} ${imgPart}</button>`;
             } else {
+                // 纯文本选项
                 optionsHtml += `<button class="${classNames}" id="opt-${key}" ${clickEvent}>${key}. ${opt}</button>`;
             }
         }
