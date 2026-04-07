@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>电离辐射安全与防护 终极刷题系统</title>
+    <title>电离辐射安全与防护 终极题库</title>
     <style>
         /* 基础变量与日间模式 */
         :root {
@@ -25,7 +25,11 @@
         /* 主页菜单样式 */
         #home-menu { text-align: center; padding: 20px 0; }
         .menu-title { font-size: 24px; margin-bottom: 10px; font-weight: bold; color: #3498db; }
-        .stats-text { font-size: 14px; color: #7f8c8d; margin-bottom: 30px; }
+        
+        /* 题库选择器 */
+        .bank-selector { margin: 20px auto; padding: 10px; border-radius: 8px; border: 2px solid #3498db; background: var(--card-bg); color: var(--text-color); font-size: 16px; width: 80%; max-width: 300px; outline: none; font-weight: bold; cursor: pointer;}
+        
+        .stats-text { font-size: 14px; color: #7f8c8d; margin-bottom: 20px; }
         .menu-btn { display: block; width: 80%; max-width: 300px; margin: 15px auto; padding: 15px; border-radius: 8px; border: none; font-size: 18px; cursor: pointer; color: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
         .btn-seq { background: #3498db; } .btn-rand { background: #9b59b6; } .btn-exam { background: #e67e22; } .btn-wrong { background: #e74c3c; }
 
@@ -78,10 +82,16 @@
         <div style="text-align: right;">
             <button class="nav-btn" onclick="toggleDarkMode()" id="dark-btn">🌙 护眼模式</button>
         </div>
-        <div class="menu-title">☢️ 辐射安全与防护题库</div>
+        <div class="menu-title">☢️ 辐射安全与防护 终极版</div>
+        
+        <select class="bank-selector" id="bank-selector" onchange="changeBank()">
+            <option value="bank1">📚 第一部分：基础篇 (204题)</option>
+            <option value="bank2">📚 第二部分：探伤篇 (530题)</option>
+        </select>
+
         <div class="stats-text" id="home-stats">当前错题本有 0 道题待攻克</div>
         
-        <button class="menu-btn btn-seq" onclick="startMode('sequential')">顺序刷题 (204题)</button>
+        <button class="menu-btn btn-seq" onclick="startMode('sequential')" id="btn-seq-text">顺序刷题</button>
         <button class="menu-btn btn-rand" onclick="startMode('random')">随机练习</button>
         <button class="menu-btn btn-exam" onclick="startMode('exam')">模拟考试 (50题)</button>
         <button class="menu-btn btn-wrong" onclick="startMode('wrong')">错题回顾</button>
@@ -124,26 +134,59 @@
 <script src="data.js"></script>
 
 <script>
+    // 兼容性保护：如果你还没改 data.js，帮你兜底防崩溃
+    if (typeof bank1 === 'undefined' && typeof questionBank !== 'undefined') window.bank1 = questionBank;
+    if (typeof bank2 === 'undefined') window.bank2 = []; 
+
+    // --- 错题本数据迁移（旧版兼容） ---
+    let legacyWrong = localStorage.getItem('radiation_wrong_book');
+    if (legacyWrong) {
+        localStorage.setItem('radiation_wrong_bank1', legacyWrong);
+        localStorage.removeItem('radiation_wrong_book');
+    }
+
+    let activeBankKey = 'bank1';
+    let questionBank = [];
     let currentMode = ''; 
     let currentList = []; 
     let currentIndex = 0;
     
     let userAnswers = {}; 
     let questionStatus = {}; 
-    let wrongBook = JSON.parse(localStorage.getItem('radiation_wrong_book')) || [];
+    let wrongBook = [];
     
     let timerInterval;
     let startTime;
     let devMode = false;
     let devClickCount = 0;
 
-    // 🌙 初始化护眼模式与统计
+    // 🌙 初始化护眼模式
     let isDarkMode = localStorage.getItem('radiation_dark_mode') === 'true';
     if(isDarkMode) document.body.classList.add('dark-mode');
-    updateHomeStats();
+    document.getElementById('dark-btn').innerText = isDarkMode ? "☀️ 日间模式" : "🌙 护眼模式";
+
+    // 核心切换逻辑
+    window.onload = function() {
+        changeBank();
+    };
+
+    function changeBank() {
+        activeBankKey = document.getElementById('bank-selector').value;
+        questionBank = (activeBankKey === 'bank1') ? bank1 : bank2;
+        
+        let savedWrong = localStorage.getItem(`radiation_wrong_${activeBankKey}`);
+        wrongBook = savedWrong ? JSON.parse(savedWrong) : [];
+        
+        document.getElementById('btn-seq-text').innerText = `顺序刷题 (${questionBank.length}题)`;
+        updateHomeStats();
+    }
+
+    function saveWrongBook() {
+        localStorage.setItem(`radiation_wrong_${activeBankKey}`, JSON.stringify(wrongBook));
+    }
 
     function updateHomeStats() {
-        document.getElementById('home-stats').innerText = `当前错题本有 ${wrongBook.length} 道题待攻克`;
+        document.getElementById('home-stats').innerText = `当前【${activeBankKey==='bank1'?'基础篇':'探伤篇'}】错题本有 ${wrongBook.length} 道题待攻克`;
     }
 
     function toggleDarkMode() {
@@ -157,19 +200,15 @@
     let touchstartX = 0;
     let touchendX = 0;
     const quizArea = document.getElementById('quiz-area');
-    
     quizArea.addEventListener('touchstart', e => { touchstartX = e.changedTouches[0].screenX; });
     quizArea.addEventListener('touchend', e => {
         touchendX = e.changedTouches[0].screenX;
-        handleSwipe();
-    });
-
-    function handleSwipe() {
-        if(document.getElementById('sheet-overlay').style.display === 'block') return; // 答题卡打开时不滑动
         let swipeDistance = touchendX - touchstartX;
-        if (swipeDistance < -50) nextQuestion(); // 向左滑 -> 下一题
-        if (swipeDistance > 50) prevQuestion();  // 向右滑 -> 上一题
-    }
+        if(document.getElementById('sheet-overlay').style.display !== 'block') {
+            if (swipeDistance < -50) nextQuestion(); 
+            if (swipeDistance > 50) prevQuestion();  
+        }
+    });
 
     function toggleDevMode() {
         devClickCount++;
@@ -182,7 +221,7 @@
     }
 
     function goHome() {
-        if(Object.keys(userAnswers).length > 0 && confirm("返回主页将清空当前进度，确定吗？")) {
+        if(Object.keys(userAnswers).length > 0 && confirm("返回主页将清空当前答题进度，确定吗？")) {
             clearInterval(timerInterval);
             document.getElementById('home-menu').style.display = 'block';
             document.getElementById('quiz-area').style.display = 'none';
@@ -205,7 +244,7 @@
     }
 
     function startMode(mode) {
-        if (typeof questionBank === 'undefined') { alert("未读取到题库数据！请检查 data.js"); return; }
+        if (!questionBank || questionBank.length === 0) { alert("⚠️ 该题库尚未导入题目！请去 data.js 中添加。"); return; }
         currentMode = mode;
         currentIndex = 0;
         userAnswers = {};
@@ -251,7 +290,6 @@
         if (q.imageName) { qImg.src = `images/${q.imageName}`; qImg.style.display = "block"; } 
         else { qImg.style.display = "none"; }
 
-       // 渲染选项
         let optionsHtml = "";
         for (let key in q.options) {
             let opt = q.options[key];
@@ -272,24 +310,18 @@
 
             let clickEvent = (isEvaluated && currentMode !== 'exam') ? '' : `onclick="toggleOption('${key}')"`;
             
-            // 👇 这里是修复图片显示的核心逻辑 👇
+            // 修复版的图片渲染逻辑
             if (q.isOptionImage) {
                 let textPart = `${key}.`;
                 let imgPart = '';
-                
-                // 情况 1：选项是对象格式 {text: "...", img: "..."}
                 if (typeof opt === 'object') {
                     if (opt.text) textPart += ` ${opt.text}`;
                     if (opt.img) imgPart = `<img class="option-img" src="images/${opt.img}">`;
-                } 
-                // 情况 2：选项直接是纯图片名称字符串 "image123.jpg"
-                else if (typeof opt === 'string') {
+                } else if (typeof opt === 'string') {
                     imgPart = `<img class="option-img" src="images/${opt}">`;
                 }
-                
                 optionsHtml += `<button class="${classNames}" id="opt-${key}" ${clickEvent}>${textPart} ${imgPart}</button>`;
             } else {
-                // 纯文本选项
                 optionsHtml += `<button class="${classNames}" id="opt-${key}" ${clickEvent}>${key}. ${opt}</button>`;
             }
         }
@@ -334,7 +366,6 @@
             if (idx > -1) selected.splice(idx, 1);
             else selected.push(key);
         }
-        
         userAnswers[q.id] = selected; 
         renderQuestion(); 
     }
@@ -358,11 +389,11 @@
         if (!isCorrect) {
             if (!wrongBook.includes(q.id)) {
                 wrongBook.push(q.id);
-                localStorage.setItem('radiation_wrong_book', JSON.stringify(wrongBook));
+                saveWrongBook();
             }
         } else if (currentMode === 'wrong') {
             wrongBook = wrongBook.filter(id => id !== q.id);
-            localStorage.setItem('radiation_wrong_book', JSON.stringify(wrongBook));
+            saveWrongBook();
         }
 
         renderQuestion(); 
@@ -441,7 +472,7 @@
                 if (!wrongBook.includes(q.id)) wrongBook.push(q.id);
             }
         });
-        localStorage.setItem('radiation_wrong_book', JSON.stringify(wrongBook));
+        saveWrongBook();
         
         let timeSpent = document.getElementById('timer').innerText.replace('⏱️ ', '');
         alert(`考试结束！\n得分：${score} 分 (满分 ${currentList.length * 2} 分)\n耗时：${timeSpent}\n做错的题目已自动加入错题本。`);
