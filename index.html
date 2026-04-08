@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>电离辐射安全与防护 终极题库</title>
+    <title>电离辐射安全与防护 终极系统</title>
     <style>
-        /* 基础变量与日间模式 */
+        /* ================= 基础变量与模式 ================= */
         :root {
             --bg-color: #f5f7fa; --card-bg: #fff; --text-color: #333;
             --border-color: #eee; --opt-bg: #fafafa; --opt-border: #ddd;
             --note-bg: #fff3e0; --sheet-bg: #fff;
         }
         
-        /* 🌙 深色模式变量 */
         body.dark-mode {
             --bg-color: #121212; --card-bg: #1e1e1e; --text-color: #e0e0e0;
             --border-color: #333; --opt-bg: #2c2c2c; --opt-border: #444;
@@ -22,28 +21,23 @@
         body { background-color: var(--bg-color); color: var(--text-color); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 10px; transition: background-color 0.3s; }
         .container { max-width: 800px; margin: 0 auto; background: var(--card-bg); border-radius: 12px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: background-color 0.3s; }
         
-        /* 主页菜单样式 */
+        /* ================= 主页菜单 ================= */
         #home-menu { text-align: center; padding: 20px 0; }
         .menu-title { font-size: 24px; margin-bottom: 10px; font-weight: bold; color: #3498db; }
-        
-        /* 题库选择器 */
         .bank-selector { margin: 20px auto; padding: 10px; border-radius: 8px; border: 2px solid #3498db; background: var(--card-bg); color: var(--text-color); font-size: 16px; width: 80%; max-width: 300px; outline: none; font-weight: bold; cursor: pointer;}
-        
         .stats-text { font-size: 14px; color: #7f8c8d; margin-bottom: 20px; }
         .menu-btn { display: block; width: 80%; max-width: 300px; margin: 15px auto; padding: 15px; border-radius: 8px; border: none; font-size: 18px; cursor: pointer; color: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
         .btn-seq { background: #3498db; } .btn-rand { background: #9b59b6; } .btn-exam { background: #e67e22; } .btn-wrong { background: #e74c3c; }
 
-        /* 答题区头部 */
+        /* ================= 答题区 ================= */
         .header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; margin-bottom: 20px; font-size: 14px; }
         .timer { font-weight: bold; color: #e74c3c; font-size: 16px; }
         .nav-btn { background: #95a5a6; color: white; border: none; padding: 6px 12px; border-radius: 5px; cursor: pointer; font-size: 14px; }
         
-        /* 题目与选项 */
         .question-title { font-size: 18px; line-height: 1.6; margin-bottom: 15px; font-weight: 500; }
         .question-img { max-width: 100%; height: auto; border-radius: 8px; margin-bottom: 15px; display: none; }
         .option-btn { display: flex; align-items: center; width: 100%; min-height: 48px; padding: 12px 15px; margin: 10px 0; border: 1px solid var(--opt-border); border-radius: 8px; background: var(--opt-bg); color: var(--text-color); font-size: 16px; text-align: left; cursor: pointer; box-sizing: border-box; transition: 0.2s; }
         
-        /* 选项状态颜色 */
         body:not(.dark-mode) .option-btn.selected { border-color: #3498db; background: #ebf5fb; font-weight: bold; }
         body:not(.dark-mode) .option-btn.correct { border-color: #2ecc71; background: #eafaf1; }
         body:not(.dark-mode) .option-btn.wrong { border-color: #e74c3c; background: #fdedec; }
@@ -54,13 +48,13 @@
         
         .option-img { max-width: 120px; border-radius: 4px; margin-left: 10px; }
         
-        /* 解析与底部按钮 */
         .note-box { display: none; background: var(--note-bg); border-left: 4px solid #ff9800; padding: 15px; margin-top: 20px; border-radius: 4px; line-height: 1.5; font-size: 15px; }
         .footer { margin-top: 25px; display: flex; justify-content: space-between; gap: 10px; }
-        .action-btn { flex: 1; background: #2ecc71; color: white; border: none; padding: 14px 20px; border-radius: 8px; font-size: 16px; cursor: pointer; font-weight: bold; }
+        .action-btn { flex: 1; background: #2ecc71; color: white; border: none; padding: 14px 10px; border-radius: 8px; font-size: 16px; cursor: pointer; font-weight: bold; transition: opacity 0.2s;}
         .action-btn.secondary { background: #3498db; }
+        .action-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
-        /* 答题卡抽屉 */
+        /* ================= 答题卡抽屉 ================= */
         .sheet-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 999; }
         .sheet-content { position: absolute; bottom: 0; left: 0; width: 100%; background: var(--sheet-bg); border-radius: 16px 16px 0 0; padding: 20px; box-sizing: border-box; max-height: 80vh; overflow-y: auto; color: var(--text-color); transition: background-color 0.3s; }
         .sheet-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; margin-bottom: 15px; font-weight: bold; font-size: 18px;}
@@ -71,8 +65,49 @@
         .sheet-item.correct { background: #2ecc71; color: white; border-color: #2ecc71; }
         .sheet-item.wrong { background: #e74c3c; color: white; border-color: #e74c3c; }
         .close-sheet-btn { background: #95a5a6; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; }
-        
         .dev-badge { background: #f1c40f; color: #333; padding: 2px 6px; border-radius: 4px; font-size: 12px; margin-left: 10px; vertical-align: middle; }
+
+        /* ================= 新手引导弹窗专属样式 ================= */
+        .modal-overlay {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(3px);
+            z-index: 1000; justify-content: center; align-items: center;
+            opacity: 0; transition: opacity 0.3s ease;
+        }
+        .modal-overlay.show { display: flex; opacity: 1; }
+        .modal-content {
+            background: var(--card-bg); width: 90%; max-width: 500px;
+            border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transform: translateY(20px); transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden; display: flex; flex-direction: column;
+        }
+        .modal-overlay.show .modal-content { transform: translateY(0); }
+        .modal-header {
+            background: linear-gradient(135deg, #3498db, #2980b9); color: white; padding: 18px 20px;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .modal-header h3 { margin: 0; font-size: 18px; letter-spacing: 1px; }
+        .modal-close {
+            background: rgba(255,255,255,0.2); border: none; color: white;
+            width: 30px; height: 30px; border-radius: 50%;
+            font-size: 18px; cursor: pointer; line-height: 1; transition: background 0.2s;
+        }
+        .modal-close:hover { background: rgba(255,255,255,0.4); }
+        .modal-body { padding: 20px; color: var(--text-color); max-height: 60vh; overflow-y: auto; line-height: 1.6; }
+        .notice-section { background: var(--opt-bg); border: 1px solid var(--opt-border); border-radius: 8px; padding: 15px; margin-bottom: 15px; }
+        .notice-section h4 { margin: 0 0 8px 0; color: #3498db; font-size: 16px; }
+        .notice-section p { margin: 0; font-size: 14px; color: #555; }
+        
+        .notice-section.highlight { background: #fff8e1; border-color: #ffd54f; }
+        body.dark-mode .notice-section.highlight { background: #4a3b14; border-color: #f1c40f; }
+        body.dark-mode .notice-section p { color: #ccc; }
+        
+        .modal-footer { padding: 15px 20px; border-top: 1px solid var(--border-color); background: var(--card-bg); }
+        .modal-btn {
+            width: 100%; background: #2ecc71; color: white; border: none; padding: 14px; border-radius: 8px;
+            font-size: 16px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 6px rgba(46, 204, 113, 0.2); transition: 0.2s;
+        }
+        .modal-btn:hover { background: #27ae60; transform: translateY(-2px); }
     </style>
 </head>
 <body>
@@ -93,10 +128,13 @@
         
         <button class="menu-btn btn-seq" onclick="startMode('sequential')" id="btn-seq-text">顺序刷题</button>
         <button class="menu-btn btn-rand" onclick="startMode('random')">随机练习</button>
-        <button class="menu-btn btn-exam" onclick="startMode('exam')">模拟考试 (50题)</button>
+        <button class="menu-btn btn-exam" onclick="startMode('exam')">全真模拟考试 (45分钟)</button>
         <button class="menu-btn btn-wrong" onclick="startMode('wrong')">错题回顾</button>
         
-        <div style="margin-top: 40px; color: #7f8c8d; font-size: 12px;" onclick="toggleDevMode()">连续点击此处可切换 [开发者模式]</div>
+        <div style="margin-top: 30px; margin-bottom: 10px;">
+            <span style="color:#3498db; cursor:pointer; font-size:14px; text-decoration:underline; padding: 10px;" onclick="showNotice()">👉 查看系统详细说明</span>
+        </div>
+        <div style="margin-top: 10px; color: #7f8c8d; font-size: 12px;" onclick="toggleDevMode()">连续点击此处可切换 [开发者模式]</div>
     </div>
 
     <div id="quiz-area" style="display: none;">
@@ -127,23 +165,46 @@
             <button class="close-sheet-btn" onclick="closeSheet(true)">关闭</button>
         </div>
         <div class="sheet-grid" id="sheet-grid"></div>
-        <button class="action-btn" style="width: 100%; margin-top: 20px; background: #e67e22; display: none;" id="force-submit-btn" onclick="submitExam()">直接交卷</button>
+        <button class="action-btn" style="width: 100%; margin-top: 20px; background: #e67e22; display: none;" id="force-submit-btn" onclick="submitExam(false)">直接交卷</button>
+    </div>
+</div>
+
+<div id="notice-modal" class="modal-overlay">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>📢 答题系统用户须知</h3>
+            <button class="modal-close" onclick="closeNotice()">×</button>
+        </div>
+        <div class="modal-body">
+            <p style="margin-top: 0; font-weight: bold;">欢迎使用电离辐射安全与防护系统！为了获得最佳备考体验，请阅读以下说明：</p>
+            
+            <div class="notice-section">
+                <h4>📚 1. 两大核心题库</h4>
+                <p>本系统分为<strong>《基础篇》</strong>与<strong>《探伤篇》</strong>。您可以通过首页下拉菜单随时切换当前想复习的模块。</p>
+            </div>
+            
+            <div class="notice-section">
+                <h4>🎯 2. 专项突破练习</h4>
+                <p>点击“顺序刷题”或“随机练习”时，系统<strong>仅会从您当前选中的题库中出题</strong>。建议复习初期分模块进行专项击破。</p>
+            </div>
+            
+            <div class="notice-section highlight">
+                <h4 style="color: #e67e22;">🌟 3. 全真模拟考试 (重点)</h4>
+                <p>为了 100% 还原考场环境，此模式将<strong>打破单一题库限制！</strong>系统会同时从两大题库中<strong>混合随机抽取</strong>（40道单选+10道多选），并严格执行45分钟倒计时与真实计分标准。</p>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button class="modal-btn" onclick="closeNotice()">我知道了，开始刷题！</button>
+        </div>
     </div>
 </div>
 
 <script src="data.js"></script>
 
 <script>
-    // 兼容性保护：如果你还没改 data.js，帮你兜底防崩溃
+    // 兼容性兜底
     if (typeof bank1 === 'undefined' && typeof questionBank !== 'undefined') window.bank1 = questionBank;
     if (typeof bank2 === 'undefined') window.bank2 = []; 
-
-    // --- 错题本数据迁移（旧版兼容） ---
-    let legacyWrong = localStorage.getItem('radiation_wrong_book');
-    if (legacyWrong) {
-        localStorage.setItem('radiation_wrong_bank1', legacyWrong);
-        localStorage.removeItem('radiation_wrong_book');
-    }
 
     let activeBankKey = 'bank1';
     let questionBank = [];
@@ -157,6 +218,7 @@
     
     let timerInterval;
     let startTime;
+    let examTimeLimit = 45 * 60; // 考试限制 45 分钟
     let devMode = false;
     let devClickCount = 0;
 
@@ -165,29 +227,46 @@
     if(isDarkMode) document.body.classList.add('dark-mode');
     document.getElementById('dark-btn').innerText = isDarkMode ? "☀️ 日间模式" : "🌙 护眼模式";
 
-    // 核心切换逻辑
-    window.onload = function() {
-        changeBank();
-    };
+    // 弹窗初始化逻辑
+    window.addEventListener('DOMContentLoaded', () => {
+        if (localStorage.getItem('radiation_notice_read') !== 'true') {
+            setTimeout(showNotice, 500);
+        }
+    });
 
+    window.onload = function() { changeBank(); };
+
+    // ================= 弹窗控制逻辑 =================
+    function showNotice() {
+        let modal = document.getElementById('notice-modal');
+        modal.style.display = 'flex';
+        setTimeout(() => { modal.classList.add('show'); }, 10);
+    }
+    function closeNotice() {
+        let modal = document.getElementById('notice-modal');
+        modal.classList.remove('show');
+        setTimeout(() => { modal.style.display = 'none'; }, 300);
+        localStorage.setItem('radiation_notice_read', 'true');
+    }
+
+    // ================= 题库切换与错题幽灵清理 =================
     function changeBank() {
         activeBankKey = document.getElementById('bank-selector').value;
         questionBank = (activeBankKey === 'bank1') ? bank1 : bank2;
         
         let savedWrong = localStorage.getItem(`radiation_wrong_${activeBankKey}`);
-        wrongBook = savedWrong ? JSON.parse(savedWrong) : [];
+        let parsedWrong = savedWrong ? JSON.parse(savedWrong) : [];
+        
+        // 【核心自愈修复】：自动清理错题本中不属于当前题库的“幽灵ID”
+        wrongBook = parsedWrong.filter(id => questionBank.some(q => q.id === id));
+        if (parsedWrong.length !== wrongBook.length) { saveWrongBook(); }
         
         document.getElementById('btn-seq-text').innerText = `顺序刷题 (${questionBank.length}题)`;
         updateHomeStats();
     }
 
-    function saveWrongBook() {
-        localStorage.setItem(`radiation_wrong_${activeBankKey}`, JSON.stringify(wrongBook));
-    }
-
-    function updateHomeStats() {
-        document.getElementById('home-stats').innerText = `当前【${activeBankKey==='bank1'?'基础篇':'探伤篇'}】错题本有 ${wrongBook.length} 道题待攻克`;
-    }
+    function saveWrongBook() { localStorage.setItem(`radiation_wrong_${activeBankKey}`, JSON.stringify(wrongBook)); }
+    function updateHomeStats() { document.getElementById('home-stats').innerText = `当前【${activeBankKey==='bank1'?'基础篇':'探伤篇'}】错题本有 ${wrongBook.length} 道题待攻克`; }
 
     function toggleDarkMode() {
         isDarkMode = !isDarkMode;
@@ -196,9 +275,8 @@
         document.getElementById('dark-btn').innerText = isDarkMode ? "☀️ 日间模式" : "🌙 护眼模式";
     }
 
-    // 👆 手势滑动逻辑 (Swipe)
-    let touchstartX = 0;
-    let touchendX = 0;
+    // 👆 手势滑动逻辑
+    let touchstartX = 0; let touchendX = 0;
     const quizArea = document.getElementById('quiz-area');
     quizArea.addEventListener('touchstart', e => { touchstartX = e.changedTouches[0].screenX; });
     quizArea.addEventListener('touchend', e => {
@@ -245,46 +323,70 @@
 
     function startMode(mode) {
         if (!questionBank || questionBank.length === 0) { alert("⚠️ 该题库尚未导入题目！请去 data.js 中添加。"); return; }
-        currentMode = mode;
-        currentIndex = 0;
-        userAnswers = {};
-        questionStatus = {};
+        currentMode = mode; currentIndex = 0; userAnswers = {}; questionStatus = {};
 
-        if (mode === 'sequential') currentList = [...questionBank];
-        else if (mode === 'random') currentList = shuffleArray(questionBank);
-        else if (mode === 'exam') currentList = shuffleArray(questionBank).slice(0, 50); 
-        else if (mode === 'wrong') {
+        if (mode === 'sequential') {
+            currentList = [...questionBank];
+        } else if (mode === 'random') {
+            currentList = shuffleArray(questionBank);
+        } else if (mode === 'exam') {
+            // 【模拟考试：合并题库，抽取40单选+10多选】
+            let allQuestions = [];
+            if (typeof bank1 !== 'undefined') allQuestions = allQuestions.concat(bank1);
+            if (typeof bank2 !== 'undefined') allQuestions = allQuestions.concat(bank2);
+            
+            let singles = shuffleArray(allQuestions.filter(q => q.type === 'single'));
+            let multiples = shuffleArray(allQuestions.filter(q => q.type === 'multiple'));
+            currentList = [...singles.slice(0, 40), ...multiples.slice(0, 10)];
+        } else if (mode === 'wrong') {
             currentList = questionBank.filter(q => wrongBook.includes(q.id));
-            if(currentList.length === 0) { alert("错题本为空，快去刷题吧！"); return; }
+            if(currentList.length === 0) { alert("🎉 太棒了，当前题库错题本已清空！快去刷题吧！"); return; }
         }
 
         document.getElementById('home-menu').style.display = 'none';
         document.getElementById('quiz-area').style.display = 'block';
-        startTimer();
-        renderQuestion();
+        startTimer(); renderQuestion();
     }
 
     function startTimer() {
-        startTime = Date.now();
-        clearInterval(timerInterval);
+        startTime = Date.now(); clearInterval(timerInterval);
         timerInterval = setInterval(() => {
             let elapsed = Math.floor((Date.now() - startTime) / 1000);
-            let m = String(Math.floor(elapsed / 60)).padStart(2, '0');
-            let s = String(elapsed % 60).padStart(2, '0');
-            document.getElementById('timer').innerText = `⏱️ ${m}:${s}`;
+            let timerEl = document.getElementById('timer');
+            
+            if (currentMode === 'exam') {
+                let remaining = examTimeLimit - elapsed;
+                if (remaining <= 0) {
+                    clearInterval(timerInterval); timerEl.innerText = `⏱️ 00:00`;
+                    alert("⏳ 考试时间到！系统已为您自动交卷。");
+                    submitExam(true); return;
+                }
+                let m = String(Math.floor(remaining / 60)).padStart(2, '0');
+                let s = String(remaining % 60).padStart(2, '0');
+                timerEl.innerText = `⏱️ 倒计时 ${m}:${s}`;
+                timerEl.style.color = (remaining < 300) ? "red" : "#e74c3c";
+            } else {
+                let m = String(Math.floor(elapsed / 60)).padStart(2, '0');
+                let s = String(elapsed % 60).padStart(2, '0');
+                timerEl.innerText = `⏱️ 已用时 ${m}:${s}`;
+                timerEl.style.color = "#e74c3c";
+            }
         }, 1000);
     }
 
     function renderQuestion() {
         let q = currentList[currentIndex];
+        if (!q) { alert("⚠️ 题目加载异常，即将返回主页。"); goHome(); return; }
+
         let selected = userAnswers[q.id] || [];
         let isEvaluated = questionStatus[q.id] !== undefined;
 
         document.getElementById('progress').innerText = `进度: ${currentIndex + 1} / ${currentList.length} 🔽`;
         
-        let typeText = q.type === 'multiple' ? "【多选】" : "【单选】";
+        let typeText = q.type === 'multiple' ? "【多选题】" : "【单选题】";
+        let scoreTag = currentMode === 'exam' ? (q.type === 'multiple' ? " (4分)" : " (2分)") : "";
         let devTag = devMode ? `<span class="dev-badge">答案: ${q.correctAnswer}</span>` : "";
-        document.getElementById('q-title').innerHTML = `${q.id}. ${typeText} ${q.question} ${devTag}`;
+        document.getElementById('q-title').innerHTML = `${currentIndex + 1}. ${typeText}${scoreTag} ${q.question} ${devTag}`;
         
         let qImg = document.getElementById('q-img');
         if (q.imageName) { qImg.src = `images/${q.imageName}`; qImg.style.display = "block"; } 
@@ -295,9 +397,9 @@
             let opt = q.options[key];
             let isSelected = selected.includes(key);
             let classNames = 'option-btn';
-            
             if (isSelected) classNames += ' selected';
             
+            // 练习模式渲染答案颜色
             if (isEvaluated && currentMode !== 'exam') {
                 if (q.type === 'single') {
                     if (key === q.correctAnswer) classNames += ' correct';
@@ -309,17 +411,12 @@
             }
 
             let clickEvent = (isEvaluated && currentMode !== 'exam') ? '' : `onclick="toggleOption('${key}')"`;
-            
-            // 修复版的图片渲染逻辑
             if (q.isOptionImage) {
-                let textPart = `${key}.`;
-                let imgPart = '';
+                let textPart = `${key}.`; let imgPart = '';
                 if (typeof opt === 'object') {
                     if (opt.text) textPart += ` ${opt.text}`;
                     if (opt.img) imgPart = `<img class="option-img" src="images/${opt.img}">`;
-                } else if (typeof opt === 'string') {
-                    imgPart = `<img class="option-img" src="images/${opt}">`;
-                }
+                } else if (typeof opt === 'string') { imgPart = `<img class="option-img" src="images/${opt}">`; }
                 optionsHtml += `<button class="${classNames}" id="opt-${key}" ${clickEvent}>${textPart} ${imgPart}</button>`;
             } else {
                 optionsHtml += `<button class="${classNames}" id="opt-${key}" ${clickEvent}>${key}. ${opt}</button>`;
@@ -332,25 +429,22 @@
         let nextBtn = document.getElementById('next-btn');
         let prevBtn = document.getElementById('prev-btn');
 
+        // 常驻控制按钮逻辑
         prevBtn.style.visibility = currentIndex > 0 ? "visible" : "hidden";
+        nextBtn.style.display = "block";
 
         if (currentMode === 'exam') {
-            noteArea.style.display = "none";
-            submitBtn.style.display = "none"; 
-            nextBtn.style.display = "block";
+            noteArea.style.display = "none"; submitBtn.style.display = "none"; 
             nextBtn.innerText = (currentIndex === currentList.length - 1) ? "打开答题卡交卷" : "下一题";
         } else {
+            nextBtn.innerText = "下一题";
             if (isEvaluated) {
                 submitBtn.style.display = "none";
-                nextBtn.style.display = "block";
-                nextBtn.innerText = "下一题";
                 let answerText = q.type === 'single' ? q.correctAnswer : q.correctAnswer.join(", ");
                 noteArea.innerHTML = `<strong>正确答案：${answerText}</strong><br><br>${q.note || '暂无解析'}`;
                 noteArea.style.display = "block";
             } else {
-                noteArea.style.display = "none";
-                submitBtn.style.display = "block";
-                nextBtn.style.display = "none";
+                noteArea.style.display = "none"; submitBtn.style.display = "block";
             }
         }
     }
@@ -358,16 +452,13 @@
     function toggleOption(key) {
         let q = currentList[currentIndex];
         let selected = userAnswers[q.id] || [];
-        
-        if (q.type === 'single') {
-            selected = [key];
-        } else {
+        if (q.type === 'single') { selected = [key]; } 
+        else {
             let idx = selected.indexOf(key);
             if (idx > -1) selected.splice(idx, 1);
             else selected.push(key);
         }
-        userAnswers[q.id] = selected; 
-        renderQuestion(); 
+        userAnswers[q.id] = selected; renderQuestion(); 
     }
 
     function checkIsCorrect(q, selected) {
@@ -387,42 +478,28 @@
         questionStatus[q.id] = isCorrect ? 'correct' : 'wrong';
 
         if (!isCorrect) {
-            if (!wrongBook.includes(q.id)) {
-                wrongBook.push(q.id);
-                saveWrongBook();
-            }
+            if (!wrongBook.includes(q.id)) { wrongBook.push(q.id); saveWrongBook(); }
         } else if (currentMode === 'wrong') {
-            wrongBook = wrongBook.filter(id => id !== q.id);
-            saveWrongBook();
+            wrongBook = wrongBook.filter(id => id !== q.id); saveWrongBook();
         }
 
         renderQuestion(); 
+        // 答对且不是最后一题，0.4秒后自动跳下一题
+        if (isCorrect && currentIndex < currentList.length - 1) { setTimeout(nextQuestion, 400); }
     }
 
-    function prevQuestion() {
-        if (currentIndex > 0) { currentIndex--; renderQuestion(); }
-    }
+    function prevQuestion() { if (currentIndex > 0) { currentIndex--; renderQuestion(); } }
 
     function nextQuestion() {
-        if (currentMode === 'exam' && currentIndex === currentList.length - 1) {
-            openSheet(); 
-            return;
-        }
-        if (currentIndex < currentList.length - 1) {
-            currentIndex++;
-            renderQuestion();
-        } else {
-            alert(`恭喜！已完成所有题目。`);
-        }
+        if (currentMode === 'exam' && currentIndex === currentList.length - 1) { openSheet(); return; }
+        if (currentIndex < currentList.length - 1) { currentIndex++; renderQuestion(); } 
+        else { alert(`恭喜！已完成所有题目。`); }
     }
 
     function openSheet() {
-        let html = '';
-        let answeredCount = 0;
+        let html = ''; let answeredCount = 0;
         currentList.forEach((q, idx) => {
-            let statusClass = '';
-            let selected = userAnswers[q.id] || [];
-            
+            let statusClass = ''; let selected = userAnswers[q.id] || [];
             if (currentMode === 'exam') {
                 if (selected.length > 0) { statusClass = 'answered'; answeredCount++; }
             } else {
@@ -431,7 +508,6 @@
                 else if (selected.length > 0) statusClass = 'answered';
             }
             if (idx === currentIndex) statusClass += ' current';
-            
             html += `<div class="sheet-item ${statusClass}" onclick="jumpTo(${idx})">${idx + 1}</div>`;
         });
         document.getElementById('sheet-grid').innerHTML = html;
@@ -440,43 +516,61 @@
         let forceSubmitBtn = document.getElementById('force-submit-btn');
         if (currentMode === 'exam') {
             forceSubmitBtn.style.display = 'block';
-            forceSubmitBtn.innerText = `交卷 (${answeredCount}/${currentList.length})`;
-        } else {
-            forceSubmitBtn.style.display = 'none';
-        }
+            forceSubmitBtn.innerText = `直接交卷 (${answeredCount}/${currentList.length})`;
+        } else { forceSubmitBtn.style.display = 'none'; }
     }
 
     function closeSheet(force = false) {
-        if(force || event.target.id === 'sheet-overlay') {
-            document.getElementById('sheet-overlay').style.display = 'none';
-        }
+        if(force || event.target.id === 'sheet-overlay') { document.getElementById('sheet-overlay').style.display = 'none'; }
     }
 
-    function jumpTo(idx) {
-        currentIndex = idx;
-        closeSheet(true);
-        renderQuestion();
-    }
+    function jumpTo(idx) { currentIndex = idx; closeSheet(true); renderQuestion(); }
 
-    function submitExam() {
-        let unAnswered = currentList.length - Object.keys(userAnswers).length;
-        if (unAnswered > 0 && !confirm(`还有 ${unAnswered} 题未作答，确认交卷吗？`)) return;
+    function submitExam(isTimeUp = false) {
+        // 【修复1】极其精准计算未答题
+        let unAnswered = currentList.filter(q => !userAnswers[q.id] || userAnswers[q.id].length === 0).length;
+        if (!isTimeUp && unAnswered > 0 && !confirm(`还有 ${unAnswered} 题未作答，确认提前交卷吗？`)) { return; }
 
         clearInterval(timerInterval);
+        
+        let elapsed = Math.floor((Date.now() - startTime) / 1000);
+        if (currentMode === 'exam' && elapsed > examTimeLimit) { elapsed = examTimeLimit; }
+        let spentMin = Math.floor(elapsed / 60); let spentSec = elapsed % 60;
+        let timeSpentText = `${spentMin}分${spentSec}秒`;
+
         let score = 0;
+        
         currentList.forEach(q => {
             let selected = userAnswers[q.id] || [];
-            if (checkIsCorrect(q, selected)) {
-                score += 2; 
-            } else {
-                if (!wrongBook.includes(q.id)) wrongBook.push(q.id);
+            let isPerfect = false;
+
+            if (q.type === 'single') {
+                if (selected.length > 0 && selected[0] === q.correctAnswer) { score += 2; isPerfect = true; }
+            } else if (q.type === 'multiple') {
+                let correctArr = q.correctAnswer;
+                let hasWrongOption = selected.some(opt => !correctArr.includes(opt));
+                if (selected.length > 0 && !hasWrongOption) {
+                    if (selected.length === correctArr.length) { score += 4; isPerfect = true; } 
+                    else { score += selected.length * 1; }
+                }
+            }
+
+            // 【核心修补】：跨题库防串台保存逻辑
+            if (!isPerfect) {
+                let targetBank = (typeof bank1 !== 'undefined' && bank1.some(bq => bq.id === q.id)) ? 'bank1' : 'bank2';
+                let targetKey = `radiation_wrong_${targetBank}`;
+                let wb = JSON.parse(localStorage.getItem(targetKey) || '[]');
+                if (!wb.includes(q.id)) { wb.push(q.id); localStorage.setItem(targetKey, JSON.stringify(wb)); }
+                if (targetBank === activeBankKey && !wrongBook.includes(q.id)) { wrongBook.push(q.id); }
             }
         });
         saveWrongBook();
         
-        let timeSpent = document.getElementById('timer').innerText.replace('⏱️ ', '');
-        alert(`考试结束！\n得分：${score} 分 (满分 ${currentList.length * 2} 分)\n耗时：${timeSpent}\n做错的题目已自动加入错题本。`);
-        goHome();
+        let passStatus = score >= 90 ? "🎉 恭喜你，成绩合格！" : "⚠️ 很遗憾，未达到及格线（90分）。";
+        alert(`【考试结束】\n\n🎯 最终得分：${score} 分 / 120 分\n📝 考核结果：${passStatus}\n⏳ 考试用时：${timeSpentText}\n\n💡 错题及漏选题已收录进各对应的错题本中。`);
+        
+        // 【修复2】强行关闭答题卡并平滑回首页
+        closeSheet(true); userAnswers = {}; goHome();
     }
 </script>
 </body>
