@@ -1,4 +1,5 @@
 const questionBank = [
+    // 请把你保存的 1-204 题的所有代码粘贴到这里
     {
         "id": 1,
         "type": "single",
@@ -543,10 +544,10 @@ const questionBank = [
     {
         "id": 61,
         "type": "single",
-        "question": "在如下图所示的衰变纲图中，衰变方式 C 属于（ ）衰变。",
+        "question": "在如下图所示的衰变纲图中，衰变方式 A 属于（ ）衰变。",
         "imageName": "image82.jpg",
         "options": { "A": "α 衰变", "B": "β+衰变", "C": "β-衰变", "D": "γ 衰变" },
-        "correctAnswer": "D"
+        "correctAnswer": "B"
     },
     {
         "id": 62,
