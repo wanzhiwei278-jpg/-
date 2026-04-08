@@ -35,7 +35,20 @@
         .nav-btn { background: #95a5a6; color: white; border: none; padding: 6px 12px; border-radius: 5px; cursor: pointer; font-size: 14px; }
         
         .question-title { font-size: 18px; line-height: 1.6; margin-bottom: 15px; font-weight: 500; }
-        .question-img { max-width: 100%; height: auto; border-radius: 8px; margin-bottom: 15px; display: none; }
+        
+        /* 【优化点1】图片防抖动占位符 */
+        .question-img { 
+            max-width: 100%; 
+            height: auto; 
+            min-height: 150px; /* 给图片一个默认高度防抖动 */
+            border-radius: 8px; 
+            margin-bottom: 15px; 
+            display: none; 
+            background-color: #e0e0e0; /* 加载时的灰色占位背景 */
+            object-fit: cover;
+        }
+        body.dark-mode .question-img { background-color: #333; }
+
         .option-btn { display: flex; align-items: center; width: 100%; min-height: 48px; padding: 12px 15px; margin: 10px 0; border: 1px solid var(--opt-border); border-radius: 8px; background: var(--opt-bg); color: var(--text-color); font-size: 16px; text-align: left; cursor: pointer; box-sizing: border-box; transition: 0.2s; }
         
         body:not(.dark-mode) .option-btn.selected { border-color: #3498db; background: #ebf5fb; font-weight: bold; }
@@ -257,7 +270,7 @@
         let savedWrong = localStorage.getItem(`radiation_wrong_${activeBankKey}`);
         let parsedWrong = savedWrong ? JSON.parse(savedWrong) : [];
         
-        // 【核心自愈修复】：自动清理错题本中不属于当前题库的“幽灵ID”
+        // 自动清理错题本中不属于当前题库的“幽灵ID”
         wrongBook = parsedWrong.filter(id => questionBank.some(q => q.id === id));
         if (parsedWrong.length !== wrongBook.length) { saveWrongBook(); }
         
@@ -447,6 +460,28 @@
                 noteArea.style.display = "none"; submitBtn.style.display = "block";
             }
         }
+
+        // ================= 【优化点2】预加载下一题的图片 =================
+        preloadNextImages();
+    }
+
+    // 后台静默预加载逻辑（防网络卡顿）
+    function preloadNextImages() {
+        for (let i = currentIndex + 1; i <= currentIndex + 2; i++) {
+            if (i < currentList.length) {
+                let nextQ = currentList[i];
+                if (nextQ.imageName) {
+                    let img = new Image(); img.src = `images/${nextQ.imageName}`;
+                }
+                if (nextQ.isOptionImage) {
+                    for (let key in nextQ.options) {
+                        let opt = nextQ.options[key];
+                        let imgSrc = typeof opt === 'object' ? opt.img : opt;
+                        if (imgSrc) { let optImg = new Image(); optImg.src = `images/${imgSrc}`; }
+                    }
+                }
+            }
+        }
     }
 
     function toggleOption(key) {
@@ -527,7 +562,7 @@
     function jumpTo(idx) { currentIndex = idx; closeSheet(true); renderQuestion(); }
 
     function submitExam(isTimeUp = false) {
-        // 【修复1】极其精准计算未答题
+        // 【精准计算未答题】
         let unAnswered = currentList.filter(q => !userAnswers[q.id] || userAnswers[q.id].length === 0).length;
         if (!isTimeUp && unAnswered > 0 && !confirm(`还有 ${unAnswered} 题未作答，确认提前交卷吗？`)) { return; }
 
@@ -555,7 +590,7 @@
                 }
             }
 
-            // 【核心修补】：跨题库防串台保存逻辑
+            // 【跨题库防串台保存逻辑】
             if (!isPerfect) {
                 let targetBank = (typeof bank1 !== 'undefined' && bank1.some(bq => bq.id === q.id)) ? 'bank1' : 'bank2';
                 let targetKey = `radiation_wrong_${targetBank}`;
@@ -569,7 +604,7 @@
         let passStatus = score >= 90 ? "🎉 恭喜你，成绩合格！" : "⚠️ 很遗憾，未达到及格线（90分）。";
         alert(`【考试结束】\n\n🎯 最终得分：${score} 分 / 120 分\n📝 考核结果：${passStatus}\n⏳ 考试用时：${timeSpentText}\n\n💡 错题及漏选题已收录进各对应的错题本中。`);
         
-        // 【修复2】强行关闭答题卡并平滑回首页
+        // 【强行关闭答题卡并平滑回首页】
         closeSheet(true); userAnswers = {}; goHome();
     }
 </script>
