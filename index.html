@@ -163,6 +163,10 @@
         <div id="options-area"></div>
         <div class="note-box" id="note-area"></div>
 
+        <div id="auto-jump-tip" style="text-align: center; color: #95a5a6; font-size: 13px; margin-top: 15px; display: none;">
+            💡 提示：点击“确认提交”，答对将自动跳转下一题
+        </div>
+
         <div class="footer">
             <button class="action-btn secondary" id="prev-btn" onclick="prevQuestion()">上一题</button>
             <button class="action-btn" id="submit-btn" onclick="submitAnswer()">确认提交</button>
@@ -446,13 +450,19 @@
         prevBtn.style.visibility = currentIndex > 0 ? "visible" : "hidden";
         nextBtn.style.display = "block";
 
+        // 【新增逻辑】控制温馨提示的显示：只有非考试模式才显示
+        let autoJumpTip = document.getElementById('auto-jump-tip');
+
         if (currentMode === 'exam') {
             noteArea.style.display = "none"; submitBtn.style.display = "none"; 
+            autoJumpTip.style.display = "none"; // 考试模式不显示提示
             nextBtn.innerText = (currentIndex === currentList.length - 1) ? "打开答题卡交卷" : "下一题";
         } else {
             nextBtn.innerText = "下一题";
+            autoJumpTip.style.display = "block"; // 练习模式显示提示
             if (isEvaluated) {
                 submitBtn.style.display = "none";
+                autoJumpTip.style.display = "none"; // 已经判完题了，就把它藏起来，保持界面清爽
                 let answerText = q.type === 'single' ? q.correctAnswer : q.correctAnswer.join(", ");
                 noteArea.innerHTML = `<strong>正确答案：${answerText}</strong><br><br>${q.note || '暂无解析'}`;
                 noteArea.style.display = "block";
