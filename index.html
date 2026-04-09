@@ -82,7 +82,6 @@
         .review-question { border: 1px solid var(--border-color); padding: 15px; border-radius: 8px; margin-bottom: 20px; background: var(--opt-bg); }
         .review-opt { padding: 10px 15px; margin: 8px 0; border-radius: 6px; border: 1px solid var(--opt-border); background: var(--card-bg); font-size: 15px; display: flex; align-items: center;}
         
-        /* 试卷回放颜色逻辑 */
         body:not(.dark-mode) .review-opt.user-correct { background: #eafaf1; border-color: #2ecc71; }
         body:not(.dark-mode) .review-opt.user-wrong { background: #fdedec; border-color: #e74c3c; }
         body:not(.dark-mode) .review-opt.missed-correct { border: 2px dashed #2ecc71; }
@@ -90,7 +89,6 @@
         body.dark-mode .review-opt.user-correct { background: #14452f; border-color: #2ecc71; }
         body.dark-mode .review-opt.user-wrong { background: #4a191e; border-color: #e74c3c; }
         body.dark-mode .review-opt.missed-correct { border: 2px dashed #2ecc71; }
-
         .review-icon { font-weight: bold; margin-right: 10px; font-size: 16px; }
 
         /* ================= 新手引导弹窗 ================= */
@@ -118,7 +116,8 @@
 
 <div class="container">
     <div id="home-menu">
-        <div style="text-align: right;">
+        <div style="display: flex; justify-content: flex-end; gap: 10px; margin-bottom: 10px;">
+            <button class="nav-btn" onclick="toggleSwipe()" id="swipe-btn">👆 滑动切题: 开</button>
             <button class="nav-btn" onclick="toggleDarkMode()" id="dark-btn">🌙 护眼模式</button>
         </div>
         <div class="menu-title">☢️ 辐射安全与防护 终极版</div>
@@ -246,16 +245,35 @@
     let devMode = false;
     let devClickCount = 0;
 
+    // ================= 初始化设置 =================
     // 🌙 初始化护眼模式
     let isDarkMode = localStorage.getItem('radiation_dark_mode') === 'true';
     if(isDarkMode) document.body.classList.add('dark-mode');
     document.getElementById('dark-btn').innerText = isDarkMode ? "☀️ 日间模式" : "🌙 护眼模式";
+
+    // 👆 初始化滑动开关
+    let isSwipeEnabled = localStorage.getItem('radiation_swipe_enabled') !== 'false'; // 默认开启
+    document.getElementById('swipe-btn').innerText = isSwipeEnabled ? "👆 滑动切题: 开" : "👆 滑动切题: 关";
 
     window.addEventListener('DOMContentLoaded', () => {
         if (localStorage.getItem('radiation_notice_read') !== 'true') { setTimeout(showNotice, 500); }
     });
 
     window.onload = function() { changeBank(); };
+
+    // ================= 功能开关 =================
+    function toggleDarkMode() {
+        isDarkMode = !isDarkMode;
+        document.body.classList.toggle('dark-mode', isDarkMode);
+        localStorage.setItem('radiation_dark_mode', isDarkMode);
+        document.getElementById('dark-btn').innerText = isDarkMode ? "☀️ 日间模式" : "🌙 护眼模式";
+    }
+
+    function toggleSwipe() {
+        isSwipeEnabled = !isSwipeEnabled;
+        localStorage.setItem('radiation_swipe_enabled', isSwipeEnabled);
+        document.getElementById('swipe-btn').innerText = isSwipeEnabled ? "👆 滑动切题: 开" : "👆 滑动切题: 关";
+    }
 
     // ================= 弹窗控制 =================
     function showNotice() {
@@ -285,13 +303,6 @@
     function saveWrongBook() { localStorage.setItem(`radiation_wrong_${activeBankKey}`, JSON.stringify(wrongBook)); }
     function updateHomeStats() { document.getElementById('home-stats').innerText = `当前【${activeBankKey==='bank1'?'基础篇':'探伤篇'}】错题本有 ${wrongBook.length} 道题待攻克`; }
 
-    function toggleDarkMode() {
-        isDarkMode = !isDarkMode;
-        document.body.classList.toggle('dark-mode', isDarkMode);
-        localStorage.setItem('radiation_dark_mode', isDarkMode);
-        document.getElementById('dark-btn').innerText = isDarkMode ? "☀️ 日间模式" : "🌙 护眼模式";
-    }
-
     function hideAllAreas() {
         document.getElementById('home-menu').style.display = 'none';
         document.getElementById('quiz-area').style.display = 'none';
@@ -317,18 +328,33 @@
         }
     }
 
-    // 👆 手势滑动逻辑
-    let touchstartX = 0; let touchendX = 0;
+    // ================= 【优化2】全新升级的手势滑动逻辑 =================
+    let touchstartX = 0; let touchstartY = 0;
+    let touchendX = 0; let touchendY = 0;
     const quizArea = document.getElementById('quiz-area');
-    quizArea.addEventListener('touchstart', e => { touchstartX = e.changedTouches[0].screenX; });
+    
+    quizArea.addEventListener('touchstart', e => { 
+        touchstartX = e.changedTouches[0].screenX; 
+        touchstartY = e.changedTouches[0].screenY;
+    }, {passive: true});
+    
     quizArea.addEventListener('touchend', e => {
+        if (!isSwipeEnabled) return; // 判断实体开关是否开启
+
         touchendX = e.changedTouches[0].screenX;
-        let swipeDistance = touchendX - touchstartX;
+        touchendY = e.changedTouches[0].screenY;
+        
+        let swipeDistanceX = touchendX - touchstartX;
+        let swipeDistanceY = touchendY - touchstartY;
+
         if(document.getElementById('sheet-overlay').style.display !== 'block') {
-            if (swipeDistance < -50) nextQuestion(); 
-            if (swipeDistance > 50) prevQuestion();  
+            // 核心防误触算法：X轴滑动必须大于 100px，且 X轴位移必须大于 Y轴位移（防止上下滚动长题时误触发）
+            if (Math.abs(swipeDistanceX) > 100 && Math.abs(swipeDistanceX) > Math.abs(swipeDistanceY)) {
+                if (swipeDistanceX < 0) nextQuestion(); // 向左滑 -> 下一题
+                if (swipeDistanceX > 0) prevQuestion(); // 向右滑 -> 上一题
+            }
         }
-    });
+    }, {passive: true});
 
     // ================= 答题核心逻辑 =================
     function shuffleArray(array) {
@@ -546,20 +572,12 @@
         
         let passStatus = score >= 90 ? "合格" : "不合格";
         
-        // ================= 【新增】保存考试记录 =================
         let record = {
-            id: Date.now(),
-            date: new Date().toLocaleString(),
-            score: score,
-            timeSpent: timeSpentText,
-            passStatus: passStatus,
-            qList: currentList.map(q => q.id), // 记录题目快照ID
-            userAnswers: JSON.parse(JSON.stringify(userAnswers)) // 记录用户的选项答案
+            id: Date.now(), date: new Date().toLocaleString(), score: score, timeSpent: timeSpentText, passStatus: passStatus,
+            qList: currentList.map(q => q.id), userAnswers: JSON.parse(JSON.stringify(userAnswers))
         };
         let examRecords = JSON.parse(localStorage.getItem('radiation_exam_records') || '[]');
-        examRecords.unshift(record); // 放在数组最前面
-        localStorage.setItem('radiation_exam_records', JSON.stringify(examRecords));
-        // ========================================================
+        examRecords.unshift(record); localStorage.setItem('radiation_exam_records', JSON.stringify(examRecords));
 
         alert(`【考试结束】\n\n🎯 最终得分：${score} 分 / 120 分\n📝 考核结果：${passStatus}\n⏳ 考试用时：${timeSpentText}\n\n💡 错题及漏选题已收录进错题本，考试明细可在“考试记录”中查看。`);
         
@@ -567,7 +585,6 @@
     }
 
     // ================= 考试记录与复盘模块 =================
-    // 获取跨题库的具体题目对象
     function getQuestionById(id) {
         let q = undefined;
         if (typeof bank1 !== 'undefined') q = bank1.find(x => x.id === id);
@@ -626,55 +643,39 @@
         let html = '';
         record.qList.forEach((qid, index) => {
             let q = getQuestionById(qid);
-            if(!q) return; // 防御性处理题库更新导致ID丢失
+            if(!q) return; 
 
             let typeText = q.type === 'multiple' ? "【多选题】" : "【单选题】";
             let userAnswer = record.userAnswers[qid] || [];
             
-            // 构建题目主干
             html += `<div class="review-question">`;
             html += `<div style="font-weight:bold; margin-bottom:10px;">${index + 1}. ${typeText} ${q.question}</div>`;
-            if (q.imageName) {
-                html += `<img src="images/${q.imageName}" style="max-width:100%; border-radius:8px; margin-bottom:10px;">`;
-            }
+            if (q.imageName) { html += `<img src="images/${q.imageName}" style="max-width:100%; border-radius:8px; margin-bottom:10px;">`; }
 
-            // 构建选项与颜色高亮
             for (let key in q.options) {
                 let opt = q.options[key];
                 let isUserSelected = userAnswer.includes(key);
                 let isCorrectOption = q.type === 'single' ? (key === q.correctAnswer) : q.correctAnswer.includes(key);
                 
                 let optClass = "review-opt";
-                let iconHtml = "<span class='review-icon' style='color:transparent;'>⭕</span>"; // 占位符
+                let iconHtml = "<span class='review-icon' style='color:transparent;'>⭕</span>"; 
 
-                if (isUserSelected && isCorrectOption) {
-                    optClass += " user-correct";
-                    iconHtml = "<span class='review-icon' style='color:#2ecc71;'>✅</span>";
-                } else if (isUserSelected && !isCorrectOption) {
-                    optClass += " user-wrong";
-                    iconHtml = "<span class='review-icon' style='color:#e74c3c;'>❌</span>";
-                } else if (!isUserSelected && isCorrectOption) {
-                    optClass += " missed-correct"; // 漏选的正确答案
-                }
+                if (isUserSelected && isCorrectOption) { optClass += " user-correct"; iconHtml = "<span class='review-icon' style='color:#2ecc71;'>✅</span>"; } 
+                else if (isUserSelected && !isCorrectOption) { optClass += " user-wrong"; iconHtml = "<span class='review-icon' style='color:#e74c3c;'>❌</span>"; } 
+                else if (!isUserSelected && isCorrectOption) { optClass += " missed-correct"; }
 
-                // 处理图片选项
                 let optText = "";
                 if (q.isOptionImage) {
                     optText += `${key}.`;
                     if (typeof opt === 'object') {
                         if (opt.text) optText += ` ${opt.text}`;
                         if (opt.img) optText += ` <img src="images/${opt.img}" style="max-width:80px; margin-left:10px; vertical-align:middle; border-radius:4px;">`;
-                    } else if (typeof opt === 'string') {
-                        optText += ` <img src="images/${opt}" style="max-width:80px; margin-left:10px; vertical-align:middle; border-radius:4px;">`;
-                    }
-                } else {
-                    optText = `${key}. ${opt}`;
-                }
+                    } else if (typeof opt === 'string') { optText += ` <img src="images/${opt}" style="max-width:80px; margin-left:10px; vertical-align:middle; border-radius:4px;">`; }
+                } else { optText = `${key}. ${opt}`; }
 
                 html += `<div class="${optClass}">${iconHtml} ${optText}</div>`;
             }
 
-            // 附上权威解析
             let ansStr = q.type === 'single' ? q.correctAnswer : q.correctAnswer.join(", ");
             html += `
                 <div style="margin-top:15px; padding:10px; background:var(--note-bg); border-radius:4px; border-left:3px solid #ff9800; font-size:14px;">
@@ -682,11 +683,11 @@
                     <div style="color:#555;">解析：${q.note || '暂无详细解析'}</div>
                 </div>
             `;
-            html += `</div>`; // 结束单道题
+            html += `</div>`; 
         });
 
         document.getElementById('record-detail-list').innerHTML = html;
-        window.scrollTo(0, 0); // 详情页置顶
+        window.scrollTo(0, 0); 
     }
 </script>
 </body>
