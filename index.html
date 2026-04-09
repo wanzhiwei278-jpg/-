@@ -225,11 +225,14 @@
 <script src="data.js"></script>
 
 <script>
-    // 兼容性兜底
-    if (typeof bank1 === 'undefined' && typeof questionBank !== 'undefined') window.bank1 = questionBank;
-    if (typeof bank2 === 'undefined') window.bank2 = []; 
+    // 兼容性兜底与【核心修补：给每道题打上专属的题库防串台标签】
+    if (typeof bank1 !== 'undefined') { bank1.forEach(q => q._bank = 'bank1'); } 
+    else if (typeof questionBank !== 'undefined') { window.bank1 = questionBank; bank1.forEach(q => q._bank = 'bank1'); }
+    
+    if (typeof bank2 !== 'undefined') { bank2.forEach(q => q._bank = 'bank2'); } 
+    else { window.bank2 = []; }
 
-    // 获取跨题库的具体题目对象（需前置声明以便恢复进度时调用）
+    // 老旧考试记录兼容使用（按需查询）
     function getQuestionById(id) {
         let q = undefined;
         if (typeof bank1 !== 'undefined') q = bank1.find(x => x.id === id);
@@ -250,7 +253,7 @@
     
     let timerInterval;
     let startTime;
-    let examTimeLimit = 45 * 60; // 考试限制 45 分钟
+    let examTimeLimit = 45 * 60; 
     let devMode = false;
     let devClickCount = 0;
 
@@ -266,7 +269,12 @@
         if (localStorage.getItem('radiation_notice_read') !== 'true') { setTimeout(showNotice, 500); }
     });
 
-    window.onload = function() { changeBank(); };
+    window.onload = function() { 
+        // 自动记忆并恢复上次选择的题库
+        let lastBank = localStorage.getItem('radiation_last_bank');
+        if (lastBank) { document.getElementById('bank-selector').value = lastBank; }
+        changeBank(); 
+    };
 
     // ================= 功能开关 =================
     function toggleDarkMode() {
@@ -295,6 +303,7 @@
     // ================= 题库与主页 =================
     function changeBank() {
         activeBankKey = document.getElementById('bank-selector').value;
+        localStorage.setItem('radiation_last_bank', activeBankKey); // 记忆最后一次选的题库
         questionBank = (activeBankKey === 'bank1') ? bank1 : bank2;
         
         let savedWrong = localStorage.getItem(`radiation_wrong_${activeBankKey}`);
@@ -369,9 +378,8 @@
         return arr;
     }
 
-    // 【新增】自动存档功能
     function saveProgress() {
-        if (currentMode === 'exam' || !currentMode) return; // 考试模式不存档
+        if (currentMode === 'exam' || !currentMode) return; 
         let elapsed = Math.floor((Date.now() - startTime) / 1000);
         let saveObj = {
             currentIndex: currentIndex,
@@ -391,27 +399,31 @@
             let saveKey = `radiation_save_${activeBankKey}_${mode}`;
             let savedData = localStorage.getItem(saveKey);
             if (savedData) {
+                // 获取当前选中题库的中文名称，提升提示体验
+                let selBox = document.getElementById('bank-selector');
+                let bankNameText = selBox.options[selBox.selectedIndex].text;
                 let modeName = mode === 'sequential' ? '顺序刷题' : mode === 'random' ? '随机练习' : '错题回顾';
-                if (confirm(`发现您上次在【${modeName}】有未完成的进度！\n\n👉 点击【确定】继续上次练习\n👉 点击【取消】重新开始`)) {
+                
+                if (confirm(`发现您上次在【${bankNameText} - ${modeName}】有未完成的进度！\n\n👉 点击【确定】继续上次练习\n👉 点击【取消】重新开始`)) {
                     let parsed = JSON.parse(savedData);
                     currentMode = mode;
                     currentIndex = parsed.currentIndex;
                     userAnswers = parsed.userAnswers || {};
                     questionStatus = parsed.questionStatus || {};
-                    // 恢复打乱或过滤好的题目列表
-                    currentList = parsed.listIds.map(id => getQuestionById(id)).filter(q => q !== undefined);
+                    
+                    // 【核心修补】：恢复进度时，强制从当前的题库中去取题，彻底断绝跨库串题的可能
+                    currentList = parsed.listIds.map(id => questionBank.find(q => q.id === id)).filter(q => q !== undefined);
                     
                     hideAllAreas();
                     document.getElementById('quiz-area').style.display = 'block';
                     
-                    // 恢复计时器
                     clearInterval(timerInterval);
                     startTime = Date.now() - (parsed.elapsedTime * 1000);
                     startTimer(true); 
                     renderQuestion();
-                    return; // 成功恢复，跳过后续初始化
+                    return; 
                 } else {
-                    localStorage.removeItem(saveKey); // 用户选择重新开始，清空该存档
+                    localStorage.removeItem(saveKey); 
                 }
             }
         }
@@ -435,7 +447,7 @@
         hideAllAreas();
         document.getElementById('quiz-area').style.display = 'block';
         startTimer(false); renderQuestion();
-        saveProgress(); // 开局存一次
+        saveProgress(); 
     }
 
     function startTimer(isResume = false) {
@@ -457,7 +469,6 @@
             } else {
                 let m = String(Math.floor(elapsed / 60)).padStart(2, '0'); let s = String(elapsed % 60).padStart(2, '0');
                 timerEl.innerText = `⏱️ 已用时 ${m}:${s}`; timerEl.style.color = "#e74c3c";
-                // 定时更新存档的时间，防止因为未点击按键导致流失时间记录
                 if (elapsed % 10 === 0) saveProgress(); 
             }
         }, 1000);
@@ -549,8 +560,7 @@
         if (q.type === 'single') { selected = [key]; } 
         else { let idx = selected.indexOf(key); if (idx > -1) selected.splice(idx, 1); else selected.push(key); }
         userAnswers[q.id] = selected; 
-        renderQuestion(); 
-        saveProgress(); // 存进度
+        renderQuestion(); saveProgress(); 
     }
 
     function checkIsCorrect(q, selected) {
@@ -567,9 +577,7 @@
         if (!isCorrect) { if (!wrongBook.includes(q.id)) { wrongBook.push(q.id); saveWrongBook(); }
         } else if (currentMode === 'wrong') { wrongBook = wrongBook.filter(id => id !== q.id); saveWrongBook(); }
         
-        renderQuestion(); 
-        saveProgress(); // 存进度
-        
+        renderQuestion(); saveProgress(); 
         if (isCorrect && currentIndex < currentList.length - 1) { setTimeout(nextQuestion, 400); }
     }
 
@@ -621,8 +629,9 @@
                 }
             }
 
+            // 【核心修补：精准通过题库基因_bank分发错题】
             if (!isPerfect) {
-                let targetBank = (typeof bank1 !== 'undefined' && bank1.some(bq => bq.id === q.id)) ? 'bank1' : 'bank2';
+                let targetBank = q._bank || 'bank1'; // 保底防御
                 let targetKey = `radiation_wrong_${targetBank}`;
                 let wb = JSON.parse(localStorage.getItem(targetKey) || '[]');
                 if (!wb.includes(q.id)) { wb.push(q.id); localStorage.setItem(targetKey, JSON.stringify(wb)); }
@@ -635,12 +644,13 @@
         
         let record = {
             id: Date.now(), date: new Date().toLocaleString(), score: score, timeSpent: timeSpentText, passStatus: passStatus,
-            qList: currentList.map(q => q.id), userAnswers: JSON.parse(JSON.stringify(userAnswers))
+            qList: currentList.map(q => ({id: q.id, bank: q._bank})), // 升级：同时记录题目ID和它所属的题库
+            userAnswers: JSON.parse(JSON.stringify(userAnswers))
         };
         let examRecords = JSON.parse(localStorage.getItem('radiation_exam_records') || '[]');
         examRecords.unshift(record); localStorage.setItem('radiation_exam_records', JSON.stringify(examRecords));
 
-        alert(`【考试结束】\n\n🎯 最终得分：${score} 分 / 120 分\n📝 考核结果：${passStatus}\n⏳ 考试用时：${timeSpentText}\n\n💡 错题及漏选题已收录进错题本，考试明细可在“考试记录”中查看。`);
+        alert(`【考试结束】\n\n🎯 最终得分：${score} 分 / 120 分\n📝 考核结果：${passStatus}\n⏳ 考试用时：${timeSpentText}\n\n💡 错题及漏选题已收录进各对应的错题本中。`);
         
         closeSheet(true); userAnswers = {}; goHome();
     }
@@ -694,12 +704,19 @@
         `;
 
         let html = '';
-        record.qList.forEach((qid, index) => {
-            let q = getQuestionById(qid);
+        record.qList.forEach((qRef, index) => {
+            // 支持新旧两种格式的缓存读取
+            let q = undefined;
+            if (typeof qRef === 'object') {
+                let b = qRef.bank === 'bank1' ? bank1 : bank2;
+                q = b && b.find(x => x.id === qRef.id);
+            } else {
+                q = getQuestionById(qRef); 
+            }
             if(!q) return; 
 
             let typeText = q.type === 'multiple' ? "【多选题】" : "【单选题】";
-            let userAnswer = record.userAnswers[qid] || [];
+            let userAnswer = record.userAnswers[q.id] || [];
             
             html += `<div class="review-question">`;
             html += `<div style="font-weight:bold; margin-bottom:10px;">${index + 1}. ${typeText} ${q.question}</div>`;
