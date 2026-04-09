@@ -25,9 +25,9 @@
         #home-menu { text-align: center; padding: 20px 0; }
         .menu-title { font-size: 24px; margin-bottom: 10px; font-weight: bold; color: #3498db; }
         .bank-selector { margin: 20px auto; padding: 10px; border-radius: 8px; border: 2px solid #3498db; background: var(--card-bg); color: var(--text-color); font-size: 16px; width: 80%; max-width: 300px; outline: none; font-weight: bold; cursor: pointer;}
-        .stats-text { font-size: 14px; color: #7f8c8d; margin-bottom: 20px; }
+        .stats-text { font-size: 14px; color: #7f8c8d; margin-bottom: 20px; line-height: 1.5; }
         .menu-btn { display: block; width: 80%; max-width: 300px; margin: 15px auto; padding: 15px; border-radius: 8px; border: none; font-size: 18px; cursor: pointer; color: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .btn-seq { background: #3498db; } .btn-rand { background: #9b59b6; } .btn-exam { background: #e67e22; } .btn-wrong { background: #e74c3c; } .btn-record { background: #16a085; }
+        .btn-seq { background: #3498db; } .btn-rand { background: #9b59b6; } .btn-exam { background: #e67e22; } .btn-wrong { background: #e74c3c; } .btn-record { background: #16a085; } .btn-fav { background: #f39c12; }
 
         /* ================= 答题区 ================= */
         .header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; margin-bottom: 20px; font-size: 14px; }
@@ -127,12 +127,15 @@
             <option value="bank2">📚 第二部分：探伤篇 (530题)</option>
         </select>
 
-        <div class="stats-text" id="home-stats">当前错题本有 0 道题待攻克</div>
+        <div class="stats-text" id="home-stats">当前错题本有 0 道题待攻克<br>重点收藏夹有 0 道题</div>
         
         <button class="menu-btn btn-seq" onclick="startMode('sequential')" id="btn-seq-text">顺序刷题</button>
         <button class="menu-btn btn-rand" onclick="startMode('random')">随机练习</button>
-        <button class="menu-btn btn-exam" onclick="startMode('exam')">全真模拟考试 (45分钟)</button>
         <button class="menu-btn btn-wrong" onclick="startMode('wrong')">错题回顾</button>
+        
+        <button class="menu-btn btn-fav" onclick="startMode('favorite')">⭐ 重点题型 (收藏)</button>
+        
+        <button class="menu-btn btn-exam" onclick="startMode('exam')">全真模拟考试 (45分钟)</button>
         <button class="menu-btn btn-record" onclick="showRecordsArea()">📈 考试记录</button>
         
         <div style="margin-top: 30px; margin-bottom: 10px;">
@@ -145,7 +148,11 @@
         <div class="header">
             <button class="nav-btn" onclick="goHome()">🏠 主页</button>
             <div id="progress" style="cursor: pointer; color: #3498db; font-weight: bold;" onclick="openSheet()">进度: 0/0 🔽</div>
-            <div class="timer" id="timer">⏱️ 00:00</div>
+            
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <span id="fav-btn" style="cursor: pointer; font-size: 24px; line-height: 1; user-select: none;" onclick="toggleFavorite()" title="收藏该题">☆</span>
+                <div class="timer" id="timer">⏱️ 00:00</div>
+            </div>
         </div>
 
         <div class="question-title" id="q-title">正在加载...</div>
@@ -208,8 +215,8 @@
                 <p>本系统分为<strong>《基础篇》</strong>与<strong>《探伤篇》</strong>。您可以通过首页下拉菜单随时切换当前想复习的模块。</p>
             </div>
             <div class="notice-section">
-                <h4>🎯 2. 专项突破练习</h4>
-                <p>点击“顺序刷题”或“随机练习”时，系统<strong>仅会从您当前选中的题库中出题</strong>。建议复习初期分模块进行专项击破。</p>
+                <h4>🎯 2. 专项突破练习与收藏</h4>
+                <p>点击“顺序刷题”或“随机练习”时，系统<strong>仅会从您当前选中的题库中出题</strong>。<br>遇到难题，可点击右上角<strong>『☆』</strong>一键收藏，随后在<strong>『重点题型』</strong>中集中攻克！</p>
             </div>
             <div class="notice-section highlight">
                 <h4 style="color: #e67e22;">🌟 3. 全真模拟考试 (重点)</h4>
@@ -225,14 +232,13 @@
 <script src="data.js"></script>
 
 <script>
-    // 兼容性兜底与【核心修补：给每道题打上专属的题库防串台标签】
+    // 兼容性兜底与题库防串台标签
     if (typeof bank1 !== 'undefined') { bank1.forEach(q => q._bank = 'bank1'); } 
     else if (typeof questionBank !== 'undefined') { window.bank1 = questionBank; bank1.forEach(q => q._bank = 'bank1'); }
     
     if (typeof bank2 !== 'undefined') { bank2.forEach(q => q._bank = 'bank2'); } 
     else { window.bank2 = []; }
 
-    // 老旧考试记录兼容使用（按需查询）
     function getQuestionById(id) {
         let q = undefined;
         if (typeof bank1 !== 'undefined') q = bank1.find(x => x.id === id);
@@ -250,6 +256,7 @@
     let userAnswers = {}; 
     let questionStatus = {}; 
     let wrongBook = [];
+    let favoriteBook = []; // 【新增】收藏夹数组
     
     let timerInterval;
     let startTime;
@@ -270,7 +277,6 @@
     });
 
     window.onload = function() { 
-        // 自动记忆并恢复上次选择的题库
         let lastBank = localStorage.getItem('radiation_last_bank');
         if (lastBank) { document.getElementById('bank-selector').value = lastBank; }
         changeBank(); 
@@ -303,20 +309,33 @@
     // ================= 题库与主页 =================
     function changeBank() {
         activeBankKey = document.getElementById('bank-selector').value;
-        localStorage.setItem('radiation_last_bank', activeBankKey); // 记忆最后一次选的题库
+        localStorage.setItem('radiation_last_bank', activeBankKey); 
         questionBank = (activeBankKey === 'bank1') ? bank1 : bank2;
         
+        // 错题本初始化与防幽灵机制
         let savedWrong = localStorage.getItem(`radiation_wrong_${activeBankKey}`);
         let parsedWrong = savedWrong ? JSON.parse(savedWrong) : [];
         wrongBook = parsedWrong.filter(id => questionBank.some(q => q.id === id));
         if (parsedWrong.length !== wrongBook.length) { saveWrongBook(); }
+
+        // 【新增】收藏夹初始化与防幽灵机制
+        let savedFav = localStorage.getItem(`radiation_fav_${activeBankKey}`);
+        let parsedFav = savedFav ? JSON.parse(savedFav) : [];
+        favoriteBook = parsedFav.filter(id => questionBank.some(q => q.id === id));
+        if (parsedFav.length !== favoriteBook.length) { saveFavoriteBook(); }
         
         document.getElementById('btn-seq-text').innerText = `顺序刷题 (${questionBank.length}题)`;
         updateHomeStats();
     }
 
     function saveWrongBook() { localStorage.setItem(`radiation_wrong_${activeBankKey}`, JSON.stringify(wrongBook)); }
-    function updateHomeStats() { document.getElementById('home-stats').innerText = `当前【${activeBankKey==='bank1'?'基础篇':'探伤篇'}】错题本有 ${wrongBook.length} 道题待攻克`; }
+    
+    // 【新增】保存收藏夹到本地
+    function saveFavoriteBook() { localStorage.setItem(`radiation_fav_${activeBankKey}`, JSON.stringify(favoriteBook)); }
+    
+    function updateHomeStats() { 
+        document.getElementById('home-stats').innerHTML = `当前【${activeBankKey==='bank1'?'基础篇':'探伤篇'}】错题本有 ${wrongBook.length} 道待攻克<br>重点收藏夹有 <span style="color:#f39c12;font-weight:bold;">${favoriteBook.length}</span> 道题`; 
+    }
 
     function hideAllAreas() {
         document.getElementById('home-menu').style.display = 'none';
@@ -399,10 +418,9 @@
             let saveKey = `radiation_save_${activeBankKey}_${mode}`;
             let savedData = localStorage.getItem(saveKey);
             if (savedData) {
-                // 获取当前选中题库的中文名称，提升提示体验
                 let selBox = document.getElementById('bank-selector');
                 let bankNameText = selBox.options[selBox.selectedIndex].text;
-                let modeName = mode === 'sequential' ? '顺序刷题' : mode === 'random' ? '随机练习' : '错题回顾';
+                let modeName = mode === 'sequential' ? '顺序刷题' : mode === 'random' ? '随机练习' : mode === 'favorite' ? '重点题型' : '错题回顾';
                 
                 if (confirm(`发现您上次在【${bankNameText} - ${modeName}】有未完成的进度！\n\n👉 点击【确定】继续上次练习\n👉 点击【取消】重新开始`)) {
                     let parsed = JSON.parse(savedData);
@@ -411,20 +429,12 @@
                     userAnswers = parsed.userAnswers || {};
                     questionStatus = parsed.questionStatus || {};
                     
-                    // 【核心修补】：恢复进度时，强制从当前的题库中去取题，彻底断绝跨库串题的可能
                     currentList = parsed.listIds.map(id => questionBank.find(q => q.id === id)).filter(q => q !== undefined);
                     
-                    hideAllAreas();
-                    document.getElementById('quiz-area').style.display = 'block';
-                    
-                    clearInterval(timerInterval);
-                    startTime = Date.now() - (parsed.elapsedTime * 1000);
-                    startTimer(true); 
-                    renderQuestion();
-                    return; 
-                } else {
-                    localStorage.removeItem(saveKey); 
-                }
+                    hideAllAreas(); document.getElementById('quiz-area').style.display = 'block';
+                    clearInterval(timerInterval); startTime = Date.now() - (parsed.elapsedTime * 1000); startTimer(true); 
+                    renderQuestion(); return; 
+                } else { localStorage.removeItem(saveKey); }
             }
         }
 
@@ -442,6 +452,11 @@
         } else if (mode === 'wrong') {
             currentList = questionBank.filter(q => wrongBook.includes(q.id));
             if(currentList.length === 0) { alert("🎉 太棒了，当前题库错题本已清空！快去刷题吧！"); return; }
+        } 
+        // 【新增】重点题型加载逻辑
+        else if (mode === 'favorite') {
+            currentList = questionBank.filter(q => favoriteBook.includes(q.id));
+            if(currentList.length === 0) { alert("📭 您的重点题型收藏夹为空！\n\n💡 提示：在平时刷题时，点击右上角的『☆』即可将易错/绕脑的题目收藏到这里哦。"); return; }
         }
 
         hideAllAreas();
@@ -472,6 +487,18 @@
                 if (elapsed % 10 === 0) saveProgress(); 
             }
         }, 1000);
+    }
+
+    // 【新增】一键收藏核心逻辑
+    function toggleFavorite() {
+        let q = currentList[currentIndex];
+        if (favoriteBook.includes(q.id)) {
+            favoriteBook = favoriteBook.filter(id => id !== q.id); // 取消收藏
+        } else {
+            favoriteBook.push(q.id); // 加入收藏
+        }
+        saveFavoriteBook();
+        renderQuestion(); // 刷新星星UI
     }
 
     function renderQuestion() {
@@ -522,15 +549,24 @@
         let noteArea = document.getElementById('note-area'); let submitBtn = document.getElementById('submit-btn');
         let nextBtn = document.getElementById('next-btn'); let prevBtn = document.getElementById('prev-btn');
         let autoJumpTip = document.getElementById('auto-jump-tip');
+        let favBtn = document.getElementById('fav-btn'); // 获取星星按钮
 
         prevBtn.style.visibility = currentIndex > 0 ? "visible" : "hidden";
         nextBtn.style.display = "block";
 
         if (currentMode === 'exam') {
             noteArea.style.display = "none"; submitBtn.style.display = "none"; autoJumpTip.style.display = "none";
+            favBtn.style.display = "none"; // 模拟考试时隐藏星星，防止作弊和分心
             nextBtn.innerText = (currentIndex === currentList.length - 1) ? "打开答题卡交卷" : "下一题";
         } else {
             nextBtn.innerText = "下一题"; autoJumpTip.style.display = "block";
+            
+            // 【控制星星高亮】
+            favBtn.style.display = "inline-block";
+            let isFav = favoriteBook.includes(q.id);
+            favBtn.innerText = isFav ? "★" : "☆";
+            favBtn.style.color = isFav ? "#f39c12" : "#bdc3c7";
+
             if (isEvaluated) {
                 submitBtn.style.display = "none"; autoJumpTip.style.display = "none";
                 let answerText = q.type === 'single' ? q.correctAnswer : q.correctAnswer.join(", ");
@@ -629,9 +665,8 @@
                 }
             }
 
-            // 【核心修补：精准通过题库基因_bank分发错题】
             if (!isPerfect) {
-                let targetBank = q._bank || 'bank1'; // 保底防御
+                let targetBank = q._bank || 'bank1';
                 let targetKey = `radiation_wrong_${targetBank}`;
                 let wb = JSON.parse(localStorage.getItem(targetKey) || '[]');
                 if (!wb.includes(q.id)) { wb.push(q.id); localStorage.setItem(targetKey, JSON.stringify(wb)); }
@@ -644,7 +679,7 @@
         
         let record = {
             id: Date.now(), date: new Date().toLocaleString(), score: score, timeSpent: timeSpentText, passStatus: passStatus,
-            qList: currentList.map(q => ({id: q.id, bank: q._bank})), // 升级：同时记录题目ID和它所属的题库
+            qList: currentList.map(q => ({id: q.id, bank: q._bank})),
             userAnswers: JSON.parse(JSON.stringify(userAnswers))
         };
         let examRecords = JSON.parse(localStorage.getItem('radiation_exam_records') || '[]');
@@ -705,7 +740,6 @@
 
         let html = '';
         record.qList.forEach((qRef, index) => {
-            // 支持新旧两种格式的缓存读取
             let q = undefined;
             if (typeof qRef === 'object') {
                 let b = qRef.bank === 'bank1' ? bank1 : bank2;
