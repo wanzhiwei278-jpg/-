@@ -229,6 +229,15 @@
     if (typeof bank1 === 'undefined' && typeof questionBank !== 'undefined') window.bank1 = questionBank;
     if (typeof bank2 === 'undefined') window.bank2 = []; 
 
+    // 获取跨题库的具体题目对象（需前置声明以便恢复进度时调用）
+    function getQuestionById(id) {
+        let q = undefined;
+        if (typeof bank1 !== 'undefined') q = bank1.find(x => x.id === id);
+        if (q) return q;
+        if (typeof bank2 !== 'undefined') q = bank2.find(x => x.id === id);
+        return q;
+    }
+
     let activeBankKey = 'bank1';
     let questionBank = [];
     let currentMode = ''; 
@@ -246,13 +255,11 @@
     let devClickCount = 0;
 
     // ================= 初始化设置 =================
-    // 🌙 初始化护眼模式
     let isDarkMode = localStorage.getItem('radiation_dark_mode') === 'true';
     if(isDarkMode) document.body.classList.add('dark-mode');
     document.getElementById('dark-btn').innerText = isDarkMode ? "☀️ 日间模式" : "🌙 护眼模式";
 
-    // 👆 初始化滑动开关
-    let isSwipeEnabled = localStorage.getItem('radiation_swipe_enabled') !== 'false'; // 默认开启
+    let isSwipeEnabled = localStorage.getItem('radiation_swipe_enabled') !== 'false'; 
     document.getElementById('swipe-btn').innerText = isSwipeEnabled ? "👆 滑动切题: 开" : "👆 滑动切题: 关";
 
     window.addEventListener('DOMContentLoaded', () => {
@@ -275,7 +282,6 @@
         document.getElementById('swipe-btn').innerText = isSwipeEnabled ? "👆 滑动切题: 开" : "👆 滑动切题: 关";
     }
 
-    // ================= 弹窗控制 =================
     function showNotice() {
         let modal = document.getElementById('notice-modal');
         modal.style.display = 'flex'; setTimeout(() => { modal.classList.add('show'); }, 10);
@@ -312,7 +318,11 @@
 
     function goHome() {
         if(document.getElementById('quiz-area').style.display === 'block' && Object.keys(userAnswers).length > 0) {
-            if(!confirm("返回主页将清空当前答题进度，确定吗？")) return;
+            if (currentMode === 'exam') {
+                if(!confirm("⚠️ 考试正在进行中！\n返回主页将丢失本次考试全部进度，确定离开吗？")) return;
+            } else {
+                if(!confirm("确认返回主页？\n\n💡 放心，您的练习进度已自动保存，下次进入该模式可直接继续。")) return;
+            }
         }
         clearInterval(timerInterval);
         hideAllAreas();
@@ -328,35 +338,28 @@
         }
     }
 
-    // ================= 【优化2】全新升级的手势滑动逻辑 =================
+    // ================= 手势滑动逻辑 =================
     let touchstartX = 0; let touchstartY = 0;
     let touchendX = 0; let touchendY = 0;
     const quizArea = document.getElementById('quiz-area');
     
     quizArea.addEventListener('touchstart', e => { 
-        touchstartX = e.changedTouches[0].screenX; 
-        touchstartY = e.changedTouches[0].screenY;
+        touchstartX = e.changedTouches[0].screenX; touchstartY = e.changedTouches[0].screenY;
     }, {passive: true});
     
     quizArea.addEventListener('touchend', e => {
-        if (!isSwipeEnabled) return; // 判断实体开关是否开启
-
-        touchendX = e.changedTouches[0].screenX;
-        touchendY = e.changedTouches[0].screenY;
-        
-        let swipeDistanceX = touchendX - touchstartX;
-        let swipeDistanceY = touchendY - touchstartY;
-
+        if (!isSwipeEnabled) return; 
+        touchendX = e.changedTouches[0].screenX; touchendY = e.changedTouches[0].screenY;
+        let swipeDistanceX = touchendX - touchstartX; let swipeDistanceY = touchendY - touchstartY;
         if(document.getElementById('sheet-overlay').style.display !== 'block') {
-            // 核心防误触算法：X轴滑动必须大于 100px，且 X轴位移必须大于 Y轴位移（防止上下滚动长题时误触发）
             if (Math.abs(swipeDistanceX) > 100 && Math.abs(swipeDistanceX) > Math.abs(swipeDistanceY)) {
-                if (swipeDistanceX < 0) nextQuestion(); // 向左滑 -> 下一题
-                if (swipeDistanceX > 0) prevQuestion(); // 向右滑 -> 上一题
+                if (swipeDistanceX < 0) nextQuestion(); 
+                if (swipeDistanceX > 0) prevQuestion(); 
             }
         }
     }, {passive: true});
 
-    // ================= 答题核心逻辑 =================
+    // ================= 答题核心逻辑（含自动存档） =================
     function shuffleArray(array) {
         let arr = [...array];
         for (let i = arr.length - 1; i > 0; i--) {
@@ -366,8 +369,53 @@
         return arr;
     }
 
+    // 【新增】自动存档功能
+    function saveProgress() {
+        if (currentMode === 'exam' || !currentMode) return; // 考试模式不存档
+        let elapsed = Math.floor((Date.now() - startTime) / 1000);
+        let saveObj = {
+            currentIndex: currentIndex,
+            userAnswers: userAnswers,
+            questionStatus: questionStatus,
+            listIds: currentList.map(q => q.id),
+            elapsedTime: elapsed
+        };
+        localStorage.setItem(`radiation_save_${activeBankKey}_${currentMode}`, JSON.stringify(saveObj));
+    }
+
     function startMode(mode) {
         if (!questionBank || questionBank.length === 0) { alert("⚠️ 该题库尚未导入题目！"); return; }
+        
+        // 检查断点续练存档
+        if (mode !== 'exam') {
+            let saveKey = `radiation_save_${activeBankKey}_${mode}`;
+            let savedData = localStorage.getItem(saveKey);
+            if (savedData) {
+                let modeName = mode === 'sequential' ? '顺序刷题' : mode === 'random' ? '随机练习' : '错题回顾';
+                if (confirm(`发现您上次在【${modeName}】有未完成的进度！\n\n👉 点击【确定】继续上次练习\n👉 点击【取消】重新开始`)) {
+                    let parsed = JSON.parse(savedData);
+                    currentMode = mode;
+                    currentIndex = parsed.currentIndex;
+                    userAnswers = parsed.userAnswers || {};
+                    questionStatus = parsed.questionStatus || {};
+                    // 恢复打乱或过滤好的题目列表
+                    currentList = parsed.listIds.map(id => getQuestionById(id)).filter(q => q !== undefined);
+                    
+                    hideAllAreas();
+                    document.getElementById('quiz-area').style.display = 'block';
+                    
+                    // 恢复计时器
+                    clearInterval(timerInterval);
+                    startTime = Date.now() - (parsed.elapsedTime * 1000);
+                    startTimer(true); 
+                    renderQuestion();
+                    return; // 成功恢复，跳过后续初始化
+                } else {
+                    localStorage.removeItem(saveKey); // 用户选择重新开始，清空该存档
+                }
+            }
+        }
+
         currentMode = mode; currentIndex = 0; userAnswers = {}; questionStatus = {};
 
         if (mode === 'sequential') { currentList = [...questionBank]; } 
@@ -386,14 +434,18 @@
 
         hideAllAreas();
         document.getElementById('quiz-area').style.display = 'block';
-        startTimer(); renderQuestion();
+        startTimer(false); renderQuestion();
+        saveProgress(); // 开局存一次
     }
 
-    function startTimer() {
-        startTime = Date.now(); clearInterval(timerInterval);
+    function startTimer(isResume = false) {
+        if (!isResume) { startTime = Date.now(); }
+        clearInterval(timerInterval);
+        
         timerInterval = setInterval(() => {
             let elapsed = Math.floor((Date.now() - startTime) / 1000);
             let timerEl = document.getElementById('timer');
+            
             if (currentMode === 'exam') {
                 let remaining = examTimeLimit - elapsed;
                 if (remaining <= 0) {
@@ -405,6 +457,8 @@
             } else {
                 let m = String(Math.floor(elapsed / 60)).padStart(2, '0'); let s = String(elapsed % 60).padStart(2, '0');
                 timerEl.innerText = `⏱️ 已用时 ${m}:${s}`; timerEl.style.color = "#e74c3c";
+                // 定时更新存档的时间，防止因为未点击按键导致流失时间记录
+                if (elapsed % 10 === 0) saveProgress(); 
             }
         }, 1000);
     }
@@ -494,7 +548,9 @@
         let q = currentList[currentIndex]; let selected = userAnswers[q.id] || [];
         if (q.type === 'single') { selected = [key]; } 
         else { let idx = selected.indexOf(key); if (idx > -1) selected.splice(idx, 1); else selected.push(key); }
-        userAnswers[q.id] = selected; renderQuestion(); 
+        userAnswers[q.id] = selected; 
+        renderQuestion(); 
+        saveProgress(); // 存进度
     }
 
     function checkIsCorrect(q, selected) {
@@ -507,16 +563,21 @@
         let q = currentList[currentIndex]; let selected = userAnswers[q.id] || [];
         if (selected.length === 0) { alert("请至少选择一个答案！"); return; }
         let isCorrect = checkIsCorrect(q, selected); questionStatus[q.id] = isCorrect ? 'correct' : 'wrong';
+        
         if (!isCorrect) { if (!wrongBook.includes(q.id)) { wrongBook.push(q.id); saveWrongBook(); }
         } else if (currentMode === 'wrong') { wrongBook = wrongBook.filter(id => id !== q.id); saveWrongBook(); }
+        
         renderQuestion(); 
+        saveProgress(); // 存进度
+        
         if (isCorrect && currentIndex < currentList.length - 1) { setTimeout(nextQuestion, 400); }
     }
 
-    function prevQuestion() { if (currentIndex > 0) { currentIndex--; renderQuestion(); } }
+    function prevQuestion() { if (currentIndex > 0) { currentIndex--; renderQuestion(); saveProgress(); } }
     function nextQuestion() {
         if (currentMode === 'exam' && currentIndex === currentList.length - 1) { openSheet(); return; }
-        if (currentIndex < currentList.length - 1) { currentIndex++; renderQuestion(); } else { alert(`恭喜！已完成所有题目。`); }
+        if (currentIndex < currentList.length - 1) { currentIndex++; renderQuestion(); saveProgress(); } 
+        else { alert(`恭喜！已完成所有题目。`); }
     }
 
     function openSheet() {
@@ -536,7 +597,7 @@
     }
 
     function closeSheet(force = false) { if(force || event.target.id === 'sheet-overlay') { document.getElementById('sheet-overlay').style.display = 'none'; } }
-    function jumpTo(idx) { currentIndex = idx; closeSheet(true); renderQuestion(); }
+    function jumpTo(idx) { currentIndex = idx; closeSheet(true); renderQuestion(); saveProgress(); }
 
     function submitExam(isTimeUp = false) {
         let unAnswered = currentList.filter(q => !userAnswers[q.id] || userAnswers[q.id].length === 0).length;
@@ -585,14 +646,6 @@
     }
 
     // ================= 考试记录与复盘模块 =================
-    function getQuestionById(id) {
-        let q = undefined;
-        if (typeof bank1 !== 'undefined') q = bank1.find(x => x.id === id);
-        if (q) return q;
-        if (typeof bank2 !== 'undefined') q = bank2.find(x => x.id === id);
-        return q;
-    }
-
     function showRecordsArea() {
         hideAllAreas();
         document.getElementById('records-area').style.display = 'block';
