@@ -220,6 +220,15 @@
                 <h4 style="color: #e67e22;">🌟 3. 全真模拟考试 (重点)</h4>
                 <p>为了 100% 还原考场环境，此模式将<strong>打破单一题库限制！</strong>系统会同时从两大题库中<strong>混合随机抽取</strong>（40道单选+10道多选），并严格执行45分钟倒计时与真实计分标准。</p>
             </div>
+            <div class="notice-section highlight">
+                <h4 style="color: #27ae60;">📋 4. 考试规则与计分说明</h4>
+                <p><strong>考试时间：</strong>45分钟<br>
+                <strong>试卷总分：</strong>120分<br>
+                <strong>合格分数线：</strong>90分<br><br>
+                <strong>单选题：</strong>40题 × 2分 = 80分<br>
+                <strong>多选题：</strong>10题 × 4分 = 40分<br><br>
+                <strong>多选题计分规则：</strong>每题满分4分。全部选对得4分；选对4个及以上得4分；选对3个得3分；选对2个得2分；选对1个得1分；选错任意一个选项则不得分。</p>
+            </div>
         </div>
         <div class="modal-footer">
             <button class="modal-btn" onclick="closeNotice()">我知道了，开始刷题！</button>
@@ -680,9 +689,18 @@
                 if (selected.length > 0 && selected[0].trim() === String(q.correctAnswer).trim()) { score += SCORE_SINGLE; isPerfect = true; }
             } else if (q.type === 'multiple') {
                 let correctArr = q.correctAnswer.map(x=>String(x).trim()); 
+                let selectedCorrect = selected.filter(opt => correctArr.includes(opt.trim()));
                 let hasWrongOption = selected.some(opt => !correctArr.includes(opt.trim()));
                 if (selected.length > 0 && !hasWrongOption) {
-                    if (selected.length === correctArr.length) { score += SCORE_MULTIPLE_FULL; isPerfect = true; } else { score += selected.length * SCORE_MULTIPLE_PARTIAL; }
+                    let correctCount = selectedCorrect.length;
+                    if (correctCount === correctArr.length) {
+                        score += SCORE_MULTIPLE_FULL;
+                        isPerfect = true;
+                    } else if (correctCount >= 4) {
+                        score += SCORE_MULTIPLE_FULL;
+                    } else {
+                        score += correctCount * SCORE_MULTIPLE_PARTIAL;
+                    }
                 }
             }
 
