@@ -214,10 +214,10 @@ const bank1 = [
     "question": "各种人工辐射照射来源所致公众辐射剂量的全球平均值中，最高的是（ ）。",
     "isOptionImage": true,
     "options": { 
-        "A": { "text": "医疗照射", "img": "image27.jpg" }, 
-        "B": { "text": "大气核试验", "img": "image28.jpg" }, 
-        "C": { "text": "切尔诺贝利事故", "img": "image29.jpg" }, 
-        "D": { "text": "核燃料循环", "img": "image30.jpg" } 
+        "A": { "text": "医疗照射\", \"img\": \"image27.jpg" }, 
+        "B": { "text": "大气核试验\", \"img\": \"image28.jpg" }, 
+        "C": { "text": "切尔诺贝利事故\", \"img\": \"image29.jpg" }, 
+        "D": { "text": "核燃料循环\", \"img\": \"image30.jpg" } 
     },
     "correctAnswer": "A",
     "note": "医疗照射是公众受照射的人工辐射源中贡献最大的。"
@@ -337,10 +337,10 @@ const bank1 = [
         "question": "在以下生活中我们所接触的辐射中，剂量最高的是（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "胸部CT (一次)", "img": "image44.jpg" }, 
-            "B": { "text": "患癌增加 (一年)", "img": "image45.jpg" }, 
-            "C": { "text": "死亡 (短时照射)", "img": "image46.jpg" }, 
-            "D": { "text": "核工业限值 (一年)", "img": "image47.jpg" } 
+            "A": { "text": "胸部CT (一次)\", \"img\": \"image44.jpg" }, 
+            "B": { "text": "患癌增加 (一年)\", \"img\": \"image45.jpg" }, 
+            "C": { "text": "死亡 (短时照射)\", \"img\": \"image46.jpg" }, 
+            "D": { "text": "核工业限值 (一年)\", \"img\": \"image47.jpg" } 
         },
         "correctAnswer": "C",
         "note": "致死所需的短时大剂量照射（通常为数Gy）远高于生活或职业限值。 [cite: 13]"
@@ -388,7 +388,7 @@ const bank1 = [
         "imageName": "image52.jpg",
         "options": { "A": "概率与剂量有关", "B": "严重程度与剂量有关", "C": "小剂量也有危险", "D": "不存在阈值" },
         "correctAnswer": "B",
-        "note": "随机性效应的特点是：剂量越大发生‘概率’越高，但‘严重程度’与剂量无关。 [cite: 13]"
+        "note": "随机性效应的特点是：剂量越大发生'概率'越高，但'严重程度'与剂量无关。 [cite: 13]"
     },
     {
         "id": 47,
@@ -396,10 +396,10 @@ const bank1 = [
         "question": "下列不同种系生物死亡所需的吸收剂量最高的是（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "病毒", "img": "image53.jpg" }, 
-            "B": { "text": "鼠", "img": "image54.jpg" }, 
-            "C": { "text": "大肠杆菌", "img": "image55.jpg" }, 
-            "D": { "text": "人", "img": "image56.jpg" } 
+            "A": { "text": "病毒\", \"img\": \"image53.jpg" }, 
+            "B": { "text": "鼠\", \"img\": \"image54.jpg" }, 
+            "C": { "text": "大肠杆菌\", \"img\": \"image55.jpg" }, 
+            "D": { "text": "人\", \"img\": \"image56.jpg" } 
         },
         "correctAnswer": "A",
         "note": "低等生物（如病毒）的抗辐射能力远强于高等复杂生物。 [cite: 13]"
@@ -410,10 +410,10 @@ const bank1 = [
         "question": "下列不同种系生物死亡所需的吸收剂量最高的是（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "龟", "img": "image57.jpg" }, 
-            "B": { "text": "猴", "img": "image58.jpg" }, 
-            "C": { "text": "大肠杆菌", "img": "image59.jpg" }, 
-            "D": { "text": "鼠", "img": "image60.jpg" } 
+            "A": { "text": "龟\", \"img\": \"image57.jpg" }, 
+            "B": { "text": "猴\", \"img\": \"image58.jpg" }, 
+            "C": { "text": "大肠杆菌\", \"img\": \"image59.jpg" }, 
+            "D": { "text": "鼠\", \"img\": \"image60.jpg" } 
         },
         "correctAnswer": "C",
         "note": "在选项中，微生物（大肠杆菌）的演化程度最低，耐受剂量最高。 [cite: 13]"
@@ -424,10 +424,10 @@ const bank1 = [
         "question": "下列属于轻度敏感的组织或是器官有（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "肝上皮细胞", "img": "image61.jpg" }, 
-            "B": { "text": "心脏", "img": "image62.jpg" }, 
-            "C": { "text": "胚胎", "img": "image63.jpg" }, 
-            "D": { "text": "角膜", "img": "image64.jpg" } 
+            "A": { "text": "肝上皮细胞\", \"img\": \"image61.jpg" }, 
+            "B": { "text": "心脏\", \"img\": \"image62.jpg" }, 
+            "C": { "text": "胚胎\", \"img\": \"image63.jpg" }, 
+            "D": { "text": "角膜\", \"img\": \"image64.jpg" } 
         },
         "correctAnswer": "B",
         "note": "肌肉、心脏和神经组织属于对辐射不敏感或轻度敏感的组织。"
@@ -438,10 +438,10 @@ const bank1 = [
         "question": "当量剂量的国际标准单位（Sv）是以谁的名字命名的？",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "戈瑞", "img": "image65.jpg" }, 
-            "B": { "text": "希沃特", "img": "image66.jpg" }, 
-            "C": { "text": "爱因斯坦", "img": "image67.jpg" }, 
-            "D": { "text": "贝克勒尔", "img": "image68.jpg" } 
+            "A": { "text": "戈瑞\", \"img\": \"image65.jpg" }, 
+            "B": { "text": "希沃特\", \"img\": \"image66.jpg" }, 
+            "C": { "text": "爱因斯坦\", \"img\": \"image67.jpg" }, 
+            "D": { "text": "贝克勒尔\", \"img\": \"image68.jpg" } 
         },
         "correctAnswer": "B",
         "note": "Sv 的专用名称是希沃特（Sievert），用于衡量辐射对生物组织的加权影响。"
@@ -452,10 +452,10 @@ const bank1 = [
         "question": "吸收剂量的国际标准单位（Gy）是以谁的名字命名的？",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "戈瑞", "img": "image69.jpg" }, 
-            "B": { "text": "伦琴", "img": "image70.jpg" }, 
-            "C": { "text": "爱因斯坦", "img": "image71.jpg" }, 
-            "D": { "text": "贝克勒尔", "img": "image72.jpg" } 
+            "A": { "text": "戈瑞\", \"img\": \"image69.jpg" }, 
+            "B": { "text": "伦琴\", \"img\": \"image70.jpg" }, 
+            "C": { "text": "爱因斯坦\", \"img\": \"image71.jpg" }, 
+            "D": { "text": "贝克勒尔\", \"img\": \"image72.jpg" } 
         },
         "correctAnswer": "A",
         "note": "Gy 的专用名称是戈瑞（Gray），定义为每千克受照物质吸收 1 焦耳的辐射能量。"
@@ -463,7 +463,7 @@ const bank1 = [
     {
         "id": 52,
         "type": "single",
-        "question": "图中显示存在“剂量阈值”的关系属于（ ）。",
+        "question": "图中显示存在「剂量阈值」的关系属于（ ）。",
         "imageName": "image73.jpg",
         "options": { "A": "确定性效应", "B": "随机性效应", "C": "指数衰减", "D": "指数增强" },
         "correctAnswer": "A",
@@ -682,23 +682,23 @@ const bank1 = [
         "question": "根据（ ）相对论理论，任何具有一定质量 m 的物体，它相应的能量公式表示为：E= mc2",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "爱因斯坦", "img": "image106.jpg" }, 
-            "B": { "text": "伦琴", "img": "image107.jpg" }, 
-            "C": { "text": "贝克勒尔", "img": "image108.jpg" }, 
-            "D": { "text": "玻恩", "img": "image109.jpg" } 
+            "A": { "text": "爱因斯坦\", \"img\": \"image106.jpg" }, 
+            "B": { "text": "伦琴\", \"img\": \"image107.jpg" }, 
+            "C": { "text": "贝克勒尔\", \"img\": \"image108.jpg" }, 
+            "D": { "text": "玻恩\", \"img\": \"image109.jpg" } 
         },
         "correctAnswer": "A"
     },
     {
         "id": 77,
         "type": "single",
-        "question": "1898 年，（ ）发现当铀发出射线后，可以神奇地转变为其他元素，其中一个元素命名为钋，另一个元素称为镭，即“发光的”元素。",
+        "question": "1898 年，（ ）发现当铀发出射线后，可以神奇地转变为其他元素，其中一个元素命名为钋，另一个元素称为镭，即「发光的」元素。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "伦琴", "img": "image110.jpg" }, 
-            "B": { "text": "贝克勒尔", "img": "image111.jpg" }, 
-            "C": { "text": "居里夫人", "img": "image112.jpg" }, 
-            "D": { "text": "麦克斯韦", "img": "image113.jpg" } 
+            "A": { "text": "伦琴\", \"img\": \"image110.jpg" }, 
+            "B": { "text": "贝克勒尔\", \"img\": \"image111.jpg" }, 
+            "C": { "text": "居里夫人\", \"img\": \"image112.jpg" }, 
+            "D": { "text": "麦克斯韦\", \"img\": \"image113.jpg" } 
         },
         "correctAnswer": "C"
     },
@@ -759,7 +759,7 @@ const bank1 = [
         "imageName": "image122.jpg",
         "options": { "A": "包容", "B": "隔离", "C": "净化", "D": "个人防护" },
         "correctAnswer": "D",
-        "note": "图中人员穿戴了专用的气衣或呼吸保护装备，属于典型的“个人防护”措施。"
+        "note": "图中人员穿戴了专用的气衣或呼吸保护装备，属于典型的\"个人防护\"措施。"
     },
     {
         "id": 84,
@@ -768,7 +768,7 @@ const bank1 = [
         "imageName": "image123.jpg",
         "options": { "A": "包容", "B": "隔离", "C": "净化", "D": "个人防护" },
         "correctAnswer": "A",
-        "note": "将操作限制在手套箱或热室等密闭空间内，防止放射性物质扩散，属于“包容”措施。"
+        "note": "将操作限制在手套箱或热室等密闭空间内，防止放射性物质扩散，属于\"包容\"措施。"
     },
     {
         "id": 85,
@@ -777,7 +777,7 @@ const bank1 = [
         "imageName": "image124.jpg",
         "options": { "A": "电离辐射标志", "B": "电磁辐射标志", "C": "非电离辐射标志", "D": "电离辐射警告标志" },
         "correctAnswer": "D",
-        "note": "黄底黑色的三叶草图形是国际通用的“电离辐射警告标志”。"
+        "note": "黄底黑色的三叶草图形是国际通用的\"电离辐射警告标志\"。"
     },
     {
         "id": 86,
@@ -786,7 +786,7 @@ const bank1 = [
         "imageName": "image125.jpg",
         "options": { "A": "包容", "B": "隔离", "C": "净化", "D": "稀释" },
         "correctAnswer": "A",
-        "note": "将放射源或放射性物质封闭在容器内进行操作，这是内照射防护中的“包容”原则。"
+        "note": "将放射源或放射性物质封闭在容器内进行操作，这是内照射防护中的\"包容\"原则。"
     },
     {
         "id": 87,
@@ -795,7 +795,7 @@ const bank1 = [
         "imageName": "image126.jpg",
         "options": { "A": "时间防护", "B": "距离防护", "C": "屏蔽防护", "D": "个人防护" },
         "correctAnswer": "C",
-        "note": "在人和放射源之间放置吸收射线的材料（如铅玻璃或铅屏风），这属于典型的“屏蔽防护”。"
+        "note": "在人和放射源之间放置吸收射线的材料（如铅玻璃或铅屏风），这属于典型的\"屏蔽防护\"。"
     },
     {
         "id": 88,
@@ -993,7 +993,7 @@ const bank1 = [
         "imageName": "image148.jpg",
         "options": { "A": "进口审批和备案", "B": "转让的审批与备案", "C": "转移的备案", "D": "送贮备案", "E": "返回出口国的审批" },
         "correctAnswer": ["A", "B", "C", "D", "E"],
-        "note": "放射源的全寿命期实行严格的“闭环”管理，包括从进口、转让、转移、使用到废弃送贮或出口退回的所有环节。"
+        "note": "放射源的全寿命期实行严格的\"闭环\"管理，包括从进口、转让、转移、使用到废弃送贮或出口退回的所有环节。"
     },
     {
         "id": 110,
@@ -1082,10 +1082,10 @@ const bank1 = [
         "question": "电离辐射是指其携带的能量足以使物质原子或分子中的电子成为自由态，从而使这些原子或分子发生电离现象的辐射。下列属于电离辐射的是（ ）",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "氡气", "img": "image158.jpg" }, 
-            "B": { "text": "核子秤", "img": "image159.jpg" }, 
-            "C": { "text": "电视", "img": "image160.jpg" }, 
-            "D": { "text": "安检", "img": "image161.jpg" } 
+            "A": { "text": "氡气\", \"img\": \"image158.jpg" }, 
+            "B": { "text": "核子秤\", \"img\": \"image159.jpg" }, 
+            "C": { "text": "电视\", \"img\": \"image160.jpg" }, 
+            "D": { "text": "安检\", \"img\": \"image161.jpg" } 
         },
         "correctAnswer": ["A", "B", "D"],
         "note": "氡气、核子秤、安检仪均属电离辐射（或含有放射源）。普通电视机主要产生非电离辐射。"
@@ -1096,10 +1096,10 @@ const bank1 = [
         "question": "闪烁探测器具有分辨时间短、探测效率高和能测量射线能量等优点，是目前应用最广的辐射探测器之一。下列探测器中属于无机闪烁体探测器的是（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "碘化钠", "img": "image162.jpg" }, 
-            "B": { "text": "碘化铯", "img": "image163.jpg" }, 
-            "C": { "text": "硫化锌", "img": "image164.jpg" }, 
-            "D": { "text": "锂玻璃", "img": "image165.jpg" } 
+            "A": { "text": "碘化钠\", \"img\": \"image162.jpg" }, 
+            "B": { "text": "碘化铯\", \"img\": \"image163.jpg" }, 
+            "C": { "text": "硫化锌\", \"img\": \"image164.jpg" }, 
+            "D": { "text": "锂玻璃\", \"img\": \"image165.jpg" } 
         },
         "correctAnswer": ["A", "B", "C", "D"],
         "note": "这四种材料均是核仪器中常用于测量辐射的无机闪烁体材料。"
@@ -1110,10 +1110,10 @@ const bank1 = [
         "question": "下列探测器中属于半导体探测器有（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "金硅面垒", "img": "image166.jpg" }, 
-            "B": { "text": "平面硅（PIPS）", "img": "image167.jpg" }, 
-            "C": { "text": "高纯锗", "img": "image168.jpg" }, 
-            "D": { "text": "锂玻璃", "img": "image169.jpg" } 
+            "A": { "text": "金硅面垒\", \"img\": \"image166.jpg" }, 
+            "B": { "text": "平面硅（PIPS）\", \"img\": \"image167.jpg" }, 
+            "C": { "text": "高纯锗\", \"img\": \"image168.jpg" }, 
+            "D": { "text": "锂玻璃\", \"img\": \"image169.jpg" } 
         },
         "correctAnswer": ["A", "B", "C"],
         "note": "金硅面垒、平面硅和高纯锗均属于半导体探测器，常用于α、β和γ能谱测量。锂玻璃属于无机闪烁体。"
@@ -1124,10 +1124,10 @@ const bank1 = [
         "question": "下列探测器中属于闪烁体探测器有（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "电离室", "img": "image170.jpg" }, 
-            "B": { "text": "平面硅（PIPS）", "img": "image171.jpg" }, 
-            "C": { "text": "液体闪烁器", "img": "image172.jpg" }, 
-            "D": { "text": "碘化铯", "img": "image173.jpg" } 
+            "A": { "text": "电离室\", \"img\": \"image170.jpg" }, 
+            "B": { "text": "平面硅（PIPS）\", \"img\": \"image171.jpg" }, 
+            "C": { "text": "液体闪烁器\", \"img\": \"image172.jpg" }, 
+            "D": { "text": "碘化铯\", \"img\": \"image173.jpg" } 
         },
         "correctAnswer": ["C", "D"],
         "note": "液体闪烁器和碘化铯(CsI)均属于闪烁体探测器。电离室是气体探测器，平面硅是半导体探测器。"
@@ -1138,10 +1138,10 @@ const bank1 = [
         "question": "下列探测器中常用于中子探测的有（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "硫化锌", "img": "image174.jpg" }, 
-            "B": { "text": "BF3 正比计数器", "img": "image175.jpg" }, 
-            "C": { "text": "3He 正比计数器", "img": "image176.jpg" }, 
-            "D": { "text": "锂玻璃", "img": "image177.jpg" } 
+            "A": { "text": "硫化锌\", \"img\": \"image174.jpg" }, 
+            "B": { "text": "BF3 正比计数器\", \"img\": \"image175.jpg" }, 
+            "C": { "text": "3He 正比计数器\", \"img\": \"image176.jpg" }, 
+            "D": { "text": "锂玻璃\", \"img\": \"image177.jpg" } 
         },
         "correctAnswer": ["A", "B", "C", "D"],
         "note": "BF3、3He正比计数器是经典的中子探测器；锂玻璃和涂有含硼/锂的硫化锌闪烁体也常被用来探测中子。"
@@ -1152,10 +1152,10 @@ const bank1 = [
         "question": "核试验的类型包括以下哪些方式（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "地上核试验", "img": "image178.jpg" }, 
-            "B": { "text": "地下核试验", "img": "image179.jpg" }, 
-            "C": { "text": "高空核试验", "img": "image180.jpg" }, 
-            "D": { "text": "水下核试验", "img": "image181.jpg" } 
+            "A": { "text": "地上核试验\", \"img\": \"image178.jpg" }, 
+            "B": { "text": "地下核试验\", \"img\": \"image179.jpg" }, 
+            "C": { "text": "高空核试验\", \"img\": \"image180.jpg" }, 
+            "D": { "text": "水下核试验\", \"img\": \"image181.jpg" } 
         },
         "correctAnswer": ["A", "B", "C", "D"],
         "note": "历史上核试验曾在各个环境中进行过，主要分类包括大气层（地上、高空）、地下和水下核试验。"
@@ -1166,10 +1166,10 @@ const bank1 = [
         "question": "电离辐射是指其携带的能量足以使物质原子或分子中的电子成为自由态，从而使这些原子或分子发生电离现象的辐射。下列属于电离辐射的是（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "电脑", "img": "image182.jpg" }, 
-            "B": { "text": "灯源", "img": "image183.jpg" }, 
-            "C": { "text": "电子加速器", "img": "image184.jpg" }, 
-            "D": { "text": "辐照灭菌", "img": "image185.jpg" } 
+            "A": { "text": "电脑\", \"img\": \"image182.jpg" }, 
+            "B": { "text": "灯源\", \"img\": \"image183.jpg" }, 
+            "C": { "text": "电子加速器\", \"img\": \"image184.jpg" }, 
+            "D": { "text": "辐照灭菌\", \"img\": \"image185.jpg" } 
         },
         "correctAnswer": ["C", "D"],
         "note": "电子加速器产生高能射线，辐照灭菌利用的是γ射线或电子束，二者均属于电离辐射。电脑和普通灯源多为非电离辐射。"
@@ -1189,10 +1189,10 @@ const bank1 = [
         "question": "以下属于非电离辐射的有（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "手机", "img": "image187.jpg" }, 
-            "B": { "text": "电脑", "img": "image188.jpg" }, 
-            "C": { "text": "微波", "img": "image189.jpg" }, 
-            "D": { "text": "广播", "img": "image190.jpg" } 
+            "A": { "text": "手机\", \"img\": \"image187.jpg" }, 
+            "B": { "text": "电脑\", \"img\": \"image188.jpg" }, 
+            "C": { "text": "微波\", \"img\": \"image189.jpg" }, 
+            "D": { "text": "广播\", \"img\": \"image190.jpg" } 
         },
         "correctAnswer": ["A", "B", "C", "D"],
         "note": "手机、电脑、微波炉和广播电台发出的均为电磁波（无线电波或微波），因其能量较低不足以引起原子电离，属于非电离辐射。"
@@ -1203,10 +1203,10 @@ const bank1 = [
         "question": "电离辐射种类很多，包括带电粒子和不带电粒子。不带电粒子有（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "X 射线", "img": "image191.jpg" }, 
-            "B": { "text": "γ 射线", "img": "image192.jpg" }, 
-            "C": { "text": "质子", "img": "image193.jpg" }, 
-            "D": { "text": "中子", "img": "image194.jpg" } 
+            "A": { "text": "X 射线\", \"img\": \"image191.jpg" }, 
+            "B": { "text": "γ 射线\", \"img\": \"image192.jpg" }, 
+            "C": { "text": "质子\", \"img\": \"image193.jpg" }, 
+            "D": { "text": "中子\", \"img\": \"image194.jpg" } 
         },
         "correctAnswer": ["A", "B", "D"],
         "note": "X射线和γ射线属于电磁辐射（光子），中子是不带电的粒子。质子带正电，属于带电粒子。"
@@ -1217,10 +1217,10 @@ const bank1 = [
         "question": "电离辐射种类很多，包括带电粒子和不带电粒子。带电粒子有（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "α 粒子", "img": "image195.jpg" }, 
-            "B": { "text": "β 粒子", "img": "image196.jpg" }, 
-            "C": { "text": "质子", "img": "image197.jpg" }, 
-            "D": { "text": "中子", "img": "image198.jpg" } 
+            "A": { "text": "α 粒子\", \"img\": \"image195.jpg" }, 
+            "B": { "text": "β 粒子\", \"img\": \"image196.jpg" }, 
+            "C": { "text": "质子\", \"img\": \"image197.jpg" }, 
+            "D": { "text": "中子\", \"img\": \"image198.jpg" } 
         },
         "correctAnswer": ["A", "B", "C"],
         "note": "α粒子（带正电的氦核）、β粒子（高速电子或正电子）和质子（带正电）均是带电粒子。"
@@ -1240,10 +1240,10 @@ const bank1 = [
         "question": "非电离辐射，由于辐射能量低，不能从原子、分子或其他束缚状态放出电子，包括（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "可见光", "img": "image200.jpg" }, 
-            "B": { "text": "热源", "img": "image201.jpg" }, 
-            "C": { "text": "电视天线", "img": "image202.jpg" }, 
-            "D": { "text": "电脑", "img": "image203.jpg" } 
+            "A": { "text": "可见光\", \"img\": \"image200.jpg" }, 
+            "B": { "text": "热源\", \"img\": \"image201.jpg" }, 
+            "C": { "text": "电视天线\", \"img\": \"image202.jpg" }, 
+            "D": { "text": "电脑\", \"img\": \"image203.jpg" } 
         },
         "correctAnswer": ["A", "B", "C", "D"],
         "note": "可见光、热辐射（红外线）以及家用电器或天线发出的射频波均属于非电离辐射。"
@@ -1255,7 +1255,7 @@ const bank1 = [
         "imageName": "image204.jpg",
         "options": { "A": "机械手操作", "B": "移动屏蔽", "C": "铅玻璃", "D": "穿工作服", "E": "穿防护服" },
         "correctAnswer": ["A", "B", "C"],
-        "note": "机械手操作利用了“距离防护”；移动屏蔽和铅玻璃利用了“屏蔽防护”。一般的普通防护服对高穿透性外照射通常起不到防护作用。"
+        "note": "机械手操作利用了\"距离防护\"；移动屏蔽和铅玻璃利用了\"屏蔽防护\"。一般的普通防护服对高穿透性外照射通常起不到防护作用。"
     },
     {
         "id": 133,
@@ -1300,7 +1300,7 @@ const bank1 = [
         "imageName": "image209.jpg",
         "options": { "A": "放射性同位素贮存场所", "B": "放射性工作场所出入口", "C": "室外作业安全区域", "D": "野外作业安全区域", "E": "放射性同位素运输工具" },
         "correctAnswer": ["A", "B", "C", "D", "E"],
-        "note": "带有“当心电离辐射”字样的警告标志，通常设置在需要控制或警示人员进入的场所外围或运输工具上。"
+        "note": "带有\"当心电离辐射\"字样的警告标志，通常设置在需要控制或警示人员进入的场所外围或运输工具上。"
     },
     {
         "id": 138,
@@ -1344,10 +1344,10 @@ const bank1 = [
         "question": "放射性物质进入体内的途径主要（ ）等。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "吸入", "img": "image214.jpg" }, 
-            "B": { "text": "食入", "img": "image215.jpg" }, 
-            "C": { "text": "皮肤渗入", "img": "image216.jpg" }, 
-            "D": { "text": "伤口侵入", "img": "image217.jpg" } 
+            "A": { "text": "吸入\", \"img\": \"image214.jpg" }, 
+            "B": { "text": "食入\", \"img\": \"image215.jpg" }, 
+            "C": { "text": "皮肤渗入\", \"img\": \"image216.jpg" }, 
+            "D": { "text": "伤口侵入\", \"img\": \"image217.jpg" } 
         },
         "correctAnswer": ["A", "B", "C", "D"],
         "note": "放射性物质主要通过呼吸道吸入、消化道食入、完好皮肤渗入以及破损伤口侵入这四种途径进入人体造成内照射。"
@@ -1358,10 +1358,10 @@ const bank1 = [
         "question": "常用的β 屏蔽材料有（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "铅", "img": "image218.jpg" }, 
-            "B": { "text": "有机玻璃", "img": "image219.jpg" }, 
-            "C": { "text": "混凝土", "img": "image220.jpg" }, 
-            "D": { "text": "铝", "img": "image221.jpg" } 
+            "A": { "text": "铅\", \"img\": \"image218.jpg" }, 
+            "B": { "text": "有机玻璃\", \"img\": \"image219.jpg" }, 
+            "C": { "text": "混凝土\", \"img\": \"image220.jpg" }, 
+            "D": { "text": "铝\", \"img\": \"image221.jpg" } 
         },
         "correctAnswer": ["B", "C", "D"],
         "note": "屏蔽β射线通常选用低原子序数材料（如有机玻璃、铝、混凝土等），以减少韧致辐射的产生。铅是高原子序数材料，直接屏蔽β易产生强烈的韧致辐射。"
@@ -1372,10 +1372,10 @@ const bank1 = [
         "question": "常用的γ 屏蔽材料有（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "铅", "img": "image222.jpg" }, 
-            "B": { "text": "钨", "img": "image223.jpg" }, 
-            "C": { "text": "混凝土", "img": "image224.jpg" }, 
-            "D": { "text": "砖", "img": "image225.jpg" } 
+            "A": { "text": "铅\", \"img\": \"image222.jpg" }, 
+            "B": { "text": "钨\", \"img\": \"image223.jpg" }, 
+            "C": { "text": "混凝土\", \"img\": \"image224.jpg" }, 
+            "D": { "text": "砖\", \"img\": \"image225.jpg" } 
         },
         "correctAnswer": ["A", "B", "C", "D"],
         "note": "屏蔽γ射线主要依靠物质的密度和原子序数，铅、钨、混凝土和砖等重物质或厚重材料都是常用的γ屏蔽材料。"
@@ -1386,10 +1386,10 @@ const bank1 = [
         "question": "常用的中子屏蔽材料有（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "水", "img": "image226.jpg" }, 
-            "B": { "text": "石蜡", "img": "image227.jpg" }, 
-            "C": { "text": "混凝土", "img": "image228.jpg" }, 
-            "D": { "text": "聚乙烯", "img": "image229.jpg" } 
+            "A": { "text": "水\", \"img\": \"image226.jpg" }, 
+            "B": { "text": "石蜡\", \"img\": \"image227.jpg" }, 
+            "C": { "text": "混凝土\", \"img\": \"image228.jpg" }, 
+            "D": { "text": "聚乙烯\", \"img\": \"image229.jpg" } 
         },
         "correctAnswer": ["A", "B", "C", "D"],
         "note": "屏蔽中子通常需要富含氢的材料（如水、石蜡、聚乙烯）来慢化快中子，混凝土既含水也能提供结构屏蔽，是极佳的综合屏蔽材料。"
@@ -1436,10 +1436,10 @@ const bank1 = [
         "question": "外照射个人剂量监测是指利用工作人员佩带剂量计对个人剂量当量进行的监测，以及对测量结果的解释。常用的个人剂量计有（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "TLD 个人剂量计", "img": "image234.jpg" }, 
-            "B": { "text": "手脚表面污染仪", "img": "image235.jpg" }, 
-            "C": { "text": "指环/腕式个人剂量计", "img": "image236.jpg" }, 
-            "D": { "text": "个人剂量报警仪", "img": "image237.jpg" } 
+            "A": { "text": "TLD 个人剂量计\", \"img\": \"image234.jpg" }, 
+            "B": { "text": "手脚表面污染仪\", \"img\": \"image235.jpg" }, 
+            "C": { "text": "指环/腕式个人剂量计\", \"img\": \"image236.jpg" }, 
+            "D": { "text": "个人剂量报警仪\", \"img\": \"image237.jpg" } 
         },
         "correctAnswer": ["A", "C", "D"],
         "note": "TLD（热释光剂量计）、指环计和电子报警仪均属个人外照射剂量计。手脚表面污染仪用于监测表面放射性污染，不属于外照射个人剂量计。"
@@ -1450,10 +1450,10 @@ const bank1 = [
         "question": "在开放型工作场所出口处设置全身表面或手脚污染仪，可防止工作人员带出放射性物质，污染非放射性区域或环境，常用的表面污染监测仪有（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "CoMo170", "img": "image238.jpg" }, 
-            "B": { "text": "手脚表面污染仪", "img": "image239.jpg" }, 
-            "C": { "text": "NaI 探测器", "img": "image240.jpg" }, 
-            "D": { "text": "BH3105", "img": "image241.jpg" } 
+            "A": { "text": "CoMo170\", \"img\": \"image238.jpg" }, 
+            "B": { "text": "手脚表面污染仪\", \"img\": \"image239.jpg" }, 
+            "C": { "text": "NaI 探测器\", \"img\": \"image240.jpg" }, 
+            "D": { "text": "BH3105\", \"img\": \"image241.jpg" } 
         },
         "correctAnswer": ["A", "B"],
         "note": "CoMo170 和手脚表面污染仪是常见的专用表面污染监测设备。NaI多用于γ能谱测量，不常作为大面积表面污染探测。"
@@ -1473,10 +1473,10 @@ const bank1 = [
         "question": "工作场所 X、γ 外照射的监测，是核技术利用中最常见的监测项目。监测仪器最好选用便携式周围剂量当量率仪，也可选用空气比释动能率仪、空气吸收剂量率仪。常用的便携式剂量率仪有（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "正比计数管", "img": "image243.jpg" }, 
-            "B": { "text": "电离室巡测仪", "img": "image244.jpg" }, 
-            "C": { "text": "NaI 探测器", "img": "image245.jpg" }, 
-            "D": { "text": "塑料闪烁体探测器", "img": "image246.jpg" } 
+            "A": { "text": "正比计数管\", \"img\": \"image243.jpg" }, 
+            "B": { "text": "电离室巡测仪\", \"img\": \"image244.jpg" }, 
+            "C": { "text": "NaI 探测器\", \"img\": \"image245.jpg" }, 
+            "D": { "text": "塑料闪烁体探测器\", \"img\": \"image246.jpg" } 
         },
         "correctAnswer": ["A", "B", "C", "D"],
         "note": "正比计数管（如某些中子/γ巡测仪）、高压电离室、NaI闪烁体和塑料闪烁体探测器均可被制成便携式剂量率仪用于场所监测。"
@@ -1559,10 +1559,10 @@ const bank1 = [
         "question": "电离辐射广泛应用于工业，包括（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "电线辐照加工", "img": "image255.jpg" }, 
-            "B": { "text": "探伤", "img": "image256.jpg" }, 
-            "C": { "text": "核子仪", "img": "image257.jpg" }, 
-            "D": { "text": "测井", "img": "image258.jpg" } 
+            "A": { "text": "电线辐照加工\", \"img\": \"image255.jpg" }, 
+            "B": { "text": "探伤\", \"img\": \"image256.jpg" }, 
+            "C": { "text": "核子仪\", \"img\": \"image257.jpg" }, 
+            "D": { "text": "测井\", \"img\": \"image258.jpg" } 
         },
         "correctAnswer": ["A", "B", "C", "D"],
         "note": "电线电缆辐照交联、工业射线探伤、各种核子秤/料位计以及放射性测井，都是电离辐射在工业领域的典型应用。"
@@ -1600,10 +1600,10 @@ const bank1 = [
         "question": "气体探测器均以气体作为探测介质，具有制备简单、性能可靠、成本低廉、使用方便等优点，常用的气体探测器有（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "平板型电离室", "img": "image262.jpg" }, 
-            "B": { "text": "球形电离室", "img": "image263.jpg" }, 
-            "C": { "text": "正比计数器", "img": "image264.jpg" }, 
-            "D": { "text": "G-M 计数管", "img": "image265.jpg" } 
+            "A": { "text": "平板型电离室\", \"img\": \"image262.jpg" }, 
+            "B": { "text": "球形电离室\", \"img\": \"image263.jpg" }, 
+            "C": { "text": "正比计数器\", \"img\": \"image264.jpg" }, 
+            "D": { "text": "G-M 计数管\", \"img\": \"image265.jpg" } 
         },
         "correctAnswer": ["A", "B", "C", "D"],
         "note": "电离室（含平板和球形）、正比计数器和盖革-米勒(G-M)计数管是三大类最经典的气体探测器。"
@@ -1696,7 +1696,7 @@ const bank1 = [
         "imageName": "image275.jpg",
         "options": { "A": "发生严重程度和机率都随剂量变化而变化", "B": "即使剂量很小，也有可能发生效应", "C": "发生概率随受照剂量增加而增加，而严重程度与受照剂量无关", "D": "存在剂量阈值" },
         "correctAnswer": ["B", "C"],
-        "note": "选项B和C描述的是“随机性效应”的特征（无阈值、严重程度与剂量无关）。确定性效应有明确的阈值，且严重程度随剂量增加而增加。"
+        "note": "选项B和C描述的是\"随机性效应\"的特征（无阈值、严重程度与剂量无关）。确定性效应有明确的阈值，且严重程度随剂量增加而增加。"
     },
     {
         "id": 177,
@@ -1704,10 +1704,10 @@ const bank1 = [
         "question": "不同的细胞具有不同的辐射敏感性，不同的组织也具有不同的敏感性，下列属于不敏感的组织或是器官有（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "骨骼", "img": "image276.jpg" }, 
-            "B": { "text": "肌肉", "img": "image277.jpg" }, 
-            "C": { "text": "胚胎", "img": "image278.jpg" }, 
-            "D": { "text": "眼睛", "img": "image279.jpg" } 
+            "A": { "text": "骨骼\", \"img\": \"image276.jpg" }, 
+            "B": { "text": "肌肉\", \"img\": \"image277.jpg" }, 
+            "C": { "text": "胚胎\", \"img\": \"image278.jpg" }, 
+            "D": { "text": "眼睛\", \"img\": \"image279.jpg" } 
         },
         "correctAnswer": ["A", "B"],
         "note": "在人体组织中，骨骼、肌肉和神经组织属于对电离辐射不敏感或轻度敏感的组织。而胚胎和眼睛（晶状体）对辐射非常敏感。"
@@ -1718,10 +1718,10 @@ const bank1 = [
         "question": "不同的细胞具有不同的辐射敏感性，不同的组织也具有不同的敏感性，下列属于中度敏感的组织或是器官有（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "肾上皮细胞", "img": "image280.jpg" }, 
-            "B": { "text": "肺上皮细胞", "img": "image281.jpg" }, 
-            "C": { "text": "血管", "img": "image282.jpg" }, 
-            "D": { "text": "眼晶体", "img": "image283.jpg" } 
+            "A": { "text": "肾上皮细胞\", \"img\": \"image280.jpg" }, 
+            "B": { "text": "肺上皮细胞\", \"img\": \"image281.jpg" }, 
+            "C": { "text": "血管\", \"img\": \"image282.jpg" }, 
+            "D": { "text": "眼晶体\", \"img\": \"image283.jpg" } 
         },
         "correctAnswer": ["A", "B", "C", "D"],
         "note": "肾脏、肺部、血管内皮以及眼晶体在放射生物学中通常被归类为对电离辐射中度敏感的组织和器官。"
@@ -1732,10 +1732,10 @@ const bank1 = [
         "question": "不同的细胞具有不同的辐射敏感性，不同的组织也具有不同的敏感性，下列属于高度敏感的组织或是器官有（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "胸腺", "img": "image284.jpg" }, 
-            "B": { "text": "肠胃上皮细胞", "img": "image285.jpg" }, 
-            "C": { "text": "胚胎组织", "img": "image286.jpg" }, 
-            "D": { "text": "肾上皮细胞", "img": "image287.jpg" } 
+            "A": { "text": "胸腺\", \"img\": \"image284.jpg" }, 
+            "B": { "text": "肠胃上皮细胞\", \"img\": \"image285.jpg" }, 
+            "C": { "text": "胚胎组织\", \"img\": \"image286.jpg" }, 
+            "D": { "text": "肾上皮细胞\", \"img\": \"image287.jpg" } 
         },
         "correctAnswer": ["A", "B", "C"],
         "note": "淋巴组织（如胸腺）、肠胃上皮细胞、造血系统以及胚胎组织细胞分裂异常活跃，属于对辐射高度敏感的组织；而肾上皮细胞属于中度敏感。"
@@ -1746,10 +1746,10 @@ const bank1 = [
         "question": "由外照射所致的外照射慢性放射病，其临床表现有（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "头晕头痛", "img": "image288.jpg" }, 
-            "B": { "text": "毛发脱落", "img": "image289.jpg" }, 
-            "C": { "text": "心动过缓", "img": "image290.jpg" }, 
-            "D": { "text": "眼晶体混浊", "img": "image291.jpg" } 
+            "A": { "text": "头晕头痛\", \"img\": \"image288.jpg" }, 
+            "B": { "text": "毛发脱落\", \"img\": \"image289.jpg" }, 
+            "C": { "text": "心动过缓\", \"img\": \"image290.jpg" }, 
+            "D": { "text": "眼晶体混浊\", \"img\": \"image291.jpg" } 
         },
         "correctAnswer": ["A", "B", "C", "D"],
         "note": "长期受到超剂量限值的外照射会引起慢性放射病，症状涵盖神经系统、心血管系统（心动过缓）、毛发脱落及辐射诱发的白内障（眼晶体混浊）等。"
@@ -1760,10 +1760,10 @@ const bank1 = [
         "question": "外照射引起的急性放射病一般由体外大剂量 X、γ 和中子照射机体引起。以下选项中可能引起急性放射病的有（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "核事故", "img": "image292.jpg" }, 
-            "B": { "text": "医疗照射", "img": "image293.jpg" }, 
-            "C": { "text": "核爆炸", "img": "image294.jpg" }, 
-            "D": { "text": "乘坐飞机", "img": "image295.jpg" } 
+            "A": { "text": "核事故\", \"img\": \"image292.jpg" }, 
+            "B": { "text": "医疗照射\", \"img\": \"image293.jpg" }, 
+            "C": { "text": "核爆炸\", \"img\": \"image294.jpg" }, 
+            "D": { "text": "乘坐飞机\", \"img\": \"image295.jpg" } 
         },
         "correctAnswer": ["A", "B", "C"],
         "note": "急性放射病需要短时间内的大剂量照射。核事故、核武器爆炸以及高剂量的医疗事故可能导致此后果。乘坐飞机受到的宇宙射线剂量极低，不会引发急性放射病。"
@@ -1921,10 +1921,10 @@ const bank1 = [
         "question": "非电离辐射，由于辐射能量低，不能从原子、分子或其他束缚状态放出电子，包括（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "高压线", "img": "image327.jpg" }, 
-            "B": { "text": "收音机", "img": "image328.jpg" }, 
-            "C": { "text": "基站", "img": "image329.jpg" }, 
-            "D": { "text": "微波炉", "img": "image330.jpg" } 
+            "A": { "text": "高压线\", \"img\": \"image327.jpg" }, 
+            "B": { "text": "收音机\", \"img\": \"image328.jpg" }, 
+            "C": { "text": "基站\", \"img\": \"image329.jpg" }, 
+            "D": { "text": "微波炉\", \"img\": \"image330.jpg" } 
         },
         "correctAnswer": ["A", "B", "C", "D"],
         "note": "这四个选项涉及的设备产生的均是电磁场或低频/射频电磁波，属于典型的非电离辐射。"
@@ -1935,10 +1935,10 @@ const bank1 = [
         "question": "电离辐射是指其携带的能量足以使物质原子或分子中的电子成为自由态，从而使这些原子或分子发生电离现象的辐射。下列属于电离辐射的是（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "宇宙射线", "img": "image331.jpg" }, 
-            "B": { "text": "放射源", "img": "image332.jpg" }, 
-            "C": { "text": "X 光", "img": "image333.jpg" }, 
-            "D": { "text": "电焊弧", "img": "image334.jpg" } 
+            "A": { "text": "宇宙射线\", \"img\": \"image331.jpg" }, 
+            "B": { "text": "放射源\", \"img\": \"image332.jpg" }, 
+            "C": { "text": "X 光\", \"img\": \"image333.jpg" }, 
+            "D": { "text": "电焊弧\", \"img\": \"image334.jpg" } 
         },
         "correctAnswer": ["A", "B", "C"],
         "note": "宇宙射线、人工/天然放射源以及医用X光机都会产生电离辐射。电焊弧光主要产生非电离的紫外线和强光。"
@@ -1949,10 +1949,10 @@ const bank1 = [
         "question": "电离辐射分为直接电离辐射和间接电离辐射。下列属于直接电离辐射的有（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "α 粒子", "img": "image335.jpg" }, 
-            "B": { "text": "β 粒子", "img": "image336.jpg" }, 
-            "C": { "text": "质子", "img": "image337.jpg" }, 
-            "D": { "text": "γ 光子", "img": "image338.jpg" } 
+            "A": { "text": "α 粒子\", \"img\": \"image335.jpg" }, 
+            "B": { "text": "β 粒子\", \"img\": \"image336.jpg" }, 
+            "C": { "text": "质子\", \"img\": \"image337.jpg" }, 
+            "D": { "text": "γ 光子\", \"img\": \"image338.jpg" } 
         },
         "correctAnswer": ["A", "B", "C"],
         "note": "带电粒子（如α粒子、β粒子、质子）能通过库仑力直接引起物质原子电离，属于直接电离辐射；γ光子不带电，属于间接电离辐射。"
@@ -1963,10 +1963,10 @@ const bank1 = [
         "question": "间接电离辐射是能够释放出直接电离粒子或引起核反应的非带电粒子，如（ ）等。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "X 射线", "img": "image339.jpg" }, 
-            "B": { "text": "γ 射线", "img": "image340.jpg" }, 
-            "C": { "text": "质子", "img": "image341.jpg" }, 
-            "D": { "text": "中子", "img": "image342.jpg" } 
+            "A": { "text": "X 射线\", \"img\": \"image339.jpg" }, 
+            "B": { "text": "γ 射线\", \"img\": \"image340.jpg" }, 
+            "C": { "text": "质子\", \"img\": \"image341.jpg" }, 
+            "D": { "text": "中子\", \"img\": \"image342.jpg" } 
         },
         "correctAnswer": ["A", "B", "D"],
         "note": "光子（X、γ射线）和中子都是不带电的粒子，它们通过发生次级作用（如光电效应或核反应）间接导致电离。"
@@ -1977,10 +1977,10 @@ const bank1 = [
         "question": "直接电离辐射是指那些具有足够大的动能，通过碰撞就能引起物质的分子、原子电离的带电粒子，如（ ）等。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "α 粒子", "img": "image343.jpg" }, 
-            "B": { "text": "β 粒子", "img": "image344.jpg" }, 
-            "C": { "text": "质子", "img": "image345.jpg" }, 
-            "D": { "text": "γ 光子", "img": "image346.jpg" } 
+            "A": { "text": "α 粒子\", \"img\": \"image343.jpg" }, 
+            "B": { "text": "β 粒子\", \"img\": \"image344.jpg" }, 
+            "C": { "text": "质子\", \"img\": \"image345.jpg" }, 
+            "D": { "text": "γ 光子\", \"img\": \"image346.jpg" } 
         },
         "correctAnswer": ["A", "B", "C"],
         "note": "再次强调，直接电离的前提是粒子自身必须带有电荷。"
@@ -1991,10 +1991,10 @@ const bank1 = [
         "question": "电离辐射种类很多，包括带电粒子和不带电粒子。不带电粒子有（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "α 粒子", "img": "image347.jpg" }, 
-            "B": { "text": "γ 射线", "img": "image348.jpg" }, 
-            "C": { "text": "β 粒子", "img": "image349.jpg" }, 
-            "D": { "text": "荧光X 射线", "img": "image350.jpg" } 
+            "A": { "text": "α 粒子\", \"img\": \"image347.jpg" }, 
+            "B": { "text": "γ 射线\", \"img\": \"image348.jpg" }, 
+            "C": { "text": "β 粒子\", \"img\": \"image349.jpg" }, 
+            "D": { "text": "荧光X 射线\", \"img\": \"image350.jpg" } 
         },
         "correctAnswer": ["B", "D"],
         "note": "γ射线和荧光X射线均为光子辐射，质量为零且不携带电荷。"
@@ -2005,10 +2005,10 @@ const bank1 = [
         "question": "电离辐射种类很多，包括带电粒子和不带电粒子。带电粒子有（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "质子", "img": "image351.jpg" }, 
-            "B": { "text": "γ 射线", "img": "image352.jpg" }, 
-            "C": { "text": "β 粒子", "img": "image353.jpg" }, 
-            "D": { "text": "中子", "img": "image354.jpg" } 
+            "A": { "text": "质子\", \"img\": \"image351.jpg" }, 
+            "B": { "text": "γ 射线\", \"img\": \"image352.jpg" }, 
+            "C": { "text": "β 粒子\", \"img\": \"image353.jpg" }, 
+            "D": { "text": "中子\", \"img\": \"image354.jpg" } 
         },
         "correctAnswer": ["A", "C"],
         "note": "质子带正电，β粒子带负（或正）电，属于带电粒子。"
@@ -2308,7 +2308,7 @@ const bank2 = [
             "D": "与防护门联锁"
         },
         "correctAnswer": "B",
-        "note": "固定场所的在线监测系统主要用于安全预警，必备功能包括高可靠性、超剂量率阈值报警以及门机联锁控制。复杂的“能谱分析”（识别具体是哪种放射性同位素）通常是专业实验室仪器的功能，并非日常防护在线监测的必备项。"
+        "note": "固定场所的在线监测系统主要用于安全预警，必备功能包括高可靠性、超剂量率阈值报警以及门机联锁控制。复杂的\"能谱分析\"（识别具体是哪种放射性同位素）通常是专业实验室仪器的功能，并非日常防护在线监测的必备项。"
     },
     {
         "id": 21,
@@ -2555,7 +2555,7 @@ const bank2 = [
             "D": "避免确定性效应的发生，并将随机性效应的发生概率降低到合理可达尽可能低的水平"
         },
         "correctAnswer": "C",
-        "note": "辐射防护的目的并非“限制一切有关辐射照射的实践活动”，而是在确认实践具备正当性的前提下，在安全防护的保障中促进辐射应用的发展。"
+        "note": "辐射防护的目的并非\"限制一切有关辐射照射的实践活动\"，而是在确认实践具备正当性的前提下，在安全防护的保障中促进辐射应用的发展。"
     },
     {
         "id": 40,
@@ -2633,7 +2633,7 @@ const bank2 = [
             "D": "小于"
         },
         "correctAnswer": "B",
-        "note": "个人剂量限值专门用于限制“人工实践”产生的附加照射，因此不包括天然本底辐射（如宇宙射线、天然放射性核素等）和医疗照射。"
+        "note": "个人剂量限值专门用于限制\"人工实践\"产生的附加照射，因此不包括天然本底辐射（如宇宙射线、天然放射性核素等）和医疗照射。"
     },
     {
         "id": 46,
@@ -2664,7 +2664,7 @@ const bank2 = [
     {
         "id": 48,
         "type": "single",
-        "question": "在具体实践过程中，“剂量分担”常被用于减少放射性工作人员的个人剂量。那么“剂量分担”按方法论分，属于下列哪种辐射方法（ ）。",
+        "question": "在具体实践过程中，\"剂量分担\"常被用于减少放射性工作人员的个人剂量。那么\"剂量分担\"按方法论分，属于下列哪种辐射方法（ ）。",
         "options": {
             "A": "时间防护法",
             "B": "距离防护法",
@@ -2672,7 +2672,7 @@ const bank2 = [
             "D": "源项控制法"
         },
         "correctAnswer": "A",
-        "note": "“剂量分担”是指安排多人轮换去完成同一项有辐射风险的工作，从而减少每个人在辐射场中的停留时间，因此属于时间防护法。"
+        "note": "\"剂量分担\"是指安排多人轮换去完成同一项有辐射风险的工作，从而减少每个人在辐射场中的停留时间，因此属于时间防护法。"
     },
     {
         "id": 49,
@@ -2724,7 +2724,7 @@ const bank2 = [
             "D": "优化就是指将个人剂量降到最低值"
         },
         "correctAnswer": "C",
-        "note": "最优化（ALARA原则）并不是要求不惜代价降到绝对零，而是在兼顾经济和社会成本的前提下，将辐射剂量保持在“可合理达到的尽量低水平”。"
+        "note": "最优化（ALARA原则）并不是要求不惜代价降到绝对零，而是在兼顾经济和社会成本的前提下，将辐射剂量保持在\"可合理达到的尽量低水平\"。"
     },
     {
         "id": 53,
@@ -2737,7 +2737,7 @@ const bank2 = [
             "D": "正当性是指应用辐射带来的利益要足够大，要保证企业能够获益的实践活动"
         },
         "correctAnswer": "D",
-        "note": "正当性评判中的“利益”是指对社会和受照个人带来的整体福祉（如医疗诊断治病救人），而不是单纯为了“保证企业获益”这种狭隘的商业利益。"
+        "note": "正当性评判中的\"利益\"是指对社会和受照个人带来的整体福祉（如医疗诊断治病救人），而不是单纯为了\"保证企业获益\"这种狭隘的商业利益。"
     },
     {
         "id": 54,
@@ -2750,7 +2750,7 @@ const bank2 = [
             "D": "阿尔法粒子"
         },
         "correctAnswer": "C",
-        "note": "在讨论“外照射”危害时，必须考虑穿透力。阿尔法粒子等带电粒子穿透力极差，无法穿透人体表皮；而γ射线穿透力强，能照射到深部器官，因此外照射危害最大。"
+        "note": "在讨论\"外照射\"危害时，必须考虑穿透力。阿尔法粒子等带电粒子穿透力极差，无法穿透人体表皮；而γ射线穿透力强，能照射到深部器官，因此外照射危害最大。"
     },
     {
         "id": 55,
@@ -2763,7 +2763,7 @@ const bank2 = [
             "D": "大的"
         },
         "correctAnswer": "B",
-        "note": "法规要求在控制区的进出口必须设置“醒目的”电离辐射警告标志，以警示人员。"
+        "note": "法规要求在控制区的进出口必须设置\"醒目的\"电离辐射警告标志，以警示人员。"
     },
     {
         "id": 56,
@@ -2789,7 +2789,7 @@ const bank2 = [
             "D": "警告标志可设置在放射性同位素包装容器、含放射性同位素的设备和射线装置"
         },
         "correctAnswer": "B",
-        "note": "根据标准要求，控制区的进出口及其它适当位置都需要设置醒目的警告标志，不能“只设置在入口，出口不需要设置”。"
+        "note": "根据标准要求，控制区的进出口及其它适当位置都需要设置醒目的警告标志，不能\"只设置在入口，出口不需要设置\"。"
     },
     {
         "id": 58,
@@ -2802,7 +2802,7 @@ const bank2 = [
             "D": "天然辐射照射剂量"
         },
         "correctAnswer": "D",
-        "note": "个人剂量限值限制的是人类的“实践活动”带来的额外剂量，不包含自然界本来就有的天然本底辐射剂量以及医疗照射剂量。"
+        "note": "个人剂量限值限制的是人类的\"实践活动\"带来的额外剂量，不包含自然界本来就有的天然本底辐射剂量以及医疗照射剂量。"
     },
     {
         "id": 59,
@@ -2815,7 +2815,7 @@ const bank2 = [
             "D": "人为控制"
         },
         "correctAnswer": "A",
-        "note": "控制区是指为了控制正常照射、防止污染扩散，需要或可能需要“专门防护手段或安全措施”的区域。"
+        "note": "控制区是指为了控制正常照射、防止污染扩散，需要或可能需要\"专门防护手段或安全措施\"的区域。"
     },
     {
         "id": 60,
@@ -2828,7 +2828,7 @@ const bank2 = [
             "D": "控制正常工作条件下的正常照射或防止污染扩散"
         },
         "correctAnswer": "C",
-        "note": "控制区的核心定义就是必须采取“专门的防护手段或安全措施”，因此C选项是错误的。"
+        "note": "控制区的核心定义就是必须采取\"专门的防护手段或安全措施\"，因此C选项是错误的。"
     },
     {
         "id": 61,
@@ -2867,7 +2867,7 @@ const bank2 = [
             "D": "为了便于职业照射控制。"
         },
         "correctAnswer": "C",
-        "note": "根据国标规定，放射性工作场所通常分为“控制区”和“监督区”，没有“操作区”这种分类标准。"
+        "note": "根据国标规定，放射性工作场所通常分为\"控制区\"和\"监督区\"，没有\"操作区\"这种分类标准。"
     },
     {
         "id": 64,
@@ -2919,7 +2919,7 @@ const bank2 = [
             "D": "人工辐射源"
         },
         "correctAnswer": "D",
-        "note": "按照最宏观的来源划分，辐射源只分为自然存在的“天然辐射源”和人类活动产生的“人工辐射源”。"
+        "note": "按照最宏观的来源划分，辐射源只分为自然存在的\"天然辐射源\"和人类活动产生的\"人工辐射源\"。"
     },
     {
         "id": 68,
@@ -3049,7 +3049,7 @@ const bank2 = [
             "D": "遗传效应"
         },
         "correctAnswer": "A",
-        "note": "确定性效应的核心特征是：一旦受照剂量超过阈值，剂量的增加会直接导致损伤“严重程度”的加剧（如皮肤红斑变重甚至坏死）。"
+        "note": "确定性效应的核心特征是：一旦受照剂量超过阈值，剂量的增加会直接导致损伤\"严重程度\"的加剧（如皮肤红斑变重甚至坏死）。"
     },
     {
         "id": 78,
@@ -3075,7 +3075,7 @@ const bank2 = [
             "D": "随机性效应"
         },
         "correctAnswer": "D",
-        "note": "辐射致癌属于随机性效应，它没有明确的剂量安全线（无绝对阈值），且发病的“概率”随着剂量的增加而变大。"
+        "note": "辐射致癌属于随机性效应，它没有明确的剂量安全线（无绝对阈值），且发病的\"概率\"随着剂量的增加而变大。"
     },
     {
         "id": 80,
@@ -3088,7 +3088,7 @@ const bank2 = [
             "D": "遗传效应"
         },
         "correctAnswer": "A",
-        "note": "随机性效应的发生概率与受照剂量成正比，但一旦发生（例如得了癌症），其“严重程度”与最初受到的辐射剂量大小无关。"
+        "note": "随机性效应的发生概率与受照剂量成正比，但一旦发生（例如得了癌症），其\"严重程度\"与最初受到的辐射剂量大小无关。"
     },
     {
         "id": 81,
@@ -3426,7 +3426,7 @@ const bank2 = [
             "D": "有的中子带正电，有的带负电"
         },
         "correctAnswer": "A",
-        "note": "顾名思义，“中”即中性。中子在物理性质上不带任何电荷。"
+        "note": "顾名思义，\"中\"即中性。中子在物理性质上不带任何电荷。"
     },
     {
         "id": 107,
@@ -3465,7 +3465,7 @@ const bank2 = [
             "D": "速度快"
         },
         "correctAnswer": "B",
-        "note": "电离发生的根本条件是辐射粒子必须携带有足够高的能量，只有这样才能“撞飞”被束缚在原子周围的核外电子。"
+        "note": "电离发生的根本条件是辐射粒子必须携带有足够高的能量，只有这样才能\"撞飞\"被束缚在原子周围的核外电子。"
     },
     {
         "id": 110,
@@ -3517,7 +3517,7 @@ const bank2 = [
             "D": "消失"
         },
         "correctAnswer": "A",
-        "note": "电子获得足够的能量脱离原子的引力束缚后，便成为了可以自由运动的“自由电子”（即自由态）。"
+        "note": "电子获得足够的能量脱离原子的引力束缚后，便成为了可以自由运动的\"自由电子\"（即自由态）。"
     },
     {
         "id": 114,
@@ -3530,7 +3530,7 @@ const bank2 = [
             "D": "直接电离"
         },
         "correctAnswer": "D",
-        "note": "带电粒子（如α、β粒子）因为本身带电，可以直接依靠库仑力把物质原子中的电子拉出来，这被称为“直接电离”。而不带电的射线（如X、γ射线、中子）则是“间接电离”。"
+        "note": "带电粒子（如α、β粒子）因为本身带电，可以直接依靠库仑力把物质原子中的电子拉出来，这被称为\"直接电离\"。而不带电的射线（如X、γ射线、中子）则是\"间接电离\"。"
     },
     {
         "id": 115,
@@ -3543,7 +3543,7 @@ const bank2 = [
             "D": "核素的寿命长短"
         },
         "correctAnswer": "C",
-        "note": "放射性活度是衡量放射源“强弱”的物理量，定义为在给定的时间内，放射性核素自发衰变的原子核数目。"
+        "note": "放射性活度是衡量放射源\"强弱\"的物理量，定义为在给定的时间内，放射性核素自发衰变的原子核数目。"
     },
     {
         "id": 116,
@@ -3556,7 +3556,7 @@ const bank2 = [
             "D": "放射性核素单位时间内发生衰变的原子数"
         },
         "correctAnswer": "D",
-        "note": "活度是一个“速率”概念，指单位时间内的衰变次数。其国际标准单位是贝可勒尔（Bq），1 Bq 表示每秒钟发生1次衰变。"
+        "note": "活度是一个\"速率\"概念，指单位时间内的衰变次数。其国际标准单位是贝可勒尔（Bq），1 Bq 表示每秒钟发生1次衰变。"
     },
     {
         "id": 117,
@@ -3569,7 +3569,7 @@ const bank2 = [
             "D": "所有的原子"
         },
         "correctAnswer": "B",
-        "note": "之所以被称为“放射性”，就是因为该原子的核态不稳定，它必须通过放射出粒子或能量（衰变）才能转变为相对稳定的状态。"
+        "note": "之所以被称为\"放射性\"，就是因为该原子的核态不稳定，它必须通过放射出粒子或能量（衰变）才能转变为相对稳定的状态。"
     },
     {
         "id": 118,
@@ -3686,7 +3686,7 @@ const bank2 = [
             "D": "韧致辐射"
         },
         "correctAnswer": "D",
-        "note": "γ射线与物质主要发生光电效应、康普顿散射和电子对效应。而“韧致辐射”是带电粒子（如高速运动的电子）在原子核电场中减速时发射电磁波的过程，不是γ射线引发的。"
+        "note": "γ射线与物质主要发生光电效应、康普顿散射和电子对效应。而\"韧致辐射\"是带电粒子（如高速运动的电子）在原子核电场中减速时发射电磁波的过程，不是γ射线引发的。"
     },
     {
         "id": 127,
@@ -3777,7 +3777,7 @@ const bank2 = [
             "D": "同样能量的β粒子使物质原子电离本领较α粒子大得多。"
         },
         "correctAnswer": "B",
-        "note": "电离是核外电子被击出，而不是“原子核”发生电离（C错）。同样能量下α粒子的电离本领远大于β（D错）。β粒子分正负，日常语境中默认指负电子。"
+        "note": "电离是核外电子被击出，而不是\"原子核\"发生电离（C错）。同样能量下α粒子的电离本领远大于β（D错）。β粒子分正负，日常语境中默认指负电子。"
     },
     {
         "id": 134,
@@ -3791,7 +3791,7 @@ const bank2 = [
             "E": "剂量报警仪不需要很高的准确度，但要求高度可靠"
         },
         "correctAnswer": ["B", "D", "E"],
-        "note": "在应急事故中，因为现场剂量率可能极高，因此必须同时佩戴累积剂量计和报警仪（B对），仪器的量程必须够大以防爆表（D对）。在紧急情况下，报警仪的关键在于“稳定可靠”地提醒撤离，而不是追求实验室级别的绝对精确（E对）。"
+        "note": "在应急事故中，因为现场剂量率可能极高，因此必须同时佩戴累积剂量计和报警仪（B对），仪器的量程必须够大以防爆表（D对）。在紧急情况下，报警仪的关键在于\"稳定可靠\"地提醒撤离，而不是追求实验室级别的绝对精确（E对）。"
     },
     {
         "id": 135,
@@ -3805,7 +3805,7 @@ const bank2 = [
             "E": "环境放射性污染的事件"
         },
         "correctAnswer": ["B", "C", "D", "E"],
-        "note": "辐射事故是特指核技术利用领域的事故（放射源、非密封物质、射线装置的失控），而“核事故”特指核电站等核设施的反应堆级事故，两者概念不同（A错）。"
+        "note": "辐射事故是特指核技术利用领域的事故（放射源、非密封物质、射线装置的失控），而\"核事故\"特指核电站等核设施的反应堆级事故，两者概念不同（A错）。"
     },
     {
         "id": 136,
@@ -3833,7 +3833,7 @@ const bank2 = [
             "E": "开展航空监测"
         },
         "correctAnswer": ["A", "B", "C", "D"],
-        "note": "源被找到后，应立即解除公众恐慌（A）、排查受照人员（B）、协助医疗救援（C）并清除污染（D）。源已经找到并控制，就不需要再大规模使用直升机或无人机进行盲目的“航空监测”（E）。"
+        "note": "源被找到后，应立即解除公众恐慌（A）、排查受照人员（B）、协助医疗救援（C）并清除污染（D）。源已经找到并控制，就不需要再大规模使用直升机或无人机进行盲目的\"航空监测\"（E）。"
     },
     {
         "id": 138,
@@ -3847,7 +3847,7 @@ const bank2 = [
             "E": "不需要校准"
         },
         "correctAnswer": ["A", "B", "C"],
-        "note": "日常使用监测仪器必须确保在检定期内、按规程操作，并在使用前检查电池及响应状态。日常使用无需每次都向管理部门“报批”（D错），更不能“不校准”（E错）。"
+        "note": "日常使用监测仪器必须确保在检定期内、按规程操作，并在使用前检查电池及响应状态。日常使用无需每次都向管理部门\"报批\"（D错），更不能\"不校准\"（E错）。"
     },
     {
         "id": 139,
@@ -3861,7 +3861,7 @@ const bank2 = [
             "E": "辐射工作单位应将个人剂量档案保存至辐射工作人员离职"
         },
         "correctAnswer": ["A", "B", "C"],
-        "note": "一旦发现超标，必须组织调查并上报环保部门，绝不能“仅告知本人”了事（D错）。个人剂量档案应当保存至离岗后数十年甚至终生（满75岁或死亡），而不是仅仅“保存至离职”（E错）。"
+        "note": "一旦发现超标，必须组织调查并上报环保部门，绝不能\"仅告知本人\"了事（D错）。个人剂量档案应当保存至离岗后数十年甚至终生（满75岁或死亡），而不是仅仅\"保存至离职\"（E错）。"
     },
     {
         "id": 140,
@@ -3875,7 +3875,7 @@ const bank2 = [
             "E": "仪器应有标识，防止被误用"
         },
         "correctAnswer": ["A", "B", "C", "D", "E"],
-        "note": "这五个选项全部都是仪器日常规范使用的标准要求。特别是维修后可能导致参数偏移，必须“重新送检”。"
+        "note": "这五个选项全部都是仪器日常规范使用的标准要求。特别是维修后可能导致参数偏移，必须\"重新送检\"。"
     },
     {
         "id": 141,
@@ -3903,7 +3903,7 @@ const bank2 = [
             "E": "放射性废物监测"
         },
         "correctAnswer": ["A", "B", "C"],
-        "note": "针对“个人剂量”的监测只分为这三种：例行开展的常规监测（A）、针对特定高风险操作的任务监测（B）、发生事故后的特殊监测（C）。环境和废物监测属于场所/流出物监测范畴。"
+        "note": "针对\"个人剂量\"的监测只分为这三种：例行开展的常规监测（A）、针对特定高风险操作的任务监测（B）、发生事故后的特殊监测（C）。环境和废物监测属于场所/流出物监测范畴。"
     },
     {
         "id": 143,
@@ -3945,7 +3945,7 @@ const bank2 = [
             "E": "为规避责任"
         },
         "correctAnswer": ["A", "B", "C", "D"],
-        "note": "辐射监测的目的是为了发现问题、保护人员和改进工艺（A、B、C、D）。“规避责任”不是科学防护的目的（E错）。"
+        "note": "辐射监测的目的是为了发现问题、保护人员和改进工艺（A、B、C、D）。\"规避责任\"不是科学防护的目的（E错）。"
     },
     {
         "id": 146,
@@ -3973,7 +3973,7 @@ const bank2 = [
             "E": "活度计"
         },
         "correctAnswer": ["B", "C", "D"],
-        "note": "注意题目问的是“剂量率监测（测场所空间）”，而个人剂量计测的是人员的累积剂量（A错），活度计测的是放射源的活度大小（E错）。"
+        "note": "注意题目问的是\"剂量率监测（测场所空间）\"，而个人剂量计测的是人员的累积剂量（A错），活度计测的是放射源的活度大小（E错）。"
     },
     {
         "id": 148,
@@ -4001,7 +4001,7 @@ const bank2 = [
             "E": "保障从事放射性工作的人员的健康与安全和保护他们的后代"
         },
         "correctAnswer": ["A", "C", "E"],
-        "note": "辐射防护的任务是保障安全的前提下促进和平利用核能。天然辐射无法“消除全部”（B错），和平时期也不以“促进核武器事业”为任务（D错）。"
+        "note": "辐射防护的任务是保障安全的前提下促进和平利用核能。天然辐射无法\"消除全部\"（B错），和平时期也不以\"促进核武器事业\"为任务（D错）。"
     },
     {
         "id": 150,
@@ -4015,7 +4015,7 @@ const bank2 = [
             "E": "对于中子的防护，常常分为慢化和吸收两步"
         },
         "correctAnswer": ["A", "B", "C", "E"],
-        "note": "屏蔽伽马射线穿透力强，需要采用原子序数“高”、密度“大”的材料（如铅、贫铀等），因此D选项错误。"
+        "note": "屏蔽伽马射线穿透力强，需要采用原子序数\"高\"、密度\"大\"的材料（如铅、贫铀等），因此D选项错误。"
     },
     {
         "id": 151,
@@ -4029,7 +4029,7 @@ const bank2 = [
             "E": "辐射防护的优化就是合理达到尽量低水平（ALARA原则）"
         },
         "correctAnswer": ["A", "C", "E"],
-        "note": "防护最优化不是“达标即止”（B错），也不是不计代价降到“最低水平”（D错），而是综合考量经济社会因素后的“合理达到尽量低”（ALARA原则）。"
+        "note": "防护最优化不是\"达标即止\"（B错），也不是不计代价降到\"最低水平\"（D错），而是综合考量经济社会因素后的\"合理达到尽量低\"（ALARA原则）。"
     },
     {
         "id": 152,
@@ -4057,7 +4057,7 @@ const bank2 = [
             "E": "操作区"
         },
         "correctAnswer": ["A", "B"],
-        "note": "国标GB18871-2002明确规定，辐射工作场所严格划分为“控制区”和“监督区”两类。"
+        "note": "国标GB18871-2002明确规定，辐射工作场所严格划分为\"控制区\"和\"监督区\"两类。"
     },
     {
         "id": 154,
@@ -4099,7 +4099,7 @@ const bank2 = [
             "E": "剂量限值包括天然本底和医疗照射。"
         },
         "correctAnswer": ["A", "B", "C", "D"],
-        "note": "所有的人工规定的“剂量限值”，其目的都是限制人类实践活动带来的“额外”照射，因此绝对不包括自然界原本就存在的天然本底和治病救人所需的医疗照射（E错）。"
+        "note": "所有的人工规定的\"剂量限值\"，其目的都是限制人类实践活动带来的\"额外\"照射，因此绝对不包括自然界原本就存在的天然本底和治病救人所需的医疗照射（E错）。"
     },
     {
         "id": 157,
@@ -4113,7 +4113,7 @@ const bank2 = [
             "E": "设置"
         },
         "correctAnswer": ["A", "C"],
-        "note": "监督区不需要采取专门的防护手段（控制区才需要），但为了安全起见，需要对其照射条件进行定期的“监督”和“评价”。"
+        "note": "监督区不需要采取专门的防护手段（控制区才需要），但为了安全起见，需要对其照射条件进行定期的\"监督\"和\"评价\"。"
     },
     {
         "id": 158,
@@ -4155,7 +4155,7 @@ const bank2 = [
             "E": "上述所有"
         },
         "correctAnswer": ["A", "B"],
-        "note": "排入环境的放射性“污染空气”和放射性“污水”，在进行稀释和排放时受到极严格的环保法规限制。"
+        "note": "排入环境的放射性\"污染空气\"和放射性\"污水\"，在进行稀释和排放时受到极严格的环保法规限制。"
     },
     {
         "id": 161,
@@ -4764,7 +4764,7 @@ const bank2 = [
             "D": "使用地区县生态环境部门"
         },
         "correctAnswer": "B",
-        "note": "法律逻辑：跨省作业遵循“属地监管”原则。单位在外省使用放射源，必须让【使用地】的省级环保部门知情并接受其监管。"
+        "note": "法律逻辑：跨省作业遵循\"属地监管\"原则。单位在外省使用放射源，必须让【使用地】的省级环保部门知情并接受其监管。"
     },
     {
         "id": 206,
@@ -4907,7 +4907,7 @@ const bank2 = [
             "D": "国务院生态环境主管部门商省级生态环境主管部门"
         },
         "correctAnswer": "B",
-        "note": "法律逻辑：审批权遵循“就高不就低”原则。若单位业务涉及多级审批，由最高一级主管部门统一审批发证。"
+        "note": "法律逻辑：审批权遵循\"就高不就低\"原则。若单位业务涉及多级审批，由最高一级主管部门统一审批发证。"
     },
     {
         "id": 217,
@@ -5037,7 +5037,7 @@ const bank2 = [
             "D": "国务院生态环境主管部门"
         },
         "correctAnswer": "A",
-        "note": "法律逻辑：行政许可的注销或变更遵循“谁发证，谁受理”的原则 [cite: 913-915, 2050]。"
+        "note": "法律逻辑：行政许可的注销或变更遵循\"谁发证，谁受理\"的原则 [cite: 913-915, 2050]。"
     },
     {
         "id": 227,
@@ -5063,7 +5063,7 @@ const bank2 = [
             "D": "Ⅰ类、Ⅱ类、Ⅲ类、Ⅳ类；Ⅴ类"
         },
         "correctAnswer": "A",
-        "note": "法律逻辑：高风险源（I-III类）必须“终生负责”，由原厂回收；低风险源（IV-V类）可由专业废物单位贮存 [cite: 918-919, 2051]。"
+        "note": "法律逻辑：高风险源（I-III类）必须\"终生负责\"，由原厂回收；低风险源（IV-V类）可由专业废物单位贮存 [cite: 918-919, 2051]。"
     },
     {
         "id": 229,
@@ -5167,7 +5167,7 @@ const bank2 = [
             "D": "资格；资格"
         },
         "correctAnswer": "C",
-        "note": "法律术语：针对“人员”使用资格管理，针对“机构”使用资质管理 [cite: 941-942, 2052]。"
+        "note": "法律术语：针对\"人员\"使用资格管理，针对\"机构\"使用资质管理 [cite: 941-942, 2052]。"
     },
     {
         "id": 237,
@@ -5674,7 +5674,7 @@ const bank2 = [
             "D": "管理"
         },
         "correctAnswer": "D",
-        "note": "法律依据：该管理办法规定了废旧放射源及污染物品的全生命周期“管理”要求。"
+        "note": "法律依据：该管理办法规定了废旧放射源及污染物品的全生命周期\"管理\"要求。"
     },
     {
         "id": 276,
@@ -5804,7 +5804,7 @@ const bank2 = [
             "D": "使用和购买单位"
         },
         "correctAnswer": "A",
-        "note": "主体责任：任何涉源单位的首要职责是对“本单位”所辖设备的安全负责。"
+        "note": "主体责任：任何涉源单位的首要职责是对\"本单位\"所辖设备的安全负责。"
     },
     {
         "id": 286,
@@ -5830,7 +5830,7 @@ const bank2 = [
             "D": "个人剂量测量"
         },
         "correctAnswer": "C",
-        "note": "法律义务：单位不仅要监测，更要确保上报的“监测数据”真实准确。"
+        "note": "法律义务：单位不仅要监测，更要确保上报的\"监测数据\"真实准确。"
     },
     {
         "id": 288,
@@ -5843,17 +5843,17 @@ const bank2 = [
             "D": "指导性文件"
         },
         "correctAnswer": "B",
-        "note": "常识：国务院发布的称为“行政法规”，具有较高的法律效力。"
+        "note": "常识：国务院发布的称为\"行政法规\"，具有较高的法律效力。"
     },
     {
         "id": 289,
         "type": "single",
         "question": "105、根据相关法律规定和职责分工，生态环境部建立了（  ）的核技术利用辐射安全监督管理体系。",
         "options": {
-            "A": "“两级审批，四级监督”",
-            "B": "“三级审批，四级监督”",
-            "C": "“两级审批，三级监督”",
-            "&D": "“三级审批，两级监督”"
+            "A": "\"两级审批，四级监督\"",
+            "B": "\"三级审批，四级监督\"",
+            "C": "\"两级审批，三级监督\"",
+            "&D": "\"三级审批，两级监督\""
         },
         "correctAnswer": "A",
         "note": "体系架构：目前我国实行国家级和省级两级审批，以及部、省、市、县四级监督的体系。"
@@ -5869,7 +5869,7 @@ const bank2 = [
             "D": "指导性文件"
         },
         "correctAnswer": "C",
-        "note": "常识：各部、委发布的称为“部门规章”（部令）。"
+        "note": "常识：各部、委发布的称为\"部门规章\"（部令）。"
     },
     {
         "id": 291,
@@ -5895,7 +5895,7 @@ const bank2 = [
             "D": "指导性文件"
         },
         "correctAnswer": "A",
-        "note": "常识：人代会通过的“法律”位阶最高。"
+        "note": "常识：人代会通过的\"法律\"位阶最高。"
     },
     {
         "id": 293, // 对应原卷第109题
@@ -5937,7 +5937,7 @@ const bank2 = [
             "E": "一般辐射事件"
         },
         "correctAnswer": ["A", "B", "C", "D"],
-        "note": "法律依据：我国法定的辐射事故等级仅分为四个级别（特别重大、重大、较大、一般），不包含“事件”层级的分类。"
+        "note": "法律依据：我国法定的辐射事故等级仅分为四个级别（特别重大、重大、较大、一般），不包含\"事件\"层级的分类。"
     },
     {
         "id": 296, // 对应原卷第112题
@@ -5951,7 +5951,7 @@ const bank2 = [
             "E": "出厂日期"
         },
         "correctAnswer": ["A", "B", "C", "D", "E"],
-        "note": "知识点：放射源编码卡是放射源的“身份证”，必须详细记录核素、活度、厂家、尺寸和日期等核心档案信息。"
+        "note": "知识点：放射源编码卡是放射源的\"身份证\"，必须详细记录核素、活度、厂家、尺寸和日期等核心档案信息。"
     },
     {
         "id": 297, // 对应原卷第113题（原卷此题遗漏了选项，为了不影响系统录入，在此补充占位符）
@@ -5979,7 +5979,7 @@ const bank2 = [
             "E": "人员受照剂量超出该单位管理限值，但未超出审管部门规定的年剂量限值"
         },
         "correctAnswer": ["A", "B", "C", "D"],
-        "note": "法律依据：辐射事故的核心特征是“失控、丢失或被盗”导致的异常状况。单位内部限值的轻微偏差若未造成实际异常照射（选项E），不属于法定辐射事故。"
+        "note": "法律依据：辐射事故的核心特征是\"失控、丢失或被盗\"导致的异常状况。单位内部限值的轻微偏差若未造成实际异常照射（选项E），不属于法定辐射事故。"
     },
     {
         "id": 299, // 对应原卷第115题
@@ -6021,7 +6021,7 @@ const bank2 = [
             "E": "已取得辐射安全许可证的单位，新增丙级非密封放射性物质工作场所的"
         },
         "correctAnswer": ["A", "B"],
-        "note": "法律依据：免予环评的底线是“不增加风险类别、不升级场所”。同类装置的平替（B）或小幅增加操作量不改变场所定级（A）可豁免环评。"
+        "note": "法律依据：免予环评的底线是\"不增加风险类别、不升级场所\"。同类装置的平替（B）或小幅增加操作量不改变场所定级（A）可豁免环评。"
     },
     {
         "id": 302, // 对应原卷第118题
@@ -6063,7 +6063,7 @@ const bank2 = [
             "E": "全部项目无需进行环境影响评价，直接申请辐射安全许可证"
         },
         "correctAnswer": ["C", "D"],
-        "note": "法律依据：体现了行政审批的便民灵活性。单位可以根据项目急缓程度，选择“分批办理”（C）或“一并办理”（D）。"
+        "note": "法律依据：体现了行政审批的便民灵活性。单位可以根据项目急缓程度，选择\"分批办理\"（C）或\"一并办理\"（D）。"
     },
     {
         "id": 305,
@@ -6119,7 +6119,7 @@ const bank2 = [
             "E": "有效期限"
         },
         "correctAnswer": ["A", "B", "D", "E"],
-        "note": "证件常识：许可证关注的是单位身份和辐射活动安全范围，并不关注其商业层面的“注册资本”。"
+        "note": "证件常识：许可证关注的是单位身份和辐射活动安全范围，并不关注其商业层面的\"注册资本\"。"
     },
     {
         "id": 309,
@@ -6161,7 +6161,7 @@ const bank2 = [
             "E": "设区的市级以上人民政府"
         },
         "correctAnswer": ["A", "B", "C"],
-        "note": "部门协同：辐射应急天然需要“环保（定性）、公安（侦查）、卫生（救治）”三部门的紧密联动与信息通报。"
+        "note": "部门协同：辐射应急天然需要\"环保（定性）、公安（侦查）、卫生（救治）\"三部门的紧密联动与信息通报。"
     },
     {
         "id": 312,
@@ -6217,7 +6217,7 @@ const bank2 = [
             "E": "拒绝环保行政主管部门和其他有关部门进行现场检查的"
         },
         "correctAnswer": ["A", "E"],
-        "note": "罚则区分：涉及“不报告监测结果”和“拒绝现场检查”等阻碍监督的行为，适用两万元以下的罚款。"
+        "note": "罚则区分：涉及\"不报告监测结果\"和\"拒绝现场检查\"等阻碍监督的行为，适用两万元以下的罚款。"
     },
     {
         "id": 316,
@@ -6259,7 +6259,7 @@ const bank2 = [
             "E": "同时退役"
         },
         "correctAnswer": ["A", "B","C", "D"],
-        "note": "（注：官方原卷文档在此处漏印了选项。根据答案A,C,D反推，此题考察的是经典的“三同时”制度：同时设计、同时施工、同时投入使用）"
+        "note": "（注：官方原卷文档在此处漏印了选项。根据答案A,C,D反推，此题考察的是经典的\"三同时\"制度：同时设计、同时施工、同时投入使用）"
     },
     {
         "id": 319,
@@ -6371,7 +6371,7 @@ const bank2 = [
             "E": "销售Ⅱ类射线装置的"
         },
         "correctAnswer": ["A", "B", "C", "D", "E"],
-        "note": "环评分类管理：销售活动（不含使用）及低风险源（IV、V类）和低风险射线装置（III类）的使用，通常只需要填报最简化的“环境影响登记表”。"
+        "note": "环评分类管理：销售活动（不含使用）及低风险源（IV、V类）和低风险射线装置（III类）的使用，通常只需要填报最简化的\"环境影响登记表\"。"
     },
     {
         "id": 327,
@@ -6385,7 +6385,7 @@ const bank2 = [
             "E": "乙级非密封放射性物质工作场所"
         },
         "correctAnswer": ["C", "D"],
-        "note": "风险级别判定：A、B、E选项由于涉及生产、高类源或高等级非密封场所，风险较高，必须编制“报告书”或“报告表”，仅有C和D这类低风险活动适用填报“登记表”。"
+        "note": "风险级别判定：A、B、E选项由于涉及生产、高类源或高等级非密封场所，风险较高，必须编制\"报告书\"或\"报告表\"，仅有C和D这类低风险活动适用填报\"登记表\"。"
     },
     {
         "id": 328,
@@ -6413,7 +6413,7 @@ const bank2 = [
             "E": "变更辐射防护负责人的"
         },
         "correctAnswer": ["C", "D"],
-        "note": "重新申领条件：只有当涉及辐射安全的“实质性重大变化”（如变更活动种类、扩建涉核设施）时，才需要重新走完整的申领程序。A、B、E通常只需办理变更备案。"
+        "note": "重新申领条件：只有当涉及辐射安全的\"实质性重大变化\"（如变更活动种类、扩建涉核设施）时，才需要重新走完整的申领程序。A、B、E通常只需办理变更备案。"
     },
     {
         "id": 330,
@@ -6427,7 +6427,7 @@ const bank2 = [
             "E": "转出单位具有放射性同位素使用期满后的处理方案"
         },
         "correctAnswer": ["A", "B", "C", "D"],
-        "note": "转让审批逻辑：转让的前提是双方均具备合法资质（A、B），且已达成协议（D）。因为接收方将成为新的责任主体，所以要求“转入单位”具有期满后的处理方案（C）。"
+        "note": "转让审批逻辑：转让的前提是双方均具备合法资质（A、B），且已达成协议（D）。因为接收方将成为新的责任主体，所以要求\"转入单位\"具有期满后的处理方案（C）。"
     },
     {
         "id": 331,
@@ -6446,7 +6446,7 @@ const bank2 = [
     {
         "id": 332,
         "type": "multiple",
-        "question": "148、辐射安全许可证中“活动的种类”分为（  ）。",
+        "question": "148、辐射安全许可证中\"活动的种类\"分为（  ）。",
         "options": {
             "A": "生产",
             "B": "销售",
@@ -6455,7 +6455,7 @@ const bank2 = [
             "E": "处置"
         },
         "correctAnswer": ["A", "B", "C"],
-        "note": "证件常识：许可证上载明的核心辐射活动种类标准分类为“生产、销售、使用”三大类。"
+        "note": "证件常识：许可证上载明的核心辐射活动种类标准分类为\"生产、销售、使用\"三大类。"
     },
     {
         "id": 333,
@@ -6469,7 +6469,7 @@ const bank2 = [
             "E": "有效期届满，需要延续的，应于许可证有效期届满30日前向原发证机关提出延续申请"
         },
         "correctAnswer": ["A", "B"],
-        "note": "易错点辨析：本题要求选出“错误”的说法。正确的规定应是：有效期为5年（A错），延续应提前30日申请（B错）。"
+        "note": "易错点辨析：本题要求选出\"错误\"的说法。正确的规定应是：有效期为5年（A错），延续应提前30日申请（B错）。"
     },
     {
         "id": 334,
@@ -6483,12 +6483,12 @@ const bank2 = [
             "E": "放射性同位素的来源和去向"
         },
         "correctAnswer": ["A", "B", "C", "E"],
-        "note": "台账管理：台账的核心作用是追踪放射源的“前世今生”与关键指标，外型尺寸（D）通常记录在产品说明书中，不属于日常流转台账的必填要素。"
+        "note": "台账管理：台账的核心作用是追踪放射源的\"前世今生\"与关键指标，外型尺寸（D）通常记录在产品说明书中，不属于日常流转台账的必填要素。"
     },
     {
         "id": 335,
         "type": "multiple",
-        "question": "151、涉源单位的许可证发放以及放射源进出口与转让审批均在“国家核技术利用辐射安全管理系统”中办理，实现了放射源（  ）等各个环节的动态跟踪管理。",
+        "question": "151、涉源单位的许可证发放以及放射源进出口与转让审批均在\"国家核技术利用辐射安全管理系统\"中办理，实现了放射源（  ）等各个环节的动态跟踪管理。",
         "options": {
             "A": "生产",
             "B": "销售",
@@ -6497,7 +6497,7 @@ const bank2 = [
             "E": "进出口"
         },
         "correctAnswer": ["A", "B", "C", "D", "E"],
-        "note": "信息化监管：我国已实现放射源的“电子身份证”全生命周期管理，从生产到进出口均在全国统一系统中流转。"
+        "note": "信息化监管：我国已实现放射源的\"电子身份证\"全生命周期管理，从生产到进出口均在全国统一系统中流转。"
     },
     {
         "id": 336,
@@ -6511,7 +6511,7 @@ const bank2 = [
             "E": "放射性污染监测制度"
         },
         "correctAnswer": ["A", "B"],
-        "note": "监管核心：整个核技术利用安全体系的“两条主线”就是：管好人（许可证管理制度）和管好物（源的全过程跟踪管理）。"
+        "note": "监管核心：整个核技术利用安全体系的\"两条主线\"就是：管好人（许可证管理制度）和管好物（源的全过程跟踪管理）。"
     },
     {
         "id": 337,
@@ -6581,7 +6581,7 @@ const bank2 = [
             "D": "保险柜没有粘贴电离辐射警告标志"
         },
         "correctAnswer": "D",
-        "note": "现场管理：临时存放探伤装置的保险柜等设施，外部必须醒目粘贴“电离辐射警告标志”。"
+        "note": "现场管理：临时存放探伤装置的保险柜等设施，外部必须醒目粘贴\"电离辐射警告标志\"。"
     },
     {
         "id": 342,
@@ -6650,7 +6650,7 @@ const bank2 = [
             "D": "一般辐射事故"
         },
         "correctAnswer": "A",
-        "note": "事故定级：丢失 Ⅲ 类放射源，依法定标准被定性为“较大辐射事故”。"
+        "note": "事故定级：丢失 Ⅲ 类放射源，依法定标准被定性为\"较大辐射事故\"。"
     },
     {
         "id": 347,
@@ -6689,7 +6689,7 @@ const bank2 = [
             "D": "设置1名本科学历以上辐射安全和防护负责人和5名辐射防护人员或安全员"
         },
         "correctAnswer": "C",
-        "note": "机构编制：法规要求探伤单位必须设立专职管理机构，最基础的人员配置底线是“1名负责人 + 1名安全员”。"
+        "note": "机构编制：法规要求探伤单位必须设立专职管理机构，最基础的人员配置底线是\"1名负责人 + 1名安全员\"。"
     },
     {
         "id": 350,
@@ -6715,7 +6715,7 @@ const bank2 = [
             "D": "操作探伤机"
         },
         "correctAnswer": "D",
-        "note": "岗位职责：安全员的核心职责是“监督与防护管理”（A、B、C），而“操作探伤机”属于探伤操作工的具体技术业务。"
+        "note": "岗位职责：安全员的核心职责是\"监督与防护管理\"（A、B、C），而\"操作探伤机\"属于探伤操作工的具体技术业务。"
     },
     {
         "id": 352,
@@ -6741,7 +6741,7 @@ const bank2 = [
             "D": "移出地省级生态环境主管部门"
         },
         "correctAnswer": "D",
-        "note": "跨省监管逻辑：除了向“使用地”备案，还必须让“娘家人”（移出地的省级生态环境部门）知晓去向，形成闭环监管。"
+        "note": "跨省监管逻辑：除了向\"使用地\"备案，还必须让\"娘家人\"（移出地的省级生态环境部门）知晓去向，形成闭环监管。"
     },
     {
         "id": 354,
@@ -6806,7 +6806,7 @@ const bank2 = [
             "D": "必须全程监护探伤装置"
         },
         "correctAnswer": "D",
-        "note": "运输规范：放射源在公路运输过程中的丢失风险极高，押运人员的法定职责是必须做到“全程监护”，不能有任何脱离视线的盲区。"
+        "note": "运输规范：放射源在公路运输过程中的丢失风险极高，押运人员的法定职责是必须做到\"全程监护\"，不能有任何脱离视线的盲区。"
     },
     {
         "id": 359,
@@ -6819,7 +6819,7 @@ const bank2 = [
             "D": "所透过的物质密度要小得多，其强度就减弱得少些，底片的感光量就大些"
         },
         "correctAnswer": "D",
-        "note": "探伤原理：气孔等缺陷意味着该处的物质密度比实心金属“小”，因此射线穿过时被吸收（减弱）得“少”，透过去的射线更多，底片该处的感光量也就“大”（显影后更黑）。"
+        "note": "探伤原理：气孔等缺陷意味着该处的物质密度比实心金属\"小\"，因此射线穿过时被吸收（减弱）得\"少\"，透过去的射线更多，底片该处的感光量也就\"大\"（显影后更黑）。"
     },
     {
         "id": 360,
@@ -6884,7 +6884,7 @@ const bank2 = [
             "D": "双人双锁加专职保安人员守卫"
         },
         "correctAnswer": "C",
-        "note": "库房安防：放射源库门禁管理的法定底线标准是“双人双锁”，即必须由两名独立保管人同时到场、分别持钥才能开门。"
+        "note": "库房安防：放射源库门禁管理的法定底线标准是\"双人双锁\"，即必须由两名独立保管人同时到场、分别持钥才能开门。"
     },
     {
         "id": 365,
@@ -6962,7 +6962,7 @@ const bank2 = [
             "D": "每六个月"
         },
         "correctAnswer": "A",
-        "note": "设备维保：工业伽马射线探伤机工作环境通常较恶劣，法定强制要求至少“每个月”对配件进行一次例行检查和维护。"
+        "note": "设备维保：工业伽马射线探伤机工作环境通常较恶劣，法定强制要求至少\"每个月\"对配件进行一次例行检查和维护。"
     },
     {
         "id": 371,
@@ -6988,7 +6988,7 @@ const bank2 = [
             "D": "铝合金屏蔽体"
         },
         "correctAnswer": "B",
-        "note": "设备构造：现代伽马探伤机为了在极小体积内实现强大的射线屏蔽，其源容器内部核心通常采用高密度的“贫铀屏蔽体”。"
+        "note": "设备构造：现代伽马探伤机为了在极小体积内实现强大的射线屏蔽，其源容器内部核心通常采用高密度的\"贫铀屏蔽体\"。"
     },
     {
         "id": 373,
@@ -7001,7 +7001,7 @@ const bank2 = [
             "D": "一般辐射事故"
         },
         "correctAnswer": "B",
-        "note": "事故定级：铱-192 探伤源通常为 Ⅱ 类源。根据法规，丢失、被盗或失控 Ⅱ 类放射源被定性为“重大辐射事故”。"
+        "note": "事故定级：铱-192 探伤源通常为 Ⅱ 类源。根据法规，丢失、被盗或失控 Ⅱ 类放射源被定性为\"重大辐射事故\"。"
     },
     {
         "id": 374,
@@ -7014,12 +7014,12 @@ const bank2 = [
             "D": "较大辐射事故"
         },
         "correctAnswer": "D",
-        "note": "事故定级：此事故中丢失的是 Ⅲ 类源，且导致了人员局部灼伤（未达到严重致残或致死标准），依法定性为“较大辐射事故”。"
+        "note": "事故定级：此事故中丢失的是 Ⅲ 类源，且导致了人员局部灼伤（未达到严重致残或致死标准），依法定性为\"较大辐射事故\"。"
     },
     {
         "id": 375,
         "type": "single",
-        "question": "38、2005年7月13日，黑龙江省哈尔滨市一居民楼有两家人相继得了怪病，被诊断为“骨髓造血受抑症”。经调查在1楼一名住户家中发现Ir-192放射源一枚（注：推算当事人捡拾时为Ⅲ类放射源），致使居民楼中6人住院，其中1位老人死亡，1名儿童多次病危。117 人疑似受照，进行了体检。该事故应定性为 _____ 。（  ）",
+        "question": "38、2005年7月13日，黑龙江省哈尔滨市一居民楼有两家人相继得了怪病，被诊断为\"骨髓造血受抑症\"。经调查在1楼一名住户家中发现Ir-192放射源一枚（注：推算当事人捡拾时为Ⅲ类放射源），致使居民楼中6人住院，其中1位老人死亡，1名儿童多次病危。117 人疑似受照，进行了体检。该事故应定性为 _____ 。（  ）",
         "options": {
             "A": "一般辐射事故",
             "B": "较大辐射事故",
@@ -7027,7 +7027,7 @@ const bank2 = [
             "D": "特别重大辐射事故"
         },
         "correctAnswer": "C",
-        "note": "事故定级：虽然该源衰变至 Ⅲ 类，但事故直接导致了 1 人死亡及多人重病。放射性同位素失控导致死亡的，依法升级定性为“重大辐射事故”。"
+        "note": "事故定级：虽然该源衰变至 Ⅲ 类，但事故直接导致了 1 人死亡及多人重病。放射性同位素失控导致死亡的，依法升级定性为\"重大辐射事故\"。"
     },
     {
         "id": 376,
@@ -7040,7 +7040,7 @@ const bank2 = [
             "D": "一般辐射事故"
         },
         "correctAnswer": "A",
-        "note": "事故定级：丢失 Ⅱ 类放射源（Ir-192），且导致捡拾人员遭受极重度放射病（截肢伤残），定性为“重大辐射事故”。"
+        "note": "事故定级：丢失 Ⅱ 类放射源（Ir-192），且导致捡拾人员遭受极重度放射病（截肢伤残），定性为\"重大辐射事故\"。"
     },
     {
         "id": 377,
@@ -7053,7 +7053,7 @@ const bank2 = [
             "D": "Ⅰ类、Ⅱ类放射源丢失、被盗、失控"
         },
         "correctAnswer": "D",
-        "note": "事故分级法定标准：Ⅰ类、Ⅱ类放射源的丢失、被盗或失控是构成“重大辐射事故”的核心物理条件之一。"
+        "note": "事故分级法定标准：Ⅰ类、Ⅱ类放射源的丢失、被盗或失控是构成\"重大辐射事故\"的核心物理条件之一。"
     },
     {
         "id": 378,
@@ -7066,7 +7066,7 @@ const bank2 = [
             "D": "Ⅴ类与豁免放射源丢失、被盗、失控"
         },
         "correctAnswer": "C",
-        "note": "事故定级：丢失、被盗、失控 Ⅳ类、Ⅴ类放射源属于风险相对可控的下限等级，依法定性为“一般辐射事故”。"
+        "note": "事故定级：丢失、被盗、失控 Ⅳ类、Ⅴ类放射源属于风险相对可控的下限等级，依法定性为\"一般辐射事故\"。"
     },
     {
         "id": 379,
@@ -7079,7 +7079,7 @@ const bank2 = [
             "D": "探伤人员是否都会熟练使用该辐射剂量（率）监测仪"
         },
         "correctAnswer": "B",
-        "note": "仪器管理：监测仪是探伤人员的“眼睛”，出源前必须确认其处于有效检定周期内且处于正常工作状态。"
+        "note": "仪器管理：监测仪是探伤人员的\"眼睛\"，出源前必须确认其处于有效检定周期内且处于正常工作状态。"
     },
     {
         "id": 380,
@@ -7092,7 +7092,7 @@ const bank2 = [
             "D": "半手动探伤装置进行探测"
         },
         "correctAnswer": "C",
-        "note": "（注：根据探伤防护常识和答案 C，此时通常需要使用“全自动”来限制射线照射方向，以最大程度减少对操作人员的散射和直射剂量）"
+        "note": "（注：根据探伤防护常识和答案 C，此时通常需要使用\"全自动\"来限制射线照射方向，以最大程度减少对操作人员的散射和直射剂量）"
     },
     {
         "id": 381,
@@ -7112,13 +7112,13 @@ const bank2 = [
         "type": "single",
         "question": "45、在控制区边界外将作业时空气比释动能率大于 2.5μGy•h-1的范围划为监督区，并在其边界上设置清晰可见的 _____ 。（  ）",
         "options": {
-            "A": "“禁止进入射线区”警告牌",
-            "B": "“禁止一切人员进入”警告牌",
-            "C": "“无关人员禁止入内”警告牌",
-            "D": "“特许参观人员可进入”警示牌"
+            "A": "\"禁止进入射线区\"警告牌",
+            "B": "\"禁止一切人员进入\"警告牌",
+            "C": "\"无关人员禁止入内\"警告牌",
+            "D": "\"特许参观人员可进入\"警示牌"
         },
         "correctAnswer": "C",
-        "note": "分区标语：监督区不同于控制区（严禁进入），监督区的警示标语通常为“无关人员禁止入内”，以防公众误入。"
+        "note": "分区标语：监督区不同于控制区（严禁进入），监督区的警示标语通常为\"无关人员禁止入内\"，以防公众误入。"
     },
     {
         "id": 383,
@@ -7183,7 +7183,7 @@ const bank2 = [
             "D": "5人在场"
         },
         "correctAnswer": "A",
-        "note": "双人制度：放射源的入库、出库、日常盘点均必须落实“双人管理”，核实时也必须保证 2 人同时在场。"
+        "note": "双人制度：放射源的入库、出库、日常盘点均必须落实\"双人管理\"，核实时也必须保证 2 人同时在场。"
     },
     {
         "id": 388,
@@ -7196,7 +7196,7 @@ const bank2 = [
             "D": "5名以上工作人员"
         },
         "correctAnswer": "B",
-        "note": "岗位编制：为了落实“双人双锁”的物理防范底线，放射源库必须在制度上明确至少 2 名专职保管员。"
+        "note": "岗位编制：为了落实\"双人双锁\"的物理防范底线，放射源库必须在制度上明确至少 2 名专职保管员。"
     },
     {
         "id": 389,
@@ -7209,7 +7209,7 @@ const bank2 = [
             "D": "通过高级以上辐射安全培训，不必经考试直接持证上岗"
         },
         "correctAnswer": "A",
-        "note": "人员资质：工业伽马射线探伤属于具有较高辐射风险的活动（多涉及 II、III 类源），因此要求从业者必须通过“中级”以上的辐射安全培训并考核合格。"
+        "note": "人员资质：工业伽马射线探伤属于具有较高辐射风险的活动（多涉及 II、III 类源），因此要求从业者必须通过\"中级\"以上的辐射安全培训并考核合格。"
     },
     {
         "id": 390,
@@ -7248,7 +7248,7 @@ const bank2 = [
             "D": "负责对辐射工作人员进行辐射防护知识和监测仪表操作技能的培训"
         },
         "correctAnswer": "D",
-        "note": "职责划定：保管人员的核心任务是“看好源和设备”（A、B、C）。而“组织培训”属于辐射安全防护负责人（或管理机构）的统筹职责。"
+        "note": "职责划定：保管人员的核心任务是\"看好源和设备\"（A、B、C）。而\"组织培训\"属于辐射安全防护负责人（或管理机构）的统筹职责。"
     },
     {
         "id": 393,
@@ -7261,7 +7261,7 @@ const bank2 = [
             "D": "组织本单位相关部门及人员开展辐射应急行动"
         },
         "correctAnswer": "C",
-        "note": "职责划定：作为库房“守门人”，保管人员必须定期对库内的探伤装置及场所本身的安全状况进行检查并留存记录。"
+        "note": "职责划定：作为库房\"守门人\"，保管人员必须定期对库内的探伤装置及场所本身的安全状况进行检查并留存记录。"
     },
     {
         "id": 394,
@@ -7274,7 +7274,7 @@ const bank2 = [
             "D": "发现辐射安全隐患及时向辐射安全和防护负责人报告"
         },
         "correctAnswer": "B",
-        "note": "职责划定：作业人员（探伤工）主要负责一线实操和现场防护（A、C、D）。而“定期组织检查”这种具有管理属性的工作，属于辐射安全负责人的职责。"
+        "note": "职责划定：作业人员（探伤工）主要负责一线实操和现场防护（A、C、D）。而\"定期组织检查\"这种具有管理属性的工作，属于辐射安全负责人的职责。"
     },
     {
         "id": 395,
@@ -7300,7 +7300,7 @@ const bank2 = [
             "D": "组织对本单位的辐射安全和防护状况进行评估"
         },
         "correctAnswer": "B",
-        "note": "职责划定：防护负责人是单位辐射安全的“大管家”，负责制度、应急和评估等宏观管理（A、C、D）。而出入库管理这种具体的看管动作是“保管人员”的专属职责。"
+        "note": "职责划定：防护负责人是单位辐射安全的\"大管家\"，负责制度、应急和评估等宏观管理（A、C、D）。而出入库管理这种具体的看管动作是\"保管人员\"的专属职责。"
     },
     {
         "id": 397,
@@ -7372,13 +7372,13 @@ const bank2 = [
         "type": "single",
         "question": "65、当伽马射线探伤装置发生故障时，以下错误的建议是 _____ 。（  ）",
         "options": {
-            "A": "发扬“不怕死”的大无畏革命精神，速战速决；人多力量大，全员参与，群策群力，现场立即解决故障",
+            "A": "发扬\"不怕死\"的大无畏革命精神，速战速决；人多力量大，全员参与，群策群力，现场立即解决故障",
             "B": "尽量用长绳将伽马探伤设备拖至屏蔽处进行故障处理（如墙角）",
             "C": "不要用铅皮等屏蔽物将输源管及设备过牢盖死，以免影响后处理",
             "D": "处理时，采用防止外照射的三种基本方法：屏蔽、距离、时间，尽量采用屏蔽及距离"
         },
         "correctAnswer": "A",
-        "note": "应急原则：处理辐射故障切忌盲目靠近和“人多力量大”，这会造成无谓的集体大剂量受照。必须遵循“距离、屏蔽、时间”原则，制定周密方案后由专业人员处置。"
+        "note": "应急原则：处理辐射故障切忌盲目靠近和\"人多力量大\"，这会造成无谓的集体大剂量受照。必须遵循\"距离、屏蔽、时间\"原则，制定周密方案后由专业人员处置。"
     },
     {
         "id": 403,
@@ -7404,7 +7404,7 @@ const bank2 = [
             "D": "必须对伽马探伤设备的放射源取出亲眼过目"
         },
         "correctAnswer": "C",
-        "note": "入库核对：源是否安全回到容器内的唯一判定标准是测量容器表面的辐射剂量率，严禁重新摇出放射源“亲眼确认”。"
+        "note": "入库核对：源是否安全回到容器内的唯一判定标准是测量容器表面的辐射剂量率，严禁重新摇出放射源\"亲眼确认\"。"
     },
     {
         "id": 405,
@@ -7417,7 +7417,7 @@ const bank2 = [
             "D": "缓慢轻收"
         },
         "correctAnswer": "C",
-        "note": "操作禁忌：驱动缆卡住时“用力猛抻”极易拉断源辫，导致源脱落遗留在导管内的重大事故。"
+        "note": "操作禁忌：驱动缆卡住时\"用力猛抻\"极易拉断源辫，导致源脱落遗留在导管内的重大事故。"
     },
     {
         "id": 406,
@@ -7430,7 +7430,7 @@ const bank2 = [
             "D": "为了防止其他机械事件"
         },
         "correctAnswer": "B",
-        "note": "防护站位：探伤机的源引出口是屏蔽最薄弱（或无屏蔽）的直射通道，因此开锁时必须站在背向源出口的“驱动缆一侧”，以避开可能的射线直射。"
+        "note": "防护站位：探伤机的源引出口是屏蔽最薄弱（或无屏蔽）的直射通道，因此开锁时必须站在背向源出口的\"驱动缆一侧\"，以避开可能的射线直射。"
     },
     {
         "id": 407,
@@ -7443,7 +7443,7 @@ const bank2 = [
             "D": "必须找便利于操作的位置操作"
         },
         "correctAnswer": "A",
-        "note": "防护站位：同上题，核心目的是利用主机自身的屏蔽体挡住自己，必须站在源口的后方即“驱动缆一侧”进行操作。"
+        "note": "防护站位：同上题，核心目的是利用主机自身的屏蔽体挡住自己，必须站在源口的后方即\"驱动缆一侧\"进行操作。"
     },
     {
         "id": 408,
@@ -7456,7 +7456,7 @@ const bank2 = [
             "D": "需2人以上"
         },
         "correctAnswer": "D",
-        "note": "（注：依照官方题库答案为 D）虽然前面类似题目有“以上”的表述，但这里的标准答案明确锁定在“双人作业制”这一刚性规定上，即必须 2 人以上。"
+        "note": "（注：依照官方题库答案为 D）虽然前面类似题目有\"以上\"的表述，但这里的标准答案明确锁定在\"双人作业制\"这一刚性规定上，即必须 2 人以上。"
     },
     {
         "id": 409,
@@ -7469,7 +7469,7 @@ const bank2 = [
             "D": "铭牌是否清晰"
         },
         "correctAnswer": "D",
-        "note": "实操规范：作业结束后的检查重心是防范“源卡堵”或“源脱落”（A、B、C都与此相关），而铭牌是否清晰不是每次作业后需要重点核对的安全隐患。"
+        "note": "实操规范：作业结束后的检查重心是防范\"源卡堵\"或\"源脱落\"（A、B、C都与此相关），而铭牌是否清晰不是每次作业后需要重点核对的安全隐患。"
     },
     {
         "id": 410,
@@ -7482,7 +7482,7 @@ const bank2 = [
             "D": "使用个人剂量报警仪"
         },
         "correctAnswer": "C",
-        "note": "仪器应用：进行环境和设备表面的剂量率水平测量，法定的工具是“便携式辐射剂量（率）监测仪”（俗称巡测仪）。个人剂量计和报警仪主要是用于个人防护。"
+        "note": "仪器应用：进行环境和设备表面的剂量率水平测量，法定的工具是\"便携式辐射剂量（率）监测仪\"（俗称巡测仪）。个人剂量计和报警仪主要是用于个人防护。"
     },
     {
         "id": 411,
@@ -7495,7 +7495,7 @@ const bank2 = [
             "D": "必须专车运输，武装押运"
         },
         "correctAnswer": "C",
-        "note": "运输安保：放射源的公路运输必须满足“双专”要求：专车（不得混装其他无关货物或搭载无关乘客）和专人（至少一名专职押运员）。"
+        "note": "运输安保：放射源的公路运输必须满足\"双专\"要求：专车（不得混装其他无关货物或搭载无关乘客）和专人（至少一名专职押运员）。"
     },
     {
         "id": 412,
@@ -7508,7 +7508,7 @@ const bank2 = [
             "D": "四类放射性物品"
         },
         "correctAnswer": "B",
-        "note": "法规衔接：在我国《放射性物品运输安全管理条例》中，II类放射源被划归为“二类放射性物品”进行运输管理。"
+        "note": "法规衔接：在我国《放射性物品运输安全管理条例》中，II类放射源被划归为\"二类放射性物品\"进行运输管理。"
     },
     {
         "id": 413,
@@ -7534,7 +7534,7 @@ const bank2 = [
             "D": "最大装源活度（由单位某工程师确定）"
         },
         "correctAnswer": "B",
-        "note": "设备安全限值：任何探伤设备在出厂时都有严格的设计评估，所装载的放射源活度绝对不能超过出厂标定的“最大额定装源活度”，否则会导致表面屏蔽失效。"
+        "note": "设备安全限值：任何探伤设备在出厂时都有严格的设计评估，所装载的放射源活度绝对不能超过出厂标定的\"最大额定装源活度\"，否则会导致表面屏蔽失效。"
     },
     {
         "id": 415,
@@ -7560,7 +7560,7 @@ const bank2 = [
             "D": "整个人类"
         },
         "correctAnswer": "C",
-        "note": "辐射影响评估：微量的穿透辐射主要会对处于屏蔽体正外侧“周围”的工作人员和可能的公众产生本底以上的照射影响，且随距离平方迅速衰减。"
+        "note": "辐射影响评估：微量的穿透辐射主要会对处于屏蔽体正外侧\"周围\"的工作人员和可能的公众产生本底以上的照射影响，且随距离平方迅速衰减。"
     },
     {
         "id": 417,
@@ -7573,7 +7573,7 @@ const bank2 = [
             "D": "远离运输路线的公众"
         },
         "correctAnswer": "D",
-        "note": "辐射安全常识：运输容器外围的辐射剂量率在国家标准限值以内，且辐射随距离迅速衰减，因此对“远离路线”的普通公众不会产生影响。"
+        "note": "辐射安全常识：运输容器外围的辐射剂量率在国家标准限值以内，且辐射随距离迅速衰减，因此对\"远离路线\"的普通公众不会产生影响。"
     },
     {
         "id": 418,
@@ -7586,7 +7586,7 @@ const bank2 = [
             "D": "会对辐射工作场所周围的工作人员产生伽马射线外照射，但不会对辐射工作场所外公众产生伽马射线外照射"
         },
         "correctAnswer": "D",
-        "note": "（注：依照官方题库答案为 D，此题为选出“不正确”表述的逆向选择题）实际情况中，正常探伤的控制区和监督区划分能够保护公众，公众在边界外受到的辐射剂量极低且合法合规，但物理上依然客观存在微弱的外照射贡献（不能说绝对为零），因此选项D的表述不严谨。"
+        "note": "（注：依照官方题库答案为 D，此题为选出\"不正确\"表述的逆向选择题）实际情况中，正常探伤的控制区和监督区划分能够保护公众，公众在边界外受到的辐射剂量极低且合法合规，但物理上依然客观存在微弱的外照射贡献（不能说绝对为零），因此选项D的表述不严谨。"
     },
     {
         "id": 419,
@@ -7612,7 +7612,7 @@ const bank2 = [
             "D": "放射源所发出的贝塔（β）射线"
         },
         "correctAnswer": "B",
-        "note": "物理特性：顾名思义，“伽马射线”探伤机使用的放射源（如钴-60、铱-192等）主要是通过衰变释放极具穿透力的伽马（γ）射线来实现穿透金属底片感光的。"
+        "note": "物理特性：顾名思义，\"伽马射线\"探伤机使用的放射源（如钴-60、铱-192等）主要是通过衰变释放极具穿透力的伽马（γ）射线来实现穿透金属底片感光的。"
     },
     {
         "id": 421,
@@ -7651,7 +7651,7 @@ const bank2 = [
             "D": "每次进入探伤室前，工作人员应先将个人剂量计放置在探伤室门外，然后持便携式辐射剂量（率）监测仪进入探伤室内进行监测"
         },
         "correctAnswer": "B",
-        "note": "进门规范：“先看仪，后进门”。在打开沉重的防护门进入迷道之前，必须先确认门外的固定监测仪显示数值正常，然后依然要手持便携仪一边测一边进入，防止固定仪器出现故障。"
+        "note": "进门规范：\"先看仪，后进门\"。在打开沉重的防护门进入迷道之前，必须先确认门外的固定监测仪显示数值正常，然后依然要手持便携仪一边测一边进入，防止固定仪器出现故障。"
     },
     {
         "id": 424,
@@ -7677,7 +7677,7 @@ const bank2 = [
             "D": "监督区与控制区"
         },
         "correctAnswer": "D",
-        "note": "现场分区：在野外空旷地带探伤，必须通过仪器实测的剂量率数据（2.5μGy/h和15μGy/h）来精准划分法定规定的“控制区”和“监督区”。"
+        "note": "现场分区：在野外空旷地带探伤，必须通过仪器实测的剂量率数据（2.5μGy/h和15μGy/h）来精准划分法定规定的\"控制区\"和\"监督区\"。"
     },
     {
         "id": 426,
@@ -7690,7 +7690,7 @@ const bank2 = [
             "D": "装伽马放射源容器出入库时，库房管理员应使用便携式辐射剂量（率）监测仪对装源容器表面进行辐射剂量（率）水平的监测，并记录。"
         },
         "correctAnswer": "B",
-        "note": "（注：依照官方题库答案为 B，要求选出不正确项）在作业过程中（也就是源被摇出曝光的阶段），源容器表面反而没有源，此时重点监测的是外围边界剂量，而不是跑到辐射极强的源附近去“不断监测容器表面”。"
+        "note": "（注：依照官方题库答案为 B，要求选出不正确项）在作业过程中（也就是源被摇出曝光的阶段），源容器表面反而没有源，此时重点监测的是外围边界剂量，而不是跑到辐射极强的源附近去\"不断监测容器表面\"。"
     },
     {
         "id": 427,
@@ -7755,7 +7755,7 @@ const bank2 = [
             "D": "控制辐射工作人员的个人累积剂量不超过单位的管理限值"
         },
         "correctAnswer": "D",
-        "note": "同类强化题：再次强调，数据监测的落脚点是“控制剂量限值”，而不是为了应付管理或求心安。"
+        "note": "同类强化题：再次强调，数据监测的落脚点是\"控制剂量限值\"，而不是为了应付管理或求心安。"
     },
     {
         "id": 432,
@@ -7781,7 +7781,7 @@ const bank2 = [
             "D": "自动校准"
         },
         "correctAnswer": "A",
-        "note": "仪器功能：在嘈杂或视线不佳的工业探伤现场，仪器必须具备直观的“声、光”双重报警功能，以确保警示能够传达给操作者。"
+        "note": "仪器功能：在嘈杂或视线不佳的工业探伤现场，仪器必须具备直观的\"声、光\"双重报警功能，以确保警示能够传达给操作者。"
     },
     {
         "id": 434,
@@ -7807,7 +7807,7 @@ const bank2 = [
             "D": "1Gy•h-1"
         },
         "correctAnswer": "B",
-        "note": "仪器标准：同样地，为了在发生卡源事故时能够测出源附近的极高剂量率而不至于“爆表”，仪器的最高测量示值必须不低于 100 mGy/h。"
+        "note": "仪器标准：同样地，为了在发生卡源事故时能够测出源附近的极高剂量率而不至于\"爆表\"，仪器的最高测量示值必须不低于 100 mGy/h。"
     },
     {
         "id": 436,
@@ -7846,7 +7846,7 @@ const bank2 = [
             "D": "热释光(TLD)剂量计"
         },
         "correctAnswer": "A",
-        "note": "仪器选用：只要涉及到需要在不同点位之间移动（巡测），或者灵活改变测量位置（定点监测），就必须使用“便携式”仪器。"
+        "note": "仪器选用：只要涉及到需要在不同点位之间移动（巡测），或者灵活改变测量位置（定点监测），就必须使用\"便携式\"仪器。"
     },
     {
         "id": 439,
@@ -7859,7 +7859,7 @@ const bank2 = [
             "D": "累计监测"
         },
         "correctAnswer": "C",
-        "note": "功能定位：便携式监测仪的法定核心功能就是提供作业现场实时的“定点监测”和边界“巡测”。累计监测是个人剂量计的功能。"
+        "note": "功能定位：便携式监测仪的法定核心功能就是提供作业现场实时的\"定点监测\"和边界\"巡测\"。累计监测是个人剂量计的功能。"
     },
     {
         "id": 440,
@@ -7924,7 +7924,7 @@ const bank2 = [
             "D": "不相适应的换源器"
         },
         "correctAnswer": "A",
-        "note": "实操硬件：换源是探伤行业最高危的动作，严禁违规裸露操作，必须使用与原探伤机型号严格匹配、相适应的专用“换源器”。"
+        "note": "实操硬件：换源是探伤行业最高危的动作，严禁违规裸露操作，必须使用与原探伤机型号严格匹配、相适应的专用\"换源器\"。"
     },
     {
         "id": 445,
@@ -7950,7 +7950,7 @@ const bank2 = [
             "D": "2 名以上"
         },
         "correctAnswer": "D",
-        "note": "人员编制：再次强调“双人作业”的底线，每台设备的工作小组编制绝对不能少于 2 名持证人员。"
+        "note": "人员编制：再次强调\"双人作业\"的底线，每台设备的工作小组编制绝对不能少于 2 名持证人员。"
     },
     {
         "id": 447,
@@ -7989,7 +7989,7 @@ const bank2 = [
             "D": "探伤单位的备用放射源"
         },
         "correctAnswer": "A",
-        "note": "账物相符：放射源编码卡相当于源的“身份证”，换源后必须立即更新外壳上的编码卡，以确保标示信息与容器内实际装载的放射源完全一致。"
+        "note": "账物相符：放射源编码卡相当于源的\"身份证\"，换源后必须立即更新外壳上的编码卡，以确保标示信息与容器内实际装载的放射源完全一致。"
     },
     {
         "id": 450,
@@ -8041,7 +8041,7 @@ const bank2 = [
             "D": "探伤装置生产厂的性质"
         },
         "correctAnswer": "D",
-        "note": "铭牌内容：出厂铭牌必须记录设备的物理和知识产权信息（厂名、品名、编号等）。至于厂家的“企业性质”（如国企还是私企）与安全毫无关系，无需铭刻。"
+        "note": "铭牌内容：出厂铭牌必须记录设备的物理和知识产权信息（厂名、品名、编号等）。至于厂家的\"企业性质\"（如国企还是私企）与安全毫无关系，无需铭刻。"
     },
     {
         "id": 454,
@@ -8132,7 +8132,7 @@ const bank2 = [
             "D": "源的冷却装置"
         },
         "correctAnswer": "D",
-        "note": "设备构造：X射线探伤机（使用管球）由于高压放电会产生大量热量，需要水冷或风冷；但伽马探伤机利用的是同位素自然衰变，发热量极低，完全不需要“冷却装置”。"
+        "note": "设备构造：X射线探伤机（使用管球）由于高压放电会产生大量热量，需要水冷或风冷；但伽马探伤机利用的是同位素自然衰变，发热量极低，完全不需要\"冷却装置\"。"
     },
     {
         "id": 461,
@@ -8184,12 +8184,12 @@ const bank2 = [
             "D": "锁住输源管"
         },
         "correctAnswer": "A",
-        "note": "功能定义：安全锁的最终目的就是封锁放射源所在的“家”，因此它直接作用于源容器的开关口，锁住源容器。"
+        "note": "功能定义：安全锁的最终目的就是封锁放射源所在的\"家\"，因此它直接作用于源容器的开关口，锁住源容器。"
     },
     {
         "id": 465,
         "type": "single",
-        "question": "128、伽马射线探伤机按其结构型式， 主要可分为“S”通道型伽马射线探伤机和 _____ 。（   ）",
+        "question": "128、伽马射线探伤机按其结构型式， 主要可分为\"S\"通道型伽马射线探伤机和 _____ 。（   ）",
         "options": {
             "A": "Ir-192 伽马射线探伤机",
             "B": "M 类伽马射线探伤机",
@@ -8197,7 +8197,7 @@ const bank2 = [
             "D": "直通道型伽马射线探伤机"
         },
         "correctAnswer": "D",
-        "note": "结构分类：根据源在容器内部进出通道的物理形状，探伤机主要分为防止射线直线泄漏的“S”弯通道型和直接进出的直通道型。"
+        "note": "结构分类：根据源在容器内部进出通道的物理形状，探伤机主要分为防止射线直线泄漏的\"S\"弯通道型和直接进出的直通道型。"
     },
     {
         "id": 466,
@@ -8210,7 +8210,7 @@ const bank2 = [
             "D": "工件内部力学结构"
         },
         "correctAnswer": "C",
-        "note": "基本概念：探伤（探查伤痕），其核心目的就是利用射线的穿透特性来发现工业制件“内部”是否存在气孔、裂纹、夹渣等宏观结构缺陷。"
+        "note": "基本概念：探伤（探查伤痕），其核心目的就是利用射线的穿透特性来发现工业制件\"内部\"是否存在气孔、裂纹、夹渣等宏观结构缺陷。"
     },
     {
         "id": 467,
@@ -8223,7 +8223,7 @@ const bank2 = [
             "D": "在损伤工件性能但不损坏其完整性的前提下"
         },
         "correctAnswer": "C",
-        "note": "基本概念：无损检测（NDT）的核心就在于“无损”二字，必须在绝对不破坏工件物理性能和外在完整性的前提下进行检查。"
+        "note": "基本概念：无损检测（NDT）的核心就在于\"无损\"二字，必须在绝对不破坏工件物理性能和外在完整性的前提下进行检查。"
     },
     {
         "id": 468,
@@ -8238,7 +8238,7 @@ const bank2 = [
             "E": "输源管接头"
         },
         "correctAnswer": ["A", "B", "C", "D", "E"],
-        "note": "设备构造：结合图片，一台合格的伽马探伤机主机不仅需要有装载放射源的“屏蔽容器”，还必须具备安全锁、防止误操作的联锁装置，以及用于外接的控制缆和输源管接头。"
+        "note": "设备构造：结合图片，一台合格的伽马探伤机主机不仅需要有装载放射源的\"屏蔽容器\"，还必须具备安全锁、防止误操作的联锁装置，以及用于外接的控制缆和输源管接头。"
     },
     {
         "id": 469,
@@ -8253,7 +8253,7 @@ const bank2 = [
             "E": "全程监护"
         },
         "correctAnswer": ["A", "B", "C", "D", "E"],
-        "note": "运输规范：运输高危放射源必须采用“专车专人（押运、全程监护）”机制，并且车辆必须是能够物理隔离的全封闭车厢，外部醒目悬挂放射性危险标志。"
+        "note": "运输规范：运输高危放射源必须采用\"专车专人（押运、全程监护）\"机制，并且车辆必须是能够物理隔离的全封闭车厢，外部醒目悬挂放射性危险标志。"
     },
     {
         "id": 470,
@@ -8278,12 +8278,12 @@ const bank2 = [
         "options": {
             "A": "安装或拆卸驱动装置时，源辨应不能移离源容器",
             "B": "安装或拆卸驱动装置时，源辨应能移离源容器",
-            "C": "非工作状态时，联锁开关在“关或 CLOSE”位置，源辨应锁闭在源容器内",
-            "D": "工作状态时，联锁开关在“开或 OPEN”位置，驱动装置始终保持与源容器的连接",
+            "C": "非工作状态时，联锁开关在\"关或 CLOSE\"位置，源辨应锁闭在源容器内",
+            "D": "工作状态时，联锁开关在\"开或 OPEN\"位置，驱动装置始终保持与源容器的连接",
             "E": "工作状态时，驱动装置可随时断开与源容器的连接"
         },
         "correctAnswer": ["A", "C", "D"],
-        "note": "联锁逻辑：联锁（Interlock）的核心就是“矛盾互斥”。拆装部件时源绝对不能动（A），工作时驱动绝对不能断开（D），休息时源必须死锁（C）。"
+        "note": "联锁逻辑：联锁（Interlock）的核心就是\"矛盾互斥\"。拆装部件时源绝对不能动（A），工作时驱动绝对不能断开（D），休息时源必须死锁（C）。"
     },
     {
         "id": 472,
@@ -8298,7 +8298,7 @@ const bank2 = [
             "E": "通过输源管与源辨连接"
         },
         "correctAnswer": ["A", "B", "C", "D"],
-        "note": "指示器功能：这套系统是操作人员的“外接感知”，通过颜色（A）、数字距离（B）、声音（C）多维度反馈源的实时位置，主要依靠控制导管进行连接传导（D）。"
+        "note": "指示器功能：这套系统是操作人员的\"外接感知\"，通过颜色（A）、数字距离（B）、声音（C）多维度反馈源的实时位置，主要依靠控制导管进行连接传导（D）。"
     },
     {
         "id": 473,
@@ -8313,7 +8313,7 @@ const bank2 = [
             "E": "与容器中放射源没有关系"
         },
         "correctAnswer": ["A", "C", "D"],
-        "note": "标牌管理：作为源的“物理身份证”，它必须与机器死死绑在一起（A），同时内部换什么源，外面的卡就要跟着换什么（C），做到账物绝对对应（D）。"
+        "note": "标牌管理：作为源的\"物理身份证\"，它必须与机器死死绑在一起（A），同时内部换什么源，外面的卡就要跟着换什么（C），做到账物绝对对应（D）。"
     },
     {
         "id": 474,
@@ -8358,7 +8358,7 @@ const bank2 = [
             "E": "负责探伤装置的领取与归还"
         },
         "correctAnswer": ["A", "B", "C", "D", "E"],
-        "note": "安全员职责：在移动探伤现场，安全员就是“定海神针”，从拉警戒线、赶人、盯仪器测数据，到最终确认收源和归还，全程全方位兜底。"
+        "note": "安全员职责：在移动探伤现场，安全员就是\"定海神针\"，从拉警戒线、赶人、盯仪器测数据，到最终确认收源和归还，全程全方位兜底。"
     },
     {
         "id": 477,
@@ -8441,11 +8441,11 @@ const bank2 = [
         "question": "145、γ 探伤机手动控制部件包括 （  ）。",
         "isOptionImage": true,
         "options": {
-            "A": { "text": "", "img": "image387.jpg" },
-            "B": { "text": "", "img": "image388.jpg" },
-            "C": { "text": "", "img": "image389.jpg" },
-            "D": { "text": "", "img": "image390.jpg" },
-            "E": { "text": "", "img": "image391.jpg" }
+            "A": { "text": "\", \"img\": \"image387.jpg" },
+            "B": { "text": "\", \"img\": \"image388.jpg" },
+            "C": { "text": "\", \"img\": \"image389.jpg" },
+            "D": { "text": "\", \"img\": \"image390.jpg" },
+            "E": { "text": "\", \"img\": \"image391.jpg" }
         },
         "correctAnswer": ["A", "B", "C", "D"],
         "note": "（注：根据官方答案ABCD）。手动控制部件通常包括手摇把、齿轮齿条驱动机构、控制导管等直接影响源机械移动的构件。"
@@ -8463,7 +8463,7 @@ const bank2 = [
             "E": "不与防护门联锁"
         },
         "correctAnswer": ["B", "C"],
-        "note": "实操防呆机制：为了强迫操作人员“先看仪表再开门/开锁”，很多单位会将仪表的挂绳与开门的钥匙死死串在一起，拔钥匙必先拿仪器。"
+        "note": "实操防呆机制：为了强迫操作人员\"先看仪表再开门/开锁\"，很多单位会将仪表的挂绳与开门的钥匙死死串在一起，拔钥匙必先拿仪器。"
     },
     {
         "id": 484,
@@ -8471,11 +8471,11 @@ const bank2 = [
         "question": "147、从图中选择固定探伤工作应当配备辐射监测仪表。（  ）",
         "isOptionImage": true,
         "options": {
-            "A": { "text": "固定式剂量仪", "img": "image393.jpg" },
-            "B": { "text": "便携式剂量仪", "img": "image394.jpg" },
-            "C": { "text": "表面污染监测仪", "img": "image395.jpg" },
-            "D": { "text": "个人剂量报警仪", "img": "image396.jpg" },
-            "E": { "text": "个人剂量计", "img": "image397.jpg" }
+            "A": { "text": "固定式剂量仪\", \"img\": \"image393.jpg" },
+            "B": { "text": "便携式剂量仪\", \"img\": \"image394.jpg" },
+            "C": { "text": "表面污染监测仪\", \"img\": \"image395.jpg" },
+            "D": { "text": "个人剂量报警仪\", \"img\": \"image396.jpg" },
+            "E": { "text": "个人剂量计\", \"img\": \"image397.jpg" }
         },
         "correctAnswer": ["A", "B", "D", "E"],
         "note": "仪器配备：固定探伤工作因为使用的是伽马射线（外照射），不需要检测粉尘般的表面污染（C不需要），但场所监控（A）、移动巡测（B）和个人防护（D、E）缺一不可。"
@@ -8538,7 +8538,7 @@ const bank2 = [
             "E": "电子式计量报警仪佩戴在防护服外边"
         },
         "correctAnswer": ["A", "B", "D", "E"],
-        "note": "个人佩戴规范：俗称的“双管齐下”，热释光用于查“旧账”（内穿戴D），报警仪用于防“眼下”（外穿戴E以确保听到声音）。绝对不能二选一（C错误）。"
+        "note": "个人佩戴规范：俗称的\"双管齐下\"，热释光用于查\"旧账\"（内穿戴D），报警仪用于防\"眼下\"（外穿戴E以确保听到声音）。绝对不能二选一（C错误）。"
     },
     {
         "id": 489,
@@ -8594,7 +8594,7 @@ const bank2 = [
             "E": "负责对辐射工作人员进行辐射防护知识和监测仪表操作技能的培训"
         },
         "correctAnswer": ["B", "C", "D", "E"],
-        "note": "职责区分：安全员的核心身份是“裁判和教练”，负责查隐患、送检仪器和培训宣贯（B、C、D、E）。他们不直接充当“运动员”去操作探伤机（A不选）。"
+        "note": "职责区分：安全员的核心身份是\"裁判和教练\"，负责查隐患、送检仪器和培训宣贯（B、C、D、E）。他们不直接充当\"运动员\"去操作探伤机（A不选）。"
     },
     {
         "id": 493,
@@ -8622,7 +8622,7 @@ const bank2 = [
             "E": "租赁"
         },
         "correctAnswer": ["B", "C", "D"],
-        "note": "内控制度：日常运转中必须严格建立的是“领、还、登”流转闭环制度（B、C、D）。至于买卖或租赁属于商务许可范畴，不属于日常台账内控。"
+        "note": "内控制度：日常运转中必须严格建立的是\"领、还、登\"流转闭环制度（B、C、D）。至于买卖或租赁属于商务许可范畴，不属于日常台账内控。"
     },
     {
         "id": 495,
@@ -8636,7 +8636,7 @@ const bank2 = [
             "E": "消防器材检查"
         },
         "correctAnswer": ["A", "B", "C", "D"],
-        "note": "安全检查：A是针对移动探伤机的物理结构，B是针对固定探伤室，C是针对野外划区，D是检查工具本身。消防器材（E）属于常规消防安保，不特指“辐射探伤安全检查”的核心特有内容。"
+        "note": "安全检查：A是针对移动探伤机的物理结构，B是针对固定探伤室，C是针对野外划区，D是检查工具本身。消防器材（E）属于常规消防安保，不特指\"辐射探伤安全检查\"的核心特有内容。"
     },
     {
         "id": 496,
@@ -8734,7 +8734,7 @@ const bank2 = [
             "E": "Sr-90"
         },
         "correctAnswer": ["A", "D"],
-        "note": "核素认知：工业伽马探伤界公认的两大“顶梁柱”就是 钴-60（Co-60，用于超厚件）和 铱-192（Ir-192，用于常规件）。其他核素多用于测厚仪或研究。"
+        "note": "核素认知：工业伽马探伤界公认的两大\"顶梁柱\"就是 钴-60（Co-60，用于超厚件）和 铱-192（Ir-192，用于常规件）。其他核素多用于测厚仪或研究。"
     },
     {
         "id": 503,
@@ -8748,7 +8748,7 @@ const bank2 = [
             "E": "其他有关法律、法规规定的落实情况"
         },
         "correctAnswer": ["B", "C", "D", "E"],
-        "note": "年报内容：年度评估报告的重点是“安全与防护”，因此事故应急、项目变动、隐患整改都是必报项。人员学历变动（A）属于企业内部人力资源管理，不属于环保部门监管的辐射安全范畴。"
+        "note": "年报内容：年度评估报告的重点是\"安全与防护\"，因此事故应急、项目变动、隐患整改都是必报项。人员学历变动（A）属于企业内部人力资源管理，不属于环保部门监管的辐射安全范畴。"
     },
     {
         "id": 504,
@@ -8762,7 +8762,7 @@ const bank2 = [
             "E": "源的盘存、源库的保卫及双人双锁管理制度检查"
         },
         "correctAnswer": ["A", "B", "C", "E"],
-        "note": "安全检查重点：日常安检查的是“物（设备、仪器）”和“管（制度、盘点）”。工作人员的身份证检查（D）通常是安保门禁环节，不是设备作业前的专业辐射安全检查核心。"
+        "note": "安全检查重点：日常安检查的是\"物（设备、仪器）\"和\"管（制度、盘点）\"。工作人员的身份证检查（D）通常是安保门禁环节，不是设备作业前的专业辐射安全检查核心。"
     },
     {
         "id": 505,
@@ -8771,7 +8771,7 @@ const bank2 = [
         "options": {
             "A": "将作业时被检物体周围的空气比释动能率大于 15μGy•h-1的范围内划为控制区",
             "B": "沿控制区边界拉上警戒绳",
-            "C": "在控制区边界上设置清晰可见的“禁止进入”警告牌",
+            "C": "在控制区边界上设置清晰可见的\"禁止进入\"警告牌",
             "D": "沿控制区边界必须砌起一道混凝土墙对控制区进行实体屏障隔离",
             "E": "射线探伤作业人员应在控制区边界外操作"
         },
@@ -8818,7 +8818,7 @@ const bank2 = [
             "E": "个人剂量计必须每人一个"
         },
         "correctAnswer": ["A", "B", "D", "E"],
-        "note": "个体防护：现场作业必须“双管齐下”（佩戴剂量计和报警仪），且必须一人一表、专人专用。固定式伽马谱仪（C）是实验室里用来分析核素种类的大型仪器，不可能携带去探伤现场。"
+        "note": "个体防护：现场作业必须\"双管齐下\"（佩戴剂量计和报警仪），且必须一人一表、专人专用。固定式伽马谱仪（C）是实验室里用来分析核素种类的大型仪器，不可能携带去探伤现场。"
     },
     {
         "id": 509,
@@ -8846,7 +8846,7 @@ const bank2 = [
             "E": "放射源被其他人员捡走"
         },
         "correctAnswer": ["A", "B", "D", "E"],
-        "note": "事件定性：故障、断源辫、掉落和被无关人员捡拾，这些都是探伤行业常发的典型“责任事故”或“意外事故”。恐怖破坏（C）属于极端的治安反恐事件，不列为常规探伤安全培训中的“常见事件”。"
+        "note": "事件定性：故障、断源辫、掉落和被无关人员捡拾，这些都是探伤行业常发的典型\"责任事故\"或\"意外事故\"。恐怖破坏（C）属于极端的治安反恐事件，不列为常规探伤安全培训中的\"常见事件\"。"
     },
     {
         "id": 511,
@@ -8860,7 +8860,7 @@ const bank2 = [
             "E": "场所和工作人员的监测情况及监测数据"
         },
         "correctAnswer": ["A", "C", "D", "E"],
-        "note": "年报要求：政府环保部门监管的重点是“安全”（设施维护、制度落实、流转台账、剂量数据）。公司花了多少钱买源（B）属于商业财务机密，环保局是不管也不看这个的。"
+        "note": "年报要求：政府环保部门监管的重点是\"安全\"（设施维护、制度落实、流转台账、剂量数据）。公司花了多少钱买源（B）属于商业财务机密，环保局是不管也不看这个的。"
     },
     {
         "id": 512,
@@ -8874,7 +8874,7 @@ const bank2 = [
             "E": "来源及去向"
         },
         "correctAnswer": ["A", "B", "C", "D", "E"],
-        "note": "台账管理：台账也就是源的“生死簿”，必须详尽记录它是什么（核素、活度）、代号多少（编码）、什么时候造的（出厂），以及从哪里买的、最终又被送去了哪里（来源及去向），缺一不可。"
+        "note": "台账管理：台账也就是源的\"生死簿\"，必须详尽记录它是什么（核素、活度）、代号多少（编码）、什么时候造的（出厂），以及从哪里买的、最终又被送去了哪里（来源及去向），缺一不可。"
     },
     {
         "id": 513,
@@ -8912,11 +8912,11 @@ const bank2 = [
             "A": "严禁带源私自拆卸主机进行维修",
             "B": "主机的维修至少应由高中毕业以上的探伤人员进行",
             "C": "探伤机及换源器不要长期存放在潮湿的环境里，也不要让沙土进入主机中，特别要注意防海水腐蚀",
-            "D": "对驱动系统要经常保养，建议用柴油对钢丝绳进行清洗，驱动缆、导源管不使用时要盖好两端的“封堵”",
+            "D": "对驱动系统要经常保养，建议用柴油对钢丝绳进行清洗，驱动缆、导源管不使用时要盖好两端的\"封堵\"",
             "E": "当导源管中钢丝绳爬高高度超过 10米，摇起来吃力时，建议在钢丝绳上多加柴油"
         },
         "correctAnswer": ["A", "C", "D", "E"],
-        "note": "设备维保：绝对严禁带源拆机（A）。维保重在防锈防沙（C）和润滑（D、E）。主机的核心维修必须由具备资质的生产厂家或专业机构进行，不是“高中毕业”就能随便修的（B错误）。"
+        "note": "设备维保：绝对严禁带源拆机（A）。维保重在防锈防沙（C）和润滑（D、E）。主机的核心维修必须由具备资质的生产厂家或专业机构进行，不是\"高中毕业\"就能随便修的（B错误）。"
     },
     {
         "id": 516,
@@ -8986,7 +8986,7 @@ const bank2 = [
             "E": "检定合格标签粘贴于监测仪上"
         },
         "correctAnswer": ["A", "C", "D", "E"],
-        "note": "仪器检定：法定强制计量器具必须送交国家认可的有“检定资质”的计量部门（A），不能随便找个有源的单位自己搞（B错误）。其他项为检定后的标准化管理动作。"
+        "note": "仪器检定：法定强制计量器具必须送交国家认可的有\"检定资质\"的计量部门（A），不能随便找个有源的单位自己搞（B错误）。其他项为检定后的标准化管理动作。"
     },
     {
         "id": 521,
@@ -9014,7 +9014,7 @@ const bank2 = [
             "E": "操作人员应考核合格"
         },
         "correctAnswer": ["A", "B", "E"],
-        "note": "资质要求：再次强调“双人制”（A）和“持证上岗”（培训B并考核合格E）。培训不考核等同于没培训（D错），要求5名操作人员是针对公司整体硬件资质，不是每台设备（C错）。"
+        "note": "资质要求：再次强调\"双人制\"（A）和\"持证上岗\"（培训B并考核合格E）。培训不考核等同于没培训（D错），要求5名操作人员是针对公司整体硬件资质，不是每台设备（C错）。"
     },
     {
         "id": 523,
@@ -9056,7 +9056,7 @@ const bank2 = [
             "E": "钥匙不在锁上时，安全锁仍能锁死"
         },
         "correctAnswer": ["A", "B", "D", "E"],
-        "note": "安全锁逻辑：安全锁必须具备强悍的纯物理防错功能，确保“源不在家锁不上，锁上了源出不来”。纯机械锁更为稳定可靠，通常不需要也不建议搞华而不实的“智能化”控制（C）。"
+        "note": "安全锁逻辑：安全锁必须具备强悍的纯物理防错功能，确保\"源不在家锁不上，锁上了源出不来\"。纯机械锁更为稳定可靠，通常不需要也不建议搞华而不实的\"智能化\"控制（C）。"
     },
     {
         "id": 526,
@@ -9079,12 +9079,12 @@ const bank2 = [
         "options": {
             "A": "Ir-192 伽马射线探伤机",
             "B": "Se-75 伽马射线探伤机",
-            "C": "“S”通道型伽马射线探伤机",
+            "C": "\"S\"通道型伽马射线探伤机",
             "D": "Co-60 伽马射线探伤机",
             "E": "M 类伽马射线探伤机"
         },
         "correctAnswer": ["A", "B", "D"],
-        "note": "设备分类体系：题干问的是按“核素”分类，所以答案是铱-192、硒-75和钴-60（A、B、D）。而 S通道（C）是按机械结构分，M类（E）是按移动性分。"
+        "note": "设备分类体系：题干问的是按\"核素\"分类，所以答案是铱-192、硒-75和钴-60（A、B、D）。而 S通道（C）是按机械结构分，M类（E）是按移动性分。"
     },
     {
         "id": 528,
@@ -9112,7 +9112,7 @@ const bank2 = [
             "E": "被检工件的力学结构"
         },
         "correctAnswer": ["A", "B", "C"],
-        "note": "探伤目的：胶片成像就像是给钢管拍了一张医学X光片，医生能看出骨折（缺陷）的形状、位置和大小。但它无法放大到微观看到“原子结构”，也无法测算“力学结构”。"
+        "note": "探伤目的：胶片成像就像是给钢管拍了一张医学X光片，医生能看出骨折（缺陷）的形状、位置和大小。但它无法放大到微观看到「原子结构」，也无法测算「力学结构」。"
     },
     {
         "id": 530,
@@ -9126,6 +9126,6 @@ const bank2 = [
             "E": "非破坏性地"
         },
         "correctAnswer": ["C", "D", "E"],
-        "note": "检测定性：无损探伤的精髓所在——在绝对不搞坏东西的前提下（E），交出一份准确（C）且可靠（D）的内部健康报告。传统探伤底片是二维平面的，做不到“立体地”（A）。"
-    }// 等待粘贴新题...
+        "note": "检测定性：无损探伤的精髓所在——在绝对不搞坏东西的前提下（E），交出一份准确（C）且可靠（D）的内部健康报告。传统探伤底片是二维平面的，做不到「立体地」（A）。"
+    }
 ];
