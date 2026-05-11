@@ -264,9 +264,13 @@
     
     let timerInterval;
     let startTime;
-    let examTimeLimit = 45 * 60; 
+    const EXAM_TIME_LIMIT = 45 * 60;
     let devMode = false;
     let devClickCount = 0;
+
+    const SCORE_SINGLE = 2;
+    const SCORE_MULTIPLE_FULL = 4;
+    const SCORE_MULTIPLE_PARTIAL = 1;
 
     // ================= 初始化设置 =================
     let isDarkMode = localStorage.getItem('radiation_dark_mode') === 'true';
@@ -317,12 +321,14 @@
         questionBank = (activeBankKey === 'bank1') ? bank1 : bank2;
         
         let savedWrong = localStorage.getItem(`radiation_wrong_${activeBankKey}`);
-        let parsedWrong = savedWrong ? JSON.parse(savedWrong) : [];
+        let parsedWrong = [];
+        try { parsedWrong = savedWrong ? JSON.parse(savedWrong) : []; } catch (e) { console.warn('错题本数据解析失败，已重置:', e); }
         wrongBook = parsedWrong.filter(id => questionBank.some(q => q.id === id));
         if (parsedWrong.length !== wrongBook.length) { saveWrongBook(); }
 
         let savedFav = localStorage.getItem(`radiation_fav_${activeBankKey}`);
-        let parsedFav = savedFav ? JSON.parse(savedFav) : [];
+        let parsedFav = [];
+        try { parsedFav = savedFav ? JSON.parse(savedFav) : []; } catch (e) { console.warn('收藏夹数据解析失败，已重置:', e); }
         favoriteBook = parsedFav.filter(id => questionBank.some(q => q.id === id));
         if (parsedFav.length !== favoriteBook.length) { saveFavoriteBook(); }
         
@@ -422,7 +428,9 @@
                 let modeName = mode === 'sequential' ? '顺序刷题' : mode === 'random' ? '随机练习' : mode === 'favorite' ? '重点题型' : '错题回顾';
                 
                 if (confirm(`发现您上次在【${bankNameText} - ${modeName}】有未完成的进度！\n\n👉 点击【确定】继续上次练习\n👉 点击【取消】重新开始`)) {
-                    let parsed = JSON.parse(savedData);
+                    let parsed = null;
+                    try { parsed = JSON.parse(savedData); } catch (e) { console.warn('进度数据解析失败，将重新开始:', e); localStorage.removeItem(saveKey); parsed = null; }
+                    if (!parsed) { localStorage.removeItem(saveKey); } else {
                     currentMode = mode;
                     currentIndex = parsed.currentIndex;
                     userAnswers = parsed.userAnswers || {};
@@ -431,7 +439,7 @@
                     
                     hideAllAreas(); document.getElementById('quiz-area').style.display = 'block';
                     clearInterval(timerInterval); startTime = Date.now() - (parsed.elapsedTime * 1000); startTimer(true); 
-                    renderQuestion(); return; 
+                    renderQuestion(); return; }
                 } else { localStorage.removeItem(saveKey); }
             }
         }
@@ -471,7 +479,7 @@
             let timerEl = document.getElementById('timer');
             
             if (currentMode === 'exam') {
-                let remaining = examTimeLimit - elapsed;
+                let remaining = EXAM_TIME_LIMIT - elapsed;
                 if (remaining <= 0) {
                     clearInterval(timerInterval); timerEl.innerText = `⏱️ 00:00`;
                     alert("⏳ 考试时间到！系统已为您自动交卷。"); submitExam(true); return;
@@ -658,7 +666,7 @@
 
         clearInterval(timerInterval);
         let elapsed = Math.floor((Date.now() - startTime) / 1000);
-        if (currentMode === 'exam' && elapsed > examTimeLimit) { elapsed = examTimeLimit; }
+        if (currentMode === 'exam' && elapsed > EXAM_TIME_LIMIT) { elapsed = EXAM_TIME_LIMIT; }
         let timeSpentText = `${Math.floor(elapsed / 60)}分${elapsed % 60}秒`;
 
         let score = 0;
@@ -669,19 +677,20 @@
             let isPerfect = false;
 
             if (q.type === 'single') {
-                if (selected.length > 0 && selected[0].trim() === String(q.correctAnswer).trim()) { score += 2; isPerfect = true; }
+                if (selected.length > 0 && selected[0].trim() === String(q.correctAnswer).trim()) { score += SCORE_SINGLE; isPerfect = true; }
             } else if (q.type === 'multiple') {
                 let correctArr = q.correctAnswer.map(x=>String(x).trim()); 
                 let hasWrongOption = selected.some(opt => !correctArr.includes(opt.trim()));
                 if (selected.length > 0 && !hasWrongOption) {
-                    if (selected.length === correctArr.length) { score += 4; isPerfect = true; } else { score += selected.length * 1; }
+                    if (selected.length === correctArr.length) { score += SCORE_MULTIPLE_FULL; isPerfect = true; } else { score += selected.length * SCORE_MULTIPLE_PARTIAL; }
                 }
             }
 
             if (!isPerfect) {
                 let targetBank = q._bank || 'bank1';
                 let targetKey = `radiation_wrong_${targetBank}`;
-                let wb = JSON.parse(localStorage.getItem(targetKey) || '[]');
+                let wb = [];
+                try { wb = JSON.parse(localStorage.getItem(targetKey) || '[]'); } catch (e) { wb = []; }
                 if (!wb.includes(q.id)) { wb.push(q.id); localStorage.setItem(targetKey, JSON.stringify(wb)); }
                 if (targetBank === activeBankKey && !wrongBook.includes(q.id)) { wrongBook.push(q.id); }
             }
@@ -693,9 +702,10 @@
         let record = {
             id: Date.now(), date: new Date().toLocaleString(), score: score, timeSpent: timeSpentText, passStatus: passStatus,
             qList: currentList.map(q => ({id: q.id, bank: q._bank})),
-            userAnswers: JSON.parse(JSON.stringify(userAnswers)) // 此时全是对号入座的 uid
+            userAnswers: JSON.parse(JSON.stringify(userAnswers))
         };
-        let examRecords = JSON.parse(localStorage.getItem('radiation_exam_records') || '[]');
+        let examRecords = [];
+        try { examRecords = JSON.parse(localStorage.getItem('radiation_exam_records') || '[]'); } catch (e) { examRecords = []; }
         examRecords.unshift(record); localStorage.setItem('radiation_exam_records', JSON.stringify(examRecords));
 
         alert(`【考试结束】\n\n🎯 最终得分：${score} 分 / 120 分\n📝 考核结果：${passStatus}\n⏳ 考试用时：${timeSpentText}\n\n💡 错题及漏选题已收录进各对应的错题本中。`);
@@ -707,7 +717,8 @@
     function showRecordsArea() {
         hideAllAreas();
         document.getElementById('records-area').style.display = 'block';
-        let records = JSON.parse(localStorage.getItem('radiation_exam_records') || '[]');
+        let records = [];
+        try { records = JSON.parse(localStorage.getItem('radiation_exam_records') || '[]'); } catch (e) { records = []; }
         let html = '';
         if(records.length === 0) {
             html = `<div style="text-align:center; padding: 40px 0; color:#95a5a6;">暂无考试记录，快去开启一次全真模拟吧！</div>`;
@@ -738,7 +749,8 @@
     }
 
     function viewRecordDetail(recordId) {
-        let records = JSON.parse(localStorage.getItem('radiation_exam_records') || '[]');
+        let records = [];
+        try { records = JSON.parse(localStorage.getItem('radiation_exam_records') || '[]'); } catch (e) { records = []; }
         let record = records.find(r => r.id === recordId);
         if(!record) return;
 
