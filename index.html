@@ -682,7 +682,14 @@
                 let correctArr = q.correctAnswer.map(x=>String(x).trim()); 
                 let hasWrongOption = selected.some(opt => !correctArr.includes(opt.trim()));
                 if (selected.length > 0 && !hasWrongOption) {
-                    if (selected.length === correctArr.length) { score += SCORE_MULTIPLE_FULL; isPerfect = true; } else { score += selected.length * SCORE_MULTIPLE_PARTIAL; }
+                    // 少选每个得1分，但满分不超过4分
+                    let partialScore = selected.length * SCORE_MULTIPLE_PARTIAL;
+                    if (partialScore >= SCORE_MULTIPLE_FULL) {
+                        score += SCORE_MULTIPLE_FULL;
+                        isPerfect = true;
+                    } else {
+                        score += partialScore;
+                    }
                 }
             }
 
