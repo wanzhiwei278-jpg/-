@@ -134,9 +134,10 @@
         @keyframes loading { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
         
         /* ================= 批量管理弹窗 ================= */
-        .batch-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1001; justify-content: center; align-items: center; }
-        .batch-modal.show { display: flex; }
-        .batch-content { background: var(--card-bg); border-radius: 12px; padding: 20px; width: 90%; max-width: 400px; }
+        .batch-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1001; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease; }
+        .batch-modal.show { display: flex; opacity: 1; }
+        .batch-content { background: var(--card-bg); border-radius: 12px; padding: 20px; width: 90%; max-width: 400px; transform: translateY(20px); transition: transform 0.3s ease; }
+        .batch-modal.show .batch-content { transform: translateY(0); }
         .batch-title { font-size: 18px; font-weight: bold; margin-bottom: 15px; text-align: center; }
         .batch-btn { width: 100%; padding: 12px; margin: 8px 0; border: none; border-radius: 8px; font-size: 16px; cursor: pointer; transition: 0.2s; }
         .batch-btn.danger { background: #e74c3c; color: white; }
@@ -761,7 +762,10 @@
         let uid = getUid(q);
         let selected = userAnswers[uid] || [];
         
-        if (selected.length === 0) { alert("请至少选择一个答案！"); return; }
+        if (selected.length === 0) { 
+            alert("请至少选择一个答案！"); 
+            return; 
+        }
         
         let isCorrect = checkIsCorrect(q, selected); 
         questionStatus[uid] = isCorrect ? 'correct' : 'wrong';
@@ -770,11 +774,21 @@
             recordStats(isCorrect);
         }
         
-        if (!isCorrect) { if (!wrongBook.includes(q.id)) { wrongBook.push(q.id); saveWrongBook(); }
-        } else if (currentMode === 'wrong') { wrongBook = wrongBook.filter(id => id !== q.id); saveWrongBook(); }
+        if (!isCorrect) { 
+            if (!wrongBook.includes(q.id)) { 
+                wrongBook.push(q.id); 
+                saveWrongBook(); 
+            }
+        } else if (currentMode === 'wrong') { 
+            wrongBook = wrongBook.filter(id => id !== q.id); 
+            saveWrongBook(); 
+        }
         
-        renderQuestion(); saveProgress(); 
-        if (isCorrect && currentIndex < currentList.length - 1) { setTimeout(nextQuestion, 400); }
+        renderQuestion(); 
+        saveProgress(); 
+        if (isCorrect && currentIndex < currentList.length - 1) { 
+            setTimeout(nextQuestion, 400); 
+        }
     }
 
     function prevQuestion() { if (currentIndex > 0) { currentIndex--; renderQuestion(); saveProgress(); } }
@@ -801,7 +815,11 @@
         if (currentMode === 'exam') { forceBtn.style.display = 'block'; forceBtn.innerText = `直接交卷 (${answeredCount}/${currentList.length})`; } else { forceBtn.style.display = 'none'; }
     }
 
-    function closeSheet(force = false) { if(force || event.target.id === 'sheet-overlay') { document.getElementById('sheet-overlay').style.display = 'none'; } }
+    function closeSheet(force = false) { 
+        if(force || (typeof event !== 'undefined' && event.target && event.target.id === 'sheet-overlay')) { 
+            document.getElementById('sheet-overlay').style.display = 'none'; 
+        } 
+    }
     function jumpTo(idx) { currentIndex = idx; closeSheet(true); renderQuestion(); saveProgress(); }
 
     function submitExam(isTimeUp = false) {
@@ -990,11 +1008,19 @@
         let count = mode === 'wrong' ? wrongBook.length : favoriteBook.length;
         document.getElementById('batch-modal-title').innerText = `${title} (${count}题)`;
         document.getElementById('batch-clear-btn').innerText = `清空全部 (${count}题)`;
-        document.getElementById('batch-modal').classList.add('show');
+        let modal = document.getElementById('batch-modal');
+        modal.style.display = 'flex';
+        setTimeout(() => { 
+            modal.classList.add('show'); 
+        }, 10);
     }
     
     function closeBatchModal() {
-        document.getElementById('batch-modal').classList.remove('show');
+        let modal = document.getElementById('batch-modal');
+        modal.classList.remove('show'); 
+        setTimeout(() => { 
+            modal.style.display = 'none'; 
+        }, 300);
     }
     
     function clearCurrentBook() {
