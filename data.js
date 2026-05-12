@@ -214,10 +214,10 @@ const bank1 = [
     "question": "各种人工辐射照射来源所致公众辐射剂量的全球平均值中，最高的是（ ）。",
     "isOptionImage": true,
     "options": { 
-        "A": { "text": "医疗照射\", \"img\": \"image27.jpg" }, 
-        "B": { "text": "大气核试验\", \"img\": \"image28.jpg" }, 
-        "C": { "text": "切尔诺贝利事故\", \"img\": \"image29.jpg" }, 
-        "D": { "text": "核燃料循环\", \"img\": \"image30.jpg" } 
+        "A": { "text": "医疗照射", "img": "image27.jpg" }, 
+        "B": { "text": "大气核试验", "img": "image28.jpg" }, 
+        "C": { "text": "切尔诺贝利事故", "img": "image29.jpg" }, 
+        "D": { "text": "核燃料循环", "img": "image30.jpg" } 
     },
     "correctAnswer": "A",
     "note": "医疗照射是公众受照射的人工辐射源中贡献最大的。"
@@ -337,10 +337,10 @@ const bank1 = [
         "question": "在以下生活中我们所接触的辐射中，剂量最高的是（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "胸部CT (一次)\", \"img\": \"image44.jpg" }, 
-            "B": { "text": "患癌增加 (一年)\", \"img\": \"image45.jpg" }, 
-            "C": { "text": "死亡 (短时照射)\", \"img\": \"image46.jpg" }, 
-            "D": { "text": "核工业限值 (一年)\", \"img\": \"image47.jpg" } 
+            "A": { "text": "胸部CT (一次)", "img": "image44.jpg" }, 
+            "B": { "text": "患癌增加 (一年)", "img": "image45.jpg" }, 
+            "C": { "text": "死亡 (短时照射)", "img": "image46.jpg" }, 
+            "D": { "text": "核工业限值 (一年)", "img": "image47.jpg" } 
         },
         "correctAnswer": "C",
         "note": "致死所需的短时大剂量照射（通常为数Gy）远高于生活或职业限值。 [cite: 13]"
@@ -396,10 +396,10 @@ const bank1 = [
         "question": "下列不同种系生物死亡所需的吸收剂量最高的是（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "病毒\", \"img\": \"image53.jpg" }, 
-            "B": { "text": "鼠\", \"img\": \"image54.jpg" }, 
-            "C": { "text": "大肠杆菌\", \"img\": \"image55.jpg" }, 
-            "D": { "text": "人\", \"img\": \"image56.jpg" } 
+            "A": { "text": "病毒", "img": "image53.jpg" }, 
+            "B": { "text": "鼠", "img": "image54.jpg" }, 
+            "C": { "text": "大肠杆菌", "img": "image55.jpg" }, 
+            "D": { "text": "人", "img": "image56.jpg" } 
         },
         "correctAnswer": "A",
         "note": "低等生物（如病毒）的抗辐射能力远强于高等复杂生物。 [cite: 13]"
@@ -410,10 +410,10 @@ const bank1 = [
         "question": "下列不同种系生物死亡所需的吸收剂量最高的是（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "龟\", \"img\": \"image57.jpg" }, 
-            "B": { "text": "猴\", \"img\": \"image58.jpg" }, 
-            "C": { "text": "大肠杆菌\", \"img\": \"image59.jpg" }, 
-            "D": { "text": "鼠\", \"img\": \"image60.jpg" } 
+            "A": { "text": "龟", "img": "image57.jpg" }, 
+            "B": { "text": "猴", "img": "image58.jpg" }, 
+            "C": { "text": "大肠杆菌", "img": "image59.jpg" }, 
+            "D": { "text": "鼠", "img": "image60.jpg" } 
         },
         "correctAnswer": "C",
         "note": "在选项中，微生物（大肠杆菌）的演化程度最低，耐受剂量最高。 [cite: 13]"
@@ -424,10 +424,10 @@ const bank1 = [
         "question": "下列属于轻度敏感的组织或是器官有（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "肝上皮细胞\", \"img\": \"image61.jpg" }, 
-            "B": { "text": "心脏\", \"img\": \"image62.jpg" }, 
-            "C": { "text": "胚胎\", \"img\": \"image63.jpg" }, 
-            "D": { "text": "角膜\", \"img\": \"image64.jpg" } 
+            "A": { "text": "肝上皮细胞", "img": "image61.jpg" }, 
+            "B": { "text": "心脏", "img": "image62.jpg" }, 
+            "C": { "text": "胚胎", "img": "image63.jpg" }, 
+            "D": { "text": "角膜", "img": "image64.jpg" } 
         },
         "correctAnswer": "B",
         "note": "肌肉、心脏和神经组织属于对辐射不敏感或轻度敏感的组织。"
@@ -438,10 +438,10 @@ const bank1 = [
         "question": "当量剂量的国际标准单位（Sv）是以谁的名字命名的？",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "戈瑞\", \"img\": \"image65.jpg" }, 
-            "B": { "text": "希沃特\", \"img\": \"image66.jpg" }, 
-            "C": { "text": "爱因斯坦\", \"img\": \"image67.jpg" }, 
-            "D": { "text": "贝克勒尔\", \"img\": \"image68.jpg" } 
+            "A": { "text": "戈瑞", "img": "image65.jpg" }, 
+            "B": { "text": "希沃特", "img": "image66.jpg" }, 
+            "C": { "text": "爱因斯坦", "img": "image67.jpg" }, 
+            "D": { "text": "贝克勒尔", "img": "image68.jpg" } 
         },
         "correctAnswer": "B",
         "note": "Sv 的专用名称是希沃特（Sievert），用于衡量辐射对生物组织的加权影响。"
@@ -452,10 +452,10 @@ const bank1 = [
         "question": "吸收剂量的国际标准单位（Gy）是以谁的名字命名的？",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "戈瑞\", \"img\": \"image69.jpg" }, 
-            "B": { "text": "伦琴\", \"img\": \"image70.jpg" }, 
-            "C": { "text": "爱因斯坦\", \"img\": \"image71.jpg" }, 
-            "D": { "text": "贝克勒尔\", \"img\": \"image72.jpg" } 
+            "A": { "text": "戈瑞", "img": "image69.jpg" }, 
+            "B": { "text": "伦琴", "img": "image70.jpg" }, 
+            "C": { "text": "爱因斯坦", "img": "image71.jpg" }, 
+            "D": { "text": "贝克勒尔", "img": "image72.jpg" } 
         },
         "correctAnswer": "A",
         "note": "Gy 的专用名称是戈瑞（Gray），定义为每千克受照物质吸收 1 焦耳的辐射能量。"
@@ -682,10 +682,10 @@ const bank1 = [
         "question": "根据（ ）相对论理论，任何具有一定质量 m 的物体，它相应的能量公式表示为：E= mc2",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "爱因斯坦\", \"img\": \"image106.jpg" }, 
-            "B": { "text": "伦琴\", \"img\": \"image107.jpg" }, 
-            "C": { "text": "贝克勒尔\", \"img\": \"image108.jpg" }, 
-            "D": { "text": "玻恩\", \"img\": \"image109.jpg" } 
+            "A": { "text": "爱因斯坦", "img": "image106.jpg" }, 
+            "B": { "text": "伦琴", "img": "image107.jpg" }, 
+            "C": { "text": "贝克勒尔", "img": "image108.jpg" }, 
+            "D": { "text": "玻恩", "img": "image109.jpg" } 
         },
         "correctAnswer": "A"
     },
@@ -695,10 +695,10 @@ const bank1 = [
         "question": "1898 年，（ ）发现当铀发出射线后，可以神奇地转变为其他元素，其中一个元素命名为钋，另一个元素称为镭，即「发光的」元素。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "伦琴\", \"img\": \"image110.jpg" }, 
-            "B": { "text": "贝克勒尔\", \"img\": \"image111.jpg" }, 
-            "C": { "text": "居里夫人\", \"img\": \"image112.jpg" }, 
-            "D": { "text": "麦克斯韦\", \"img\": \"image113.jpg" } 
+            "A": { "text": "伦琴", "img": "image110.jpg" }, 
+            "B": { "text": "贝克勒尔", "img": "image111.jpg" }, 
+            "C": { "text": "居里夫人", "img": "image112.jpg" }, 
+            "D": { "text": "麦克斯韦", "img": "image113.jpg" } 
         },
         "correctAnswer": "C"
     },
@@ -1082,10 +1082,10 @@ const bank1 = [
         "question": "电离辐射是指其携带的能量足以使物质原子或分子中的电子成为自由态，从而使这些原子或分子发生电离现象的辐射。下列属于电离辐射的是（ ）",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "氡气\", \"img\": \"image158.jpg" }, 
-            "B": { "text": "核子秤\", \"img\": \"image159.jpg" }, 
-            "C": { "text": "电视\", \"img\": \"image160.jpg" }, 
-            "D": { "text": "安检\", \"img\": \"image161.jpg" } 
+            "A": { "text": "氡气", "img": "image158.jpg" }, 
+            "B": { "text": "核子秤", "img": "image159.jpg" }, 
+            "C": { "text": "电视", "img": "image160.jpg" }, 
+            "D": { "text": "安检", "img": "image161.jpg" } 
         },
         "correctAnswer": ["A", "B", "D"],
         "note": "氡气、核子秤、安检仪均属电离辐射（或含有放射源）。普通电视机主要产生非电离辐射。"
@@ -1096,10 +1096,10 @@ const bank1 = [
         "question": "闪烁探测器具有分辨时间短、探测效率高和能测量射线能量等优点，是目前应用最广的辐射探测器之一。下列探测器中属于无机闪烁体探测器的是（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "碘化钠\", \"img\": \"image162.jpg" }, 
-            "B": { "text": "碘化铯\", \"img\": \"image163.jpg" }, 
-            "C": { "text": "硫化锌\", \"img\": \"image164.jpg" }, 
-            "D": { "text": "锂玻璃\", \"img\": \"image165.jpg" } 
+            "A": { "text": "碘化钠", "img": "image162.jpg" }, 
+            "B": { "text": "碘化铯", "img": "image163.jpg" }, 
+            "C": { "text": "硫化锌", "img": "image164.jpg" }, 
+            "D": { "text": "锂玻璃", "img": "image165.jpg" } 
         },
         "correctAnswer": ["A", "B", "C", "D"],
         "note": "这四种材料均是核仪器中常用于测量辐射的无机闪烁体材料。"
@@ -1110,10 +1110,10 @@ const bank1 = [
         "question": "下列探测器中属于半导体探测器有（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "金硅面垒\", \"img\": \"image166.jpg" }, 
-            "B": { "text": "平面硅（PIPS）\", \"img\": \"image167.jpg" }, 
-            "C": { "text": "高纯锗\", \"img\": \"image168.jpg" }, 
-            "D": { "text": "锂玻璃\", \"img\": \"image169.jpg" } 
+            "A": { "text": "金硅面垒", "img": "image166.jpg" }, 
+            "B": { "text": "平面硅（PIPS）", "img": "image167.jpg" }, 
+            "C": { "text": "高纯锗", "img": "image168.jpg" }, 
+            "D": { "text": "锂玻璃", "img": "image169.jpg" } 
         },
         "correctAnswer": ["A", "B", "C"],
         "note": "金硅面垒、平面硅和高纯锗均属于半导体探测器，常用于α、β和γ能谱测量。锂玻璃属于无机闪烁体。"
@@ -1124,10 +1124,10 @@ const bank1 = [
         "question": "下列探测器中属于闪烁体探测器有（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "电离室\", \"img\": \"image170.jpg" }, 
-            "B": { "text": "平面硅（PIPS）\", \"img\": \"image171.jpg" }, 
-            "C": { "text": "液体闪烁器\", \"img\": \"image172.jpg" }, 
-            "D": { "text": "碘化铯\", \"img\": \"image173.jpg" } 
+            "A": { "text": "电离室", "img": "image170.jpg" }, 
+            "B": { "text": "平面硅（PIPS）", "img": "image171.jpg" }, 
+            "C": { "text": "液体闪烁器", "img": "image172.jpg" }, 
+            "D": { "text": "碘化铯", "img": "image173.jpg" } 
         },
         "correctAnswer": ["C", "D"],
         "note": "液体闪烁器和碘化铯(CsI)均属于闪烁体探测器。电离室是气体探测器，平面硅是半导体探测器。"
@@ -1138,10 +1138,10 @@ const bank1 = [
         "question": "下列探测器中常用于中子探测的有（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "硫化锌\", \"img\": \"image174.jpg" }, 
-            "B": { "text": "BF3 正比计数器\", \"img\": \"image175.jpg" }, 
-            "C": { "text": "3He 正比计数器\", \"img\": \"image176.jpg" }, 
-            "D": { "text": "锂玻璃\", \"img\": \"image177.jpg" } 
+            "A": { "text": "硫化锌", "img": "image174.jpg" }, 
+            "B": { "text": "BF3 正比计数器", "img": "image175.jpg" }, 
+            "C": { "text": "3He 正比计数器", "img": "image176.jpg" }, 
+            "D": { "text": "锂玻璃", "img": "image177.jpg" } 
         },
         "correctAnswer": ["A", "B", "C", "D"],
         "note": "BF3、3He正比计数器是经典的中子探测器；锂玻璃和涂有含硼/锂的硫化锌闪烁体也常被用来探测中子。"
@@ -1152,10 +1152,10 @@ const bank1 = [
         "question": "核试验的类型包括以下哪些方式（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "地上核试验\", \"img\": \"image178.jpg" }, 
-            "B": { "text": "地下核试验\", \"img\": \"image179.jpg" }, 
-            "C": { "text": "高空核试验\", \"img\": \"image180.jpg" }, 
-            "D": { "text": "水下核试验\", \"img\": \"image181.jpg" } 
+            "A": { "text": "地上核试验", "img": "image178.jpg" }, 
+            "B": { "text": "地下核试验", "img": "image179.jpg" }, 
+            "C": { "text": "高空核试验", "img": "image180.jpg" }, 
+            "D": { "text": "水下核试验", "img": "image181.jpg" } 
         },
         "correctAnswer": ["A", "B", "C", "D"],
         "note": "历史上核试验曾在各个环境中进行过，主要分类包括大气层（地上、高空）、地下和水下核试验。"
@@ -1166,10 +1166,10 @@ const bank1 = [
         "question": "电离辐射是指其携带的能量足以使物质原子或分子中的电子成为自由态，从而使这些原子或分子发生电离现象的辐射。下列属于电离辐射的是（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "电脑\", \"img\": \"image182.jpg" }, 
-            "B": { "text": "灯源\", \"img\": \"image183.jpg" }, 
-            "C": { "text": "电子加速器\", \"img\": \"image184.jpg" }, 
-            "D": { "text": "辐照灭菌\", \"img\": \"image185.jpg" } 
+            "A": { "text": "电脑", "img": "image182.jpg" }, 
+            "B": { "text": "灯源", "img": "image183.jpg" }, 
+            "C": { "text": "电子加速器", "img": "image184.jpg" }, 
+            "D": { "text": "辐照灭菌", "img": "image185.jpg" } 
         },
         "correctAnswer": ["C", "D"],
         "note": "电子加速器产生高能射线，辐照灭菌利用的是γ射线或电子束，二者均属于电离辐射。电脑和普通灯源多为非电离辐射。"
@@ -1189,10 +1189,10 @@ const bank1 = [
         "question": "以下属于非电离辐射的有（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "手机\", \"img\": \"image187.jpg" }, 
-            "B": { "text": "电脑\", \"img\": \"image188.jpg" }, 
-            "C": { "text": "微波\", \"img\": \"image189.jpg" }, 
-            "D": { "text": "广播\", \"img\": \"image190.jpg" } 
+            "A": { "text": "手机", "img": "image187.jpg" }, 
+            "B": { "text": "电脑", "img": "image188.jpg" }, 
+            "C": { "text": "微波", "img": "image189.jpg" }, 
+            "D": { "text": "广播", "img": "image190.jpg" } 
         },
         "correctAnswer": ["A", "B", "C", "D"],
         "note": "手机、电脑、微波炉和广播电台发出的均为电磁波（无线电波或微波），因其能量较低不足以引起原子电离，属于非电离辐射。"
@@ -1203,10 +1203,10 @@ const bank1 = [
         "question": "电离辐射种类很多，包括带电粒子和不带电粒子。不带电粒子有（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "X 射线\", \"img\": \"image191.jpg" }, 
-            "B": { "text": "γ 射线\", \"img\": \"image192.jpg" }, 
-            "C": { "text": "质子\", \"img\": \"image193.jpg" }, 
-            "D": { "text": "中子\", \"img\": \"image194.jpg" } 
+            "A": { "text": "X 射线", "img": "image191.jpg" }, 
+            "B": { "text": "γ 射线", "img": "image192.jpg" }, 
+            "C": { "text": "质子", "img": "image193.jpg" }, 
+            "D": { "text": "中子", "img": "image194.jpg" } 
         },
         "correctAnswer": ["A", "B", "D"],
         "note": "X射线和γ射线属于电磁辐射（光子），中子是不带电的粒子。质子带正电，属于带电粒子。"
@@ -1217,10 +1217,10 @@ const bank1 = [
         "question": "电离辐射种类很多，包括带电粒子和不带电粒子。带电粒子有（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "α 粒子\", \"img\": \"image195.jpg" }, 
-            "B": { "text": "β 粒子\", \"img\": \"image196.jpg" }, 
-            "C": { "text": "质子\", \"img\": \"image197.jpg" }, 
-            "D": { "text": "中子\", \"img\": \"image198.jpg" } 
+            "A": { "text": "α 粒子", "img": "image195.jpg" }, 
+            "B": { "text": "β 粒子", "img": "image196.jpg" }, 
+            "C": { "text": "质子", "img": "image197.jpg" }, 
+            "D": { "text": "中子", "img": "image198.jpg" } 
         },
         "correctAnswer": ["A", "B", "C"],
         "note": "α粒子（带正电的氦核）、β粒子（高速电子或正电子）和质子（带正电）均是带电粒子。"
@@ -1240,10 +1240,10 @@ const bank1 = [
         "question": "非电离辐射，由于辐射能量低，不能从原子、分子或其他束缚状态放出电子，包括（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "可见光\", \"img\": \"image200.jpg" }, 
-            "B": { "text": "热源\", \"img\": \"image201.jpg" }, 
-            "C": { "text": "电视天线\", \"img\": \"image202.jpg" }, 
-            "D": { "text": "电脑\", \"img\": \"image203.jpg" } 
+            "A": { "text": "可见光", "img": "image200.jpg" }, 
+            "B": { "text": "热源", "img": "image201.jpg" }, 
+            "C": { "text": "电视天线", "img": "image202.jpg" }, 
+            "D": { "text": "电脑", "img": "image203.jpg" } 
         },
         "correctAnswer": ["A", "B", "C", "D"],
         "note": "可见光、热辐射（红外线）以及家用电器或天线发出的射频波均属于非电离辐射。"
@@ -1344,10 +1344,10 @@ const bank1 = [
         "question": "放射性物质进入体内的途径主要（ ）等。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "吸入\", \"img\": \"image214.jpg" }, 
-            "B": { "text": "食入\", \"img\": \"image215.jpg" }, 
-            "C": { "text": "皮肤渗入\", \"img\": \"image216.jpg" }, 
-            "D": { "text": "伤口侵入\", \"img\": \"image217.jpg" } 
+            "A": { "text": "吸入", "img": "image214.jpg" }, 
+            "B": { "text": "食入", "img": "image215.jpg" }, 
+            "C": { "text": "皮肤渗入", "img": "image216.jpg" }, 
+            "D": { "text": "伤口侵入", "img": "image217.jpg" } 
         },
         "correctAnswer": ["A", "B", "C", "D"],
         "note": "放射性物质主要通过呼吸道吸入、消化道食入、完好皮肤渗入以及破损伤口侵入这四种途径进入人体造成内照射。"
@@ -1358,10 +1358,10 @@ const bank1 = [
         "question": "常用的β 屏蔽材料有（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "铅\", \"img\": \"image218.jpg" }, 
-            "B": { "text": "有机玻璃\", \"img\": \"image219.jpg" }, 
-            "C": { "text": "混凝土\", \"img\": \"image220.jpg" }, 
-            "D": { "text": "铝\", \"img\": \"image221.jpg" } 
+            "A": { "text": "铅", "img": "image218.jpg" }, 
+            "B": { "text": "有机玻璃", "img": "image219.jpg" }, 
+            "C": { "text": "混凝土", "img": "image220.jpg" }, 
+            "D": { "text": "铝", "img": "image221.jpg" } 
         },
         "correctAnswer": ["B", "C", "D"],
         "note": "屏蔽β射线通常选用低原子序数材料（如有机玻璃、铝、混凝土等），以减少韧致辐射的产生。铅是高原子序数材料，直接屏蔽β易产生强烈的韧致辐射。"
@@ -1372,10 +1372,10 @@ const bank1 = [
         "question": "常用的γ 屏蔽材料有（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "铅\", \"img\": \"image222.jpg" }, 
-            "B": { "text": "钨\", \"img\": \"image223.jpg" }, 
-            "C": { "text": "混凝土\", \"img\": \"image224.jpg" }, 
-            "D": { "text": "砖\", \"img\": \"image225.jpg" } 
+            "A": { "text": "铅", "img": "image222.jpg" }, 
+            "B": { "text": "钨", "img": "image223.jpg" }, 
+            "C": { "text": "混凝土", "img": "image224.jpg" }, 
+            "D": { "text": "砖", "img": "image225.jpg" } 
         },
         "correctAnswer": ["A", "B", "C", "D"],
         "note": "屏蔽γ射线主要依靠物质的密度和原子序数，铅、钨、混凝土和砖等重物质或厚重材料都是常用的γ屏蔽材料。"
@@ -1386,10 +1386,10 @@ const bank1 = [
         "question": "常用的中子屏蔽材料有（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "水\", \"img\": \"image226.jpg" }, 
-            "B": { "text": "石蜡\", \"img\": \"image227.jpg" }, 
-            "C": { "text": "混凝土\", \"img\": \"image228.jpg" }, 
-            "D": { "text": "聚乙烯\", \"img\": \"image229.jpg" } 
+            "A": { "text": "水", "img": "image226.jpg" }, 
+            "B": { "text": "石蜡", "img": "image227.jpg" }, 
+            "C": { "text": "混凝土", "img": "image228.jpg" }, 
+            "D": { "text": "聚乙烯", "img": "image229.jpg" } 
         },
         "correctAnswer": ["A", "B", "C", "D"],
         "note": "屏蔽中子通常需要富含氢的材料（如水、石蜡、聚乙烯）来慢化快中子，混凝土既含水也能提供结构屏蔽，是极佳的综合屏蔽材料。"
@@ -1436,10 +1436,10 @@ const bank1 = [
         "question": "外照射个人剂量监测是指利用工作人员佩带剂量计对个人剂量当量进行的监测，以及对测量结果的解释。常用的个人剂量计有（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "TLD 个人剂量计\", \"img\": \"image234.jpg" }, 
-            "B": { "text": "手脚表面污染仪\", \"img\": \"image235.jpg" }, 
-            "C": { "text": "指环/腕式个人剂量计\", \"img\": \"image236.jpg" }, 
-            "D": { "text": "个人剂量报警仪\", \"img\": \"image237.jpg" } 
+            "A": { "text": "TLD 个人剂量计", "img": "image234.jpg" }, 
+            "B": { "text": "手脚表面污染仪", "img": "image235.jpg" }, 
+            "C": { "text": "指环/腕式个人剂量计", "img": "image236.jpg" }, 
+            "D": { "text": "个人剂量报警仪", "img": "image237.jpg" } 
         },
         "correctAnswer": ["A", "C", "D"],
         "note": "TLD（热释光剂量计）、指环计和电子报警仪均属个人外照射剂量计。手脚表面污染仪用于监测表面放射性污染，不属于外照射个人剂量计。"
@@ -1450,10 +1450,10 @@ const bank1 = [
         "question": "在开放型工作场所出口处设置全身表面或手脚污染仪，可防止工作人员带出放射性物质，污染非放射性区域或环境，常用的表面污染监测仪有（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "CoMo170\", \"img\": \"image238.jpg" }, 
-            "B": { "text": "手脚表面污染仪\", \"img\": \"image239.jpg" }, 
-            "C": { "text": "NaI 探测器\", \"img\": \"image240.jpg" }, 
-            "D": { "text": "BH3105\", \"img\": \"image241.jpg" } 
+            "A": { "text": "CoMo170", "img": "image238.jpg" }, 
+            "B": { "text": "手脚表面污染仪", "img": "image239.jpg" }, 
+            "C": { "text": "NaI 探测器", "img": "image240.jpg" }, 
+            "D": { "text": "BH3105", "img": "image241.jpg" } 
         },
         "correctAnswer": ["A", "B"],
         "note": "CoMo170 和手脚表面污染仪是常见的专用表面污染监测设备。NaI多用于γ能谱测量，不常作为大面积表面污染探测。"
@@ -1473,10 +1473,10 @@ const bank1 = [
         "question": "工作场所 X、γ 外照射的监测，是核技术利用中最常见的监测项目。监测仪器最好选用便携式周围剂量当量率仪，也可选用空气比释动能率仪、空气吸收剂量率仪。常用的便携式剂量率仪有（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "正比计数管\", \"img\": \"image243.jpg" }, 
-            "B": { "text": "电离室巡测仪\", \"img\": \"image244.jpg" }, 
-            "C": { "text": "NaI 探测器\", \"img\": \"image245.jpg" }, 
-            "D": { "text": "塑料闪烁体探测器\", \"img\": \"image246.jpg" } 
+            "A": { "text": "正比计数管", "img": "image243.jpg" }, 
+            "B": { "text": "电离室巡测仪", "img": "image244.jpg" }, 
+            "C": { "text": "NaI 探测器", "img": "image245.jpg" }, 
+            "D": { "text": "塑料闪烁体探测器", "img": "image246.jpg" } 
         },
         "correctAnswer": ["A", "B", "C", "D"],
         "note": "正比计数管（如某些中子/γ巡测仪）、高压电离室、NaI闪烁体和塑料闪烁体探测器均可被制成便携式剂量率仪用于场所监测。"
@@ -1559,10 +1559,10 @@ const bank1 = [
         "question": "电离辐射广泛应用于工业，包括（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "电线辐照加工\", \"img\": \"image255.jpg" }, 
-            "B": { "text": "探伤\", \"img\": \"image256.jpg" }, 
-            "C": { "text": "核子仪\", \"img\": \"image257.jpg" }, 
-            "D": { "text": "测井\", \"img\": \"image258.jpg" } 
+            "A": { "text": "电线辐照加工", "img": "image255.jpg" }, 
+            "B": { "text": "探伤", "img": "image256.jpg" }, 
+            "C": { "text": "核子仪", "img": "image257.jpg" }, 
+            "D": { "text": "测井", "img": "image258.jpg" } 
         },
         "correctAnswer": ["A", "B", "C", "D"],
         "note": "电线电缆辐照交联、工业射线探伤、各种核子秤/料位计以及放射性测井，都是电离辐射在工业领域的典型应用。"
@@ -1600,10 +1600,10 @@ const bank1 = [
         "question": "气体探测器均以气体作为探测介质，具有制备简单、性能可靠、成本低廉、使用方便等优点，常用的气体探测器有（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "平板型电离室\", \"img\": \"image262.jpg" }, 
-            "B": { "text": "球形电离室\", \"img\": \"image263.jpg" }, 
-            "C": { "text": "正比计数器\", \"img\": \"image264.jpg" }, 
-            "D": { "text": "G-M 计数管\", \"img\": \"image265.jpg" } 
+            "A": { "text": "平板型电离室", "img": "image262.jpg" }, 
+            "B": { "text": "球形电离室", "img": "image263.jpg" }, 
+            "C": { "text": "正比计数器", "img": "image264.jpg" }, 
+            "D": { "text": "G-M 计数管", "img": "image265.jpg" } 
         },
         "correctAnswer": ["A", "B", "C", "D"],
         "note": "电离室（含平板和球形）、正比计数器和盖革-米勒(G-M)计数管是三大类最经典的气体探测器。"
@@ -1704,10 +1704,10 @@ const bank1 = [
         "question": "不同的细胞具有不同的辐射敏感性，不同的组织也具有不同的敏感性，下列属于不敏感的组织或是器官有（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "骨骼\", \"img\": \"image276.jpg" }, 
-            "B": { "text": "肌肉\", \"img\": \"image277.jpg" }, 
-            "C": { "text": "胚胎\", \"img\": \"image278.jpg" }, 
-            "D": { "text": "眼睛\", \"img\": \"image279.jpg" } 
+            "A": { "text": "骨骼", "img": "image276.jpg" }, 
+            "B": { "text": "肌肉", "img": "image277.jpg" }, 
+            "C": { "text": "胚胎", "img": "image278.jpg" }, 
+            "D": { "text": "眼睛", "img": "image279.jpg" } 
         },
         "correctAnswer": ["A", "B"],
         "note": "在人体组织中，骨骼、肌肉和神经组织属于对电离辐射不敏感或轻度敏感的组织。而胚胎和眼睛（晶状体）对辐射非常敏感。"
@@ -1718,10 +1718,10 @@ const bank1 = [
         "question": "不同的细胞具有不同的辐射敏感性，不同的组织也具有不同的敏感性，下列属于中度敏感的组织或是器官有（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "肾上皮细胞\", \"img\": \"image280.jpg" }, 
-            "B": { "text": "肺上皮细胞\", \"img\": \"image281.jpg" }, 
-            "C": { "text": "血管\", \"img\": \"image282.jpg" }, 
-            "D": { "text": "眼晶体\", \"img\": \"image283.jpg" } 
+            "A": { "text": "肾上皮细胞", "img": "image280.jpg" }, 
+            "B": { "text": "肺上皮细胞", "img": "image281.jpg" }, 
+            "C": { "text": "血管", "img": "image282.jpg" }, 
+            "D": { "text": "眼晶体", "img": "image283.jpg" } 
         },
         "correctAnswer": ["A", "B", "C", "D"],
         "note": "肾脏、肺部、血管内皮以及眼晶体在放射生物学中通常被归类为对电离辐射中度敏感的组织和器官。"
@@ -1732,10 +1732,10 @@ const bank1 = [
         "question": "不同的细胞具有不同的辐射敏感性，不同的组织也具有不同的敏感性，下列属于高度敏感的组织或是器官有（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "胸腺\", \"img\": \"image284.jpg" }, 
-            "B": { "text": "肠胃上皮细胞\", \"img\": \"image285.jpg" }, 
-            "C": { "text": "胚胎组织\", \"img\": \"image286.jpg" }, 
-            "D": { "text": "肾上皮细胞\", \"img\": \"image287.jpg" } 
+            "A": { "text": "胸腺", "img": "image284.jpg" }, 
+            "B": { "text": "肠胃上皮细胞", "img": "image285.jpg" }, 
+            "C": { "text": "胚胎组织", "img": "image286.jpg" }, 
+            "D": { "text": "肾上皮细胞", "img": "image287.jpg" } 
         },
         "correctAnswer": ["A", "B", "C"],
         "note": "淋巴组织（如胸腺）、肠胃上皮细胞、造血系统以及胚胎组织细胞分裂异常活跃，属于对辐射高度敏感的组织；而肾上皮细胞属于中度敏感。"
@@ -1746,10 +1746,10 @@ const bank1 = [
         "question": "由外照射所致的外照射慢性放射病，其临床表现有（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "头晕头痛\", \"img\": \"image288.jpg" }, 
-            "B": { "text": "毛发脱落\", \"img\": \"image289.jpg" }, 
-            "C": { "text": "心动过缓\", \"img\": \"image290.jpg" }, 
-            "D": { "text": "眼晶体混浊\", \"img\": \"image291.jpg" } 
+            "A": { "text": "头晕头痛", "img": "image288.jpg" }, 
+            "B": { "text": "毛发脱落", "img": "image289.jpg" }, 
+            "C": { "text": "心动过缓", "img": "image290.jpg" }, 
+            "D": { "text": "眼晶体混浊", "img": "image291.jpg" } 
         },
         "correctAnswer": ["A", "B", "C", "D"],
         "note": "长期受到超剂量限值的外照射会引起慢性放射病，症状涵盖神经系统、心血管系统（心动过缓）、毛发脱落及辐射诱发的白内障（眼晶体混浊）等。"
@@ -1760,10 +1760,10 @@ const bank1 = [
         "question": "外照射引起的急性放射病一般由体外大剂量 X、γ 和中子照射机体引起。以下选项中可能引起急性放射病的有（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "核事故\", \"img\": \"image292.jpg" }, 
-            "B": { "text": "医疗照射\", \"img\": \"image293.jpg" }, 
-            "C": { "text": "核爆炸\", \"img\": \"image294.jpg" }, 
-            "D": { "text": "乘坐飞机\", \"img\": \"image295.jpg" } 
+            "A": { "text": "核事故", "img": "image292.jpg" }, 
+            "B": { "text": "医疗照射", "img": "image293.jpg" }, 
+            "C": { "text": "核爆炸", "img": "image294.jpg" }, 
+            "D": { "text": "乘坐飞机", "img": "image295.jpg" } 
         },
         "correctAnswer": ["A", "B", "C"],
         "note": "急性放射病需要短时间内的大剂量照射。核事故、核武器爆炸以及高剂量的医疗事故可能导致此后果。乘坐飞机受到的宇宙射线剂量极低，不会引发急性放射病。"
@@ -1921,10 +1921,10 @@ const bank1 = [
         "question": "非电离辐射，由于辐射能量低，不能从原子、分子或其他束缚状态放出电子，包括（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "高压线\", \"img\": \"image327.jpg" }, 
-            "B": { "text": "收音机\", \"img\": \"image328.jpg" }, 
-            "C": { "text": "基站\", \"img\": \"image329.jpg" }, 
-            "D": { "text": "微波炉\", \"img\": \"image330.jpg" } 
+            "A": { "text": "高压线", "img": "image327.jpg" }, 
+            "B": { "text": "收音机", "img": "image328.jpg" }, 
+            "C": { "text": "基站", "img": "image329.jpg" }, 
+            "D": { "text": "微波炉", "img": "image330.jpg" } 
         },
         "correctAnswer": ["A", "B", "C", "D"],
         "note": "这四个选项涉及的设备产生的均是电磁场或低频/射频电磁波，属于典型的非电离辐射。"
@@ -1935,10 +1935,10 @@ const bank1 = [
         "question": "电离辐射是指其携带的能量足以使物质原子或分子中的电子成为自由态，从而使这些原子或分子发生电离现象的辐射。下列属于电离辐射的是（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "宇宙射线\", \"img\": \"image331.jpg" }, 
-            "B": { "text": "放射源\", \"img\": \"image332.jpg" }, 
-            "C": { "text": "X 光\", \"img\": \"image333.jpg" }, 
-            "D": { "text": "电焊弧\", \"img\": \"image334.jpg" } 
+            "A": { "text": "宇宙射线", "img": "image331.jpg" }, 
+            "B": { "text": "放射源", "img": "image332.jpg" }, 
+            "C": { "text": "X 光", "img": "image333.jpg" }, 
+            "D": { "text": "电焊弧", "img": "image334.jpg" } 
         },
         "correctAnswer": ["A", "B", "C"],
         "note": "宇宙射线、人工/天然放射源以及医用X光机都会产生电离辐射。电焊弧光主要产生非电离的紫外线和强光。"
@@ -1949,10 +1949,10 @@ const bank1 = [
         "question": "电离辐射分为直接电离辐射和间接电离辐射。下列属于直接电离辐射的有（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "α 粒子\", \"img\": \"image335.jpg" }, 
-            "B": { "text": "β 粒子\", \"img\": \"image336.jpg" }, 
-            "C": { "text": "质子\", \"img\": \"image337.jpg" }, 
-            "D": { "text": "γ 光子\", \"img\": \"image338.jpg" } 
+            "A": { "text": "α 粒子", "img": "image335.jpg" }, 
+            "B": { "text": "β 粒子", "img": "image336.jpg" }, 
+            "C": { "text": "质子", "img": "image337.jpg" }, 
+            "D": { "text": "γ 光子", "img": "image338.jpg" } 
         },
         "correctAnswer": ["A", "B", "C"],
         "note": "带电粒子（如α粒子、β粒子、质子）能通过库仑力直接引起物质原子电离，属于直接电离辐射；γ光子不带电，属于间接电离辐射。"
@@ -1963,10 +1963,10 @@ const bank1 = [
         "question": "间接电离辐射是能够释放出直接电离粒子或引起核反应的非带电粒子，如（ ）等。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "X 射线\", \"img\": \"image339.jpg" }, 
-            "B": { "text": "γ 射线\", \"img\": \"image340.jpg" }, 
-            "C": { "text": "质子\", \"img\": \"image341.jpg" }, 
-            "D": { "text": "中子\", \"img\": \"image342.jpg" } 
+            "A": { "text": "X 射线", "img": "image339.jpg" }, 
+            "B": { "text": "γ 射线", "img": "image340.jpg" }, 
+            "C": { "text": "质子", "img": "image341.jpg" }, 
+            "D": { "text": "中子", "img": "image342.jpg" } 
         },
         "correctAnswer": ["A", "B", "D"],
         "note": "光子（X、γ射线）和中子都是不带电的粒子，它们通过发生次级作用（如光电效应或核反应）间接导致电离。"
@@ -1977,10 +1977,10 @@ const bank1 = [
         "question": "直接电离辐射是指那些具有足够大的动能，通过碰撞就能引起物质的分子、原子电离的带电粒子，如（ ）等。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "α 粒子\", \"img\": \"image343.jpg" }, 
-            "B": { "text": "β 粒子\", \"img\": \"image344.jpg" }, 
-            "C": { "text": "质子\", \"img\": \"image345.jpg" }, 
-            "D": { "text": "γ 光子\", \"img\": \"image346.jpg" } 
+            "A": { "text": "α 粒子", "img": "image343.jpg" }, 
+            "B": { "text": "β 粒子", "img": "image344.jpg" }, 
+            "C": { "text": "质子", "img": "image345.jpg" }, 
+            "D": { "text": "γ 光子", "img": "image346.jpg" } 
         },
         "correctAnswer": ["A", "B", "C"],
         "note": "再次强调，直接电离的前提是粒子自身必须带有电荷。"
@@ -1991,10 +1991,10 @@ const bank1 = [
         "question": "电离辐射种类很多，包括带电粒子和不带电粒子。不带电粒子有（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "α 粒子\", \"img\": \"image347.jpg" }, 
-            "B": { "text": "γ 射线\", \"img\": \"image348.jpg" }, 
-            "C": { "text": "β 粒子\", \"img\": \"image349.jpg" }, 
-            "D": { "text": "荧光X 射线\", \"img\": \"image350.jpg" } 
+            "A": { "text": "α 粒子", "img": "image347.jpg" }, 
+            "B": { "text": "γ 射线", "img": "image348.jpg" }, 
+            "C": { "text": "β 粒子", "img": "image349.jpg" }, 
+            "D": { "text": "荧光X 射线", "img": "image350.jpg" } 
         },
         "correctAnswer": ["B", "D"],
         "note": "γ射线和荧光X射线均为光子辐射，质量为零且不携带电荷。"
@@ -2005,10 +2005,10 @@ const bank1 = [
         "question": "电离辐射种类很多，包括带电粒子和不带电粒子。带电粒子有（ ）。",
         "isOptionImage": true,
         "options": { 
-            "A": { "text": "质子\", \"img\": \"image351.jpg" }, 
-            "B": { "text": "γ 射线\", \"img\": \"image352.jpg" }, 
-            "C": { "text": "β 粒子\", \"img\": \"image353.jpg" }, 
-            "D": { "text": "中子\", \"img\": \"image354.jpg" } 
+            "A": { "text": "质子", "img": "image351.jpg" }, 
+            "B": { "text": "γ 射线", "img": "image352.jpg" }, 
+            "C": { "text": "β 粒子", "img": "image353.jpg" }, 
+            "D": { "text": "中子", "img": "image354.jpg" } 
         },
         "correctAnswer": ["A", "C"],
         "note": "质子带正电，β粒子带负（或正）电，属于带电粒子。"
@@ -8441,11 +8441,11 @@ const bank2 = [
         "question": "145、γ 探伤机手动控制部件包括 （  ）。",
         "isOptionImage": true,
         "options": {
-            "A": { "text": "\", \"img\": \"image387.jpg" },
-            "B": { "text": "\", \"img\": \"image388.jpg" },
-            "C": { "text": "\", \"img\": \"image389.jpg" },
-            "D": { "text": "\", \"img\": \"image390.jpg" },
-            "E": { "text": "\", \"img\": \"image391.jpg" }
+            "A": { "text": "", "img": "image387.jpg" },
+            "B": { "text": "", "img": "image388.jpg" },
+            "C": { "text": "", "img": "image389.jpg" },
+            "D": { "text": "", "img": "image390.jpg" },
+            "E": { "text": "", "img": "image391.jpg" }
         },
         "correctAnswer": ["A", "B", "C", "D"],
         "note": "（注：根据官方答案ABCD）。手动控制部件通常包括手摇把、齿轮齿条驱动机构、控制导管等直接影响源机械移动的构件。"
@@ -8471,11 +8471,11 @@ const bank2 = [
         "question": "147、从图中选择固定探伤工作应当配备辐射监测仪表。（  ）",
         "isOptionImage": true,
         "options": {
-            "A": { "text": "固定式剂量仪\", \"img\": \"image393.jpg" },
-            "B": { "text": "便携式剂量仪\", \"img\": \"image394.jpg" },
-            "C": { "text": "表面污染监测仪\", \"img\": \"image395.jpg" },
-            "D": { "text": "个人剂量报警仪\", \"img\": \"image396.jpg" },
-            "E": { "text": "个人剂量计\", \"img\": \"image397.jpg" }
+            "A": { "text": "固定式剂量仪", "img": "image393.jpg" },
+            "B": { "text": "便携式剂量仪", "img": "image394.jpg" },
+            "C": { "text": "表面污染监测仪", "img": "image395.jpg" },
+            "D": { "text": "个人剂量报警仪", "img": "image396.jpg" },
+            "E": { "text": "个人剂量计", "img": "image397.jpg" }
         },
         "correctAnswer": ["A", "B", "D", "E"],
         "note": "仪器配备：固定探伤工作因为使用的是伽马射线（外照射），不需要检测粉尘般的表面污染（C不需要），但场所监控（A）、移动巡测（B）和个人防护（D、E）缺一不可。"
