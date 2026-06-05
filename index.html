@@ -136,7 +136,7 @@
         .batch-btn.danger { background: #e74c3c; color: white; }
         .batch-btn.secondary { background: #95a5a6; color: white; }
         .batch-btn:hover { opacity: 0.9; transform: translateY(-1px); }
-        
+
         /* 搜索功能样式 */
         .search-container { margin: 20px auto; padding: 0 10px; }
         .search-input-wrapper { position: relative; display: flex; gap: 10px; }
@@ -150,8 +150,8 @@
         .search-result-item .q-text { font-size: 15px; font-weight: 500; margin-bottom: 8px; color: var(--text-color); }
         .search-result-item .q-meta { font-size: 13px; color: #7f8c8d; }
         .highlight { background: #fff3cd; padding: 2px 4px; border-radius: 3px; font-weight: bold; }
-        body.dark-mode .highlight { background: #5a4a00; }
-        
+        body.dark-mode .highlight { background: #4a3b14; }
+
         /* 笔记功能样式 */
         .note-editor { margin-top: 15px; background: var(--note-bg); border: 1px solid var(--opt-border); border-radius: 8px; padding: 15px; }
         .note-editor textarea { width: 100%; min-height: 80px; padding: 10px; border: 1px solid var(--opt-border); border-radius: 6px; font-size: 14px; resize: vertical; background: var(--card-bg); color: var(--text-color); box-sizing: border-box; font-family: inherit; }
@@ -164,7 +164,7 @@
         .note-icon { font-size: 20px; cursor: pointer; margin-left: 10px; vertical-align: middle; }
         .note-icon:hover { transform: scale(1.1); }
         .has-note { color: #27ae60; }
-        
+
         /* 搜索区域样式 */
         #search-area { display: none; }
         .back-btn { background: #3498db; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 14px; }
@@ -248,7 +248,7 @@
         <div class="note-box" id="note-area"></div>
 
         <div id="auto-jump-tip" style="text-align: center; color: #95a5a6; font-size: 13px; margin-top: 15px; display: none;">
-            💡 提示：点击"确认提交"，答对将自动跳转下一题
+            💡 提示：点击“确认提交”，答对将自动跳转下一题
         </div>
 
         <div class="footer">
@@ -710,7 +710,6 @@
         }
         saveFavoriteBook();
         renderQuestion(); 
-        updateFavoriteIcon();
     }
 
     function renderQuestion() {
@@ -1271,7 +1270,7 @@
 
     // ================= 题目搜索功能 =================
     let questionNotes = JSON.parse(localStorage.getItem('radiation_notes') || '{}');
-    
+
     function showSearchArea() {
         hideAllAreas();
         document.getElementById('search-area').style.display = 'block';
@@ -1279,34 +1278,34 @@
         document.getElementById('search-results').innerHTML = '<div style="text-align:center; color:#95a5a6; padding:40px 0;">💡 输入关键词开始搜索<br><br>支持按题目内容、选项关键词搜索</div>';
         setTimeout(() => { document.getElementById('search-input').focus(); }, 100);
     }
-    
+
     function hideSearchArea() {
         document.getElementById('search-area').style.display = 'none';
         document.getElementById('home-menu').style.display = 'block';
     }
-    
+
     function performSearch() {
         let keyword = document.getElementById('search-input').value.trim();
         if (!keyword) {
             alert('请输入搜索关键词！');
             return;
         }
-        
+
         if (keyword.length < 2) {
             alert('关键词至少需要2个字符！');
             return;
         }
-        
+
         let keywordLower = keyword.toLowerCase();
         let results = [];
-        
+
         // 搜索所有题库
         let banks = [
             { name: '基础篇', data: bank1, key: 'bank1' },
             { name: '伽马射线探伤篇', data: bank2, key: 'bank2' },
             { name: 'X射线探伤篇', data: bank3, key: 'bank3' }
         ];
-        
+
         banks.forEach(bank => {
             if (typeof bank.data !== 'undefined' && bank.data) {
                 bank.data.forEach(q => {
@@ -1330,71 +1329,71 @@
                 });
             }
         });
-        
+
         displaySearchResults(results, keyword);
     }
-    
+
     function displaySearchResults(results, keyword) {
         let resultsDiv = document.getElementById('search-results');
-        
+
         if (results.length === 0) {
             resultsDiv.innerHTML = `<div style="text-align:center; color:#e74c3c; padding:40px 0;">😕 未找到包含"${keyword}"的题目<br><br>试试其他关键词？</div>`;
             return;
         }
-        
+
         let html = `<div style="margin-bottom:15px; font-size:14px; color:#7f8c8d;">找到 <strong>${results.length}</strong> 个结果：</div>`;
-        
+
         results.slice(0, 50).forEach((result, index) => {
             let q = result.q;
             let uid = getUid(q);
             let typeText = q.type === 'multiple' ? '【多选题】' : '【单选题】';
             let hasNote = questionNotes[uid] ? '📝' : '';
             let isFav = favoriteBook.includes(q.id) ? '⭐' : '';
-            
+
             // 高亮搜索关键词
             let displayText = q.question.length > 80 ? q.question.substring(0, 80) + '...' : q.question;
             let highlightedText = displayText.replace(new RegExp(keyword, 'gi'), match => `<span class="highlight">${match}</span>`);
-            
+
             html += `
                 <div class="search-result-item" onclick="openQuestionFromSearch('${result.bank.key}', ${q.id})">
                     <div class="q-text">${index + 1}. ${typeText} ${highlightedText}</div>
                     <div class="q-meta">
-                        📚 ${result.bank.name} | 题号: ${q.id} 
+                        📚 ${result.bank.name} | 题号: ${q.id}
                         <span style="margin-left:10px;">匹配: <strong>${result.matchType}</strong></span>
                         <span style="margin-left:10px;">${isFav}${hasNote}</span>
                     </div>
                 </div>
             `;
         });
-        
+
         if (results.length > 50) {
             html += `<div style="text-align:center; color:#95a5a6; padding:15px 0;">显示前50条结果，共${results.length}条</div>`;
         }
-        
+
         resultsDiv.innerHTML = html;
     }
-    
+
     function openQuestionFromSearch(bankKey, questionId) {
         // 切换到对应题库
         document.getElementById('bank-selector').value = bankKey;
         changeBank();
-        
+
         // 查找题目
         let targetBank = bankKey === 'bank1' ? bank1 : bankKey === 'bank2' ? bank2 : bank3;
         let questionIndex = targetBank.findIndex(q => q.id === questionId);
-        
+
         if (questionIndex === -1) {
             alert('题目未找到！');
             return;
         }
-        
+
         // 设置为顺序练习模式
         currentMode = 'sequential';
         currentIndex = questionIndex;
         userAnswers = {};
         questionStatus = {};
         currentList = [...targetBank];
-        
+
         hideAllAreas();
         document.getElementById('quiz-area').style.display = 'block';
         document.getElementById('shortcut-hint').style.display = 'block';
@@ -1406,10 +1405,10 @@
     function saveNote() {
         let q = currentList[currentIndex];
         if (!q) return;
-        
+
         let uid = getUid(q);
         let noteText = document.getElementById('note-textarea').value.trim();
-        
+
         if (noteText) {
             questionNotes[uid] = {
                 text: noteText,
@@ -1421,31 +1420,31 @@
             delete questionNotes[uid];
             alert('🗑️ 笔记已删除！');
         }
-        
+
         localStorage.setItem('radiation_notes', JSON.stringify(questionNotes));
         renderNoteArea();
         updateFavoriteIcon();
     }
-    
+
     function renderNoteArea() {
         let q = currentList[currentIndex];
         if (!q) return;
-        
+
         let uid = getUid(q);
         let note = questionNotes[uid];
         let isFav = favoriteBook.includes(q.id);
         let area = document.getElementById('note-editor-area');
-        
+
         // 只有在收藏模式下才显示笔记编辑器
         if (currentMode === 'favorite' && isFav) {
             let html = `<div class="note-editor">`;
             html += `<div style="font-weight:bold; margin-bottom:10px; color:#27ae60;">📝 我的笔记</div>`;
-            
+
             if (note) {
                 html += `<div class="note-display">${note.text}</div>`;
                 html += `<div style="font-size:12px; color:#95a5a6; margin-top:8px;">💾 上次修改：${note.time}</div>`;
             }
-            
+
             html += `
                 <textarea id="note-textarea" placeholder="在这里写下你的学习笔记、记忆技巧、容易犯错的地方...">${note ? note.text : ''}</textarea>
                 <div class="note-actions">
@@ -1458,19 +1457,19 @@
             area.innerHTML = '';
         }
     }
-    
+
     function updateFavoriteIcon() {
         let favBtn = document.getElementById('fav-btn');
         let q = currentList[currentIndex];
         if (!q) return;
-        
+
         let uid = getUid(q);
         let isFav = favoriteBook.includes(q.id);
         let hasNote = questionNotes[uid] ? true : false;
-        
+
         favBtn.innerText = isFav ? '★' : '☆';
         favBtn.style.color = isFav ? '#f39c12' : '#bdc3c7';
-        
+
         // 添加笔记指示
         if (hasNote) {
             favBtn.title = '已收藏 ⭐ | 有笔记 📝';
