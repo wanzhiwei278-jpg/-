@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#3498db">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="images/image1.jpg">
     <title>电离辐射安全与防护 终极系统</title>
     <style>
         /* ================= 基础变量与模式 ================= */
@@ -162,6 +165,8 @@
 
         <div class="stats-text" id="home-stats">当前错题本有 0 道题待攻克<br>重点收藏夹有 0 道题</div>
         
+        <button class="menu-btn" onclick="checkIn()" id="checkin-btn" style="background:#e67e22; max-width:200px;">📅 每日打卡</button>
+        
         <div class="stats-panel" id="stats-panel" style="display: none;">
             <div class="stat-item"><div class="stat-value" id="stat-total">0</div><div class="stat-label">已练习</div></div>
             <div class="stat-item correct"><div class="stat-value" id="stat-correct">0</div><div class="stat-label">正确</div></div>
@@ -175,11 +180,17 @@
         <button class="menu-btn btn-fav" onclick="startMode('favorite')">⭐ 重点题型 (收藏)</button>
         <button class="menu-btn btn-exam" onclick="startMode('exam')">全真模拟考试 (45分钟)</button>
         <button class="menu-btn btn-record" onclick="showRecordsArea()">📈 考试记录</button>
+        <button class="menu-btn" onclick="addToHomeScreen()" id="btn-install" style="background: #34495e; display: none;">📱 添加到主屏幕</button>
         
         <div style="margin-top: 30px; margin-bottom: 10px;">
             <span style="color:#3498db; cursor:pointer; font-size:14px; text-decoration:underline; padding: 10px;" onclick="showNotice()">👉 查看系统详细说明</span>
         </div>
         <div style="margin-top: 10px; color: #7f8c8d; font-size: 12px;" onclick="toggleDevMode()">连续点击此处可切换 [开发者模式]</div>
+        <div style="margin-top: 15px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
+            <button class="nav-btn" onclick="exportData()" id="btn-export" style="background:#27ae60;">💾 备份数据</button>
+            <button class="nav-btn" onclick="document.getElementById('import-file').click()" id="btn-import" style="background:#8e44ad;">📂 恢复数据</button>
+            <input type="file" id="import-file" accept=".json" style="display:none" onchange="importData(this.files[0])">
+        </div>
         
         <div style="margin-top: 15px; display: flex; gap: 10px; justify-content: center;">
             <button class="nav-btn" onclick="showBatchModal('wrong')" id="batch-wrong-btn" style="display:none;">🗑️ 管理错题本</button>
@@ -617,7 +628,7 @@
                     alert("⏳ 考试时间到！系统已为您自动交卷。"); submitExam(true); return;
                 }
                 let m = String(Math.floor(remaining / 60)).padStart(2, '0'); let s = String(remaining % 60).padStart(2, '0');
-                timerEl.innerText = `⏱️ 倒计时 ${m}:${s}`; timerEl.style.color = (remaining < 300) ? "red" : "#e74c3c";
+                timerEl.innerText = `⏱️ 倒计时 ${m}:${s}`; timerEl.style.color = (remaining < 300) ? "#c0392b" : "#e74c3c";
             } else {
                 let m = String(Math.floor(elapsed / 60)).padStart(2, '0'); let s = String(elapsed % 60).padStart(2, '0');
                 timerEl.innerText = `⏱️ 已用时 ${m}:${s}`; timerEl.style.color = "#e74c3c";
@@ -774,14 +785,17 @@
             recordStats(isCorrect);
         }
         
-        if (!isCorrect) { 
+        if (!isCorrect) { playSound('wrong');
             if (!wrongBook.includes(q.id)) { 
                 wrongBook.push(q.id); 
                 saveWrongBook(); 
             }
-        } else if (currentMode === 'wrong') { 
-            wrongBook = wrongBook.filter(id => id !== q.id); 
-            saveWrongBook(); 
+        } else { 
+            playSound('correct'); 
+            if (currentMode === 'wrong') { 
+                wrongBook = wrongBook.filter(id => id !== q.id); 
+                saveWrongBook(); 
+            }
         }
         
         renderQuestion(); 
@@ -881,7 +895,7 @@
 
         alert(`【考试结束】\n\n🎯 最终得分：${score} 分 / 120 分\n📝 考核结果：${passStatus}\n⏳ 考试用时：${timeSpentText}\n\n💡 错题及漏选题已收录进各对应的错题本中。`);
         
-        closeSheet(true); userAnswers = {}; goHome();
+        closeSheet(true); userAnswers = {}; questionStatus = {}; goHome();
     }
 
     // ================= 考试记录与复盘模块 =================
@@ -1040,6 +1054,156 @@
     
     document.getElementById('batch-modal').addEventListener('click', (e) => {
         if (e.target.id === 'batch-modal') closeBatchModal();
+    });
+    
+    // ================= PWA 添加到主屏幕 =================
+    let deferredPrompt = null;
+    window.addEventListener('beforeinstallprompt', (e) => { e.preventDefault(); deferredPrompt = e; document.getElementById('btn-install').style.display = 'block'; });
+    function addToHomeScreen() {
+        if (deferredPrompt) {
+            deferredPrompt.prompt();
+            deferredPrompt.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === 'accepted') alert('✅ 已添加到主屏幕！');
+                deferredPrompt = null;
+                document.getElementById('btn-install').style.display = 'none';
+            });
+        } else {
+            let ua = navigator.userAgent;
+            let instructions = ua.match(/iPhone|iPad|iPod/i) ? '📱 iOS用户：\n1. 点击Safari底部分享按钮\n2. 选择"添加到主屏幕"\n3. 点击"添加"' :
+              ua.match(/Android/i) ? '🤖 Android用户：\n1. 点击右上角菜单(⋮)\n2. 选择"添加到主屏幕"\n3. 点击"添加"' :
+              '💻 桌面用户：\n1. 使用Chrome打开\n2. 点击地址栏右侧的安装图标';
+            alert(`📲 手动添加到主屏幕\n\n${instructions}`);
+        }
+    }
+    
+    // ================= 数据备份与恢复 =================
+    function exportData() {
+        let data = {
+            version: '1.0',
+            exportTime: new Date().toISOString(),
+            darkMode: isDarkMode,
+            swipeEnabled: isSwipeEnabled,
+            examRecords: JSON.parse(localStorage.getItem('radiation_exam_records') || '[]'),
+            bank1Wrong: JSON.parse(localStorage.getItem('radiation_wrong_bank1') || '[]'),
+            bank1Fav: JSON.parse(localStorage.getItem('radiation_fav_bank1') || '[]'),
+            bank2Wrong: JSON.parse(localStorage.getItem('radiation_wrong_bank2') || '[]'),
+            bank2Fav: JSON.parse(localStorage.getItem('radiation_fav_bank2') || '[]'),
+            stats: {
+                bank1: JSON.parse(localStorage.getItem('radiation_stats_bank1') || '{}'),
+                bank2: JSON.parse(localStorage.getItem('radiation_stats_bank2') || '{}')
+            },
+            checkIn: JSON.parse(localStorage.getItem('radiation_checkin') || '{}')
+        };
+        let blob = new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'});
+        let url = URL.createObjectURL(blob);
+        let a = document.createElement('a');
+        a.href = url;
+        a.download = `辐射防护备份_${new Date().toLocaleDateString().replace(/\//g,'-')}.json`;
+        a.click();
+        URL.revokeObjectURL(url);
+        alert('✅ 数据已备份成功！');
+    }
+    
+    function importData(file) {
+        if (!file) return;
+        let reader = new FileReader();
+        reader.onload = (e) => {
+            try {
+                let data = JSON.parse(e.target.result);
+                if (!confirm('⚠️ 恢复数据将覆盖现有数据！\n\n确定要继续吗？')) return;
+                
+                if (data.darkMode !== undefined) {
+                    isDarkMode = data.darkMode;
+                    document.body.classList.toggle('dark-mode', isDarkMode);
+                    localStorage.setItem('radiation_dark_mode', isDarkMode);
+                    document.getElementById('dark-btn').innerText = isDarkMode ? "☀️ 日间模式" : "🌙 护眼模式";
+                }
+                if (data.swipeEnabled !== undefined) {
+                    isSwipeEnabled = data.swipeEnabled;
+                    localStorage.setItem('radiation_swipe_enabled', isSwipeEnabled);
+                    document.getElementById('swipe-btn').innerText = isSwipeEnabled ? "👆 滑动切题: 开" : "👆 滑动切题: 关";
+                }
+                if (data.examRecords) localStorage.setItem('radiation_exam_records', JSON.stringify(data.examRecords));
+                if (data.bank1Wrong) localStorage.setItem('radiation_wrong_bank1', JSON.stringify(data.bank1Wrong));
+                if (data.bank1Fav) localStorage.setItem('radiation_fav_bank1', JSON.stringify(data.bank1Fav));
+                if (data.bank2Wrong) localStorage.setItem('radiation_wrong_bank2', JSON.stringify(data.bank2Wrong));
+                if (data.bank2Fav) localStorage.setItem('radiation_fav_bank2', JSON.stringify(data.bank2Fav));
+                if (data.stats) {
+                    if (data.stats.bank1) localStorage.setItem('radiation_stats_bank1', JSON.stringify(data.stats.bank1));
+                    if (data.stats.bank2) localStorage.setItem('radiation_stats_bank2', JSON.stringify(data.stats.bank2));
+                }
+                if (data.checkIn) localStorage.setItem('radiation_checkin', JSON.stringify(data.checkIn));
+                
+                alert('✅ 数据恢复成功！请刷新页面。');
+                location.reload();
+            } catch (err) {
+                alert('❌ 数据格式错误，恢复失败！');
+            }
+        };
+        reader.readAsText(file);
+    }
+    
+    // ================= 声音反馈 =================
+    let audioCtx = null;
+    function playSound(type) {
+        try {
+            if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+            let osc = audioCtx.createOscillator();
+            let gain = audioCtx.createGain();
+            osc.connect(gain);
+            gain.connect(audioCtx.destination);
+            
+            if (type === 'correct') {
+                osc.frequency.value = 523.25; // C5
+                gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+                osc.start();
+                setTimeout(() => { osc.frequency.value = 659.25; }, 100); // E5
+                setTimeout(() => { osc.frequency.value = 783.99; }, 200); // G5
+                setTimeout(() => { gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.4); osc.stop(); }, 350);
+            } else if (type === 'wrong') {
+                osc.frequency.value = 200;
+                gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+                osc.start();
+                setTimeout(() => { osc.frequency.value = 150; }, 150);
+                setTimeout(() => { gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.3); osc.stop(); }, 250);
+            }
+        } catch (e) { console.warn('声音播放失败:', e); }
+    }
+    
+    // ================= 每日学习打卡 =================
+    function getTodayKey() {
+        return new Date().toISOString().split('T')[0]; // YYYY-MM-DD
+    }
+    
+    function checkIn() {
+        let checkInData = JSON.parse(localStorage.getItem('radiation_checkin') || '{}');
+        let today = getTodayKey();
+        if (checkInData[today]) {
+            alert('📅 今日已打卡！\n\n连续打卡：' + checkInData[today].streak + ' 天');
+            return;
+        }
+        let yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
+        let streak = checkInData[yesterday] ? checkInData[yesterday].streak + 1 : 1;
+        checkInData[today] = { streak: streak, time: new Date().toLocaleString() };
+        localStorage.setItem('radiation_checkin', JSON.stringify(checkInData));
+        alert('🎉 打卡成功！\n\n📅 ' + today + '\n🔥 连续打卡：' + streak + ' 天\n\n💪 继续加油！');
+        updateCheckInDisplay();
+    }
+    
+    function updateCheckInDisplay() {
+        let checkInData = JSON.parse(localStorage.getItem('radiation_checkin') || '{}');
+        let today = getTodayKey();
+        let btn = document.getElementById('checkin-btn');
+        if (!btn) return;
+        if (checkInData[today]) {
+            btn.innerHTML = '🔥 今日已打卡 (' + checkInData[today].streak + '天)';
+            btn.style.background = '#e67e22';
+        }
+    }
+    
+    // 初始化时更新打卡显示
+    window.addEventListener('DOMContentLoaded', () => {
+        updateCheckInDisplay();
     });
 </script>
 </body>
