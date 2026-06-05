@@ -160,10 +160,11 @@
         <div class="menu-title">☢️ 辐射安全与防护 终极版</div>
         
         <select class="bank-selector" id="bank-selector" onchange="changeBank()">
-            <option value="bank1">📚 第一部分：基础篇 (公共)</option>
+            <option value="bank1">📚 第一部分：基础篇</option>
             <option value="bank2">☢️ 第二部分：伽马射线探伤篇</option>
             <option value="bank3">⚡ 第三部分：X射线探伤篇</option>
         </select>
+        <div id="bank-counts" style="font-size: 12px; color: #7f8c8d; margin-bottom: 15px;"></div>
 
         <div class="stats-text" id="home-stats">当前错题本有 0 道题待攻克<br>重点收藏夹有 0 道题</div>
         
@@ -404,6 +405,13 @@
         else if (activeBankKey === 'bank2') questionBank = bank2;
         else if (activeBankKey === 'bank3') questionBank = bank3;
         
+        // 显示各题库题目数量
+        let bank1Count = typeof bank1 !== 'undefined' ? bank1.length : 0;
+        let bank2Count = typeof bank2 !== 'undefined' ? bank2.length : 0;
+        let bank3Count = typeof bank3 !== 'undefined' ? bank3.length : 0;
+        document.getElementById('bank-counts').innerHTML = 
+            `📊 题目数量：基础篇 ${bank1Count}题 | 伽马探伤 ${bank2Count}题 | X射线探伤 ${bank3Count}题`;
+        
         let savedWrong = localStorage.getItem(`radiation_wrong_${activeBankKey}`);
         let parsedWrong = [];
         try { parsedWrong = savedWrong ? JSON.parse(savedWrong) : []; } catch (e) { console.warn('错题本数据解析失败:', e); }
@@ -639,7 +647,7 @@
                     alert("⏳ 考试时间到！系统已为您自动交卷。"); submitExam(true); return;
                 }
                 let m = String(Math.floor(remaining / 60)).padStart(2, '0'); let s = String(remaining % 60).padStart(2, '0');
-                timerEl.innerText = `⏱️ 倒计时 ${m}:${s}`; timerEl.style.color = (remaining < 300) ? "red" : "#e74c3c";
+                timerEl.innerText = `⏱️ 倒计时 ${m}:${s}`; timerEl.style.color = (remaining < 300) ? "#c0392b" : "#e74c3c";
             } else {
                 let m = String(Math.floor(elapsed / 60)).padStart(2, '0'); let s = String(elapsed % 60).padStart(2, '0');
                 timerEl.innerText = `⏱️ 已用时 ${m}:${s}`; timerEl.style.color = "#e74c3c";
@@ -906,7 +914,7 @@
 
         alert(`【考试结束】\n\n🎯 最终得分：${score} 分 / 120 分\n📝 考核结果：${passStatus}\n⏳ 考试用时：${timeSpentText}\n\n💡 错题及漏选题已收录进各对应的错题本中。`);
         
-        closeSheet(true); userAnswers = {}; goHome();
+        closeSheet(true); userAnswers = {}; questionStatus = {}; goHome();
     }
 
     // ================= 考试记录与复盘模块 =================
@@ -1072,6 +1080,61 @@
     document.getElementById('batch-modal').addEventListener('click', (e) => {
         if (e.target.id === 'batch-modal') closeBatchModal();
     });
+    
+    // ================= 页面离开自动保存 =================
+    window.addEventListener('beforeunload', () => {
+        if (document.getElementById('quiz-area').style.display === 'block' && currentMode && !currentMode.startsWith('exam')) {
+            saveProgress();
+        }
+    });
+    
+    // ================= 浏览器后退按钮处理 =================
+    history.pushState(null, '', location.href);
+    window.addEventListener('popstate', () => {
+        if (document.getElementById('quiz-area').style.display === 'block') {
+            if (Object.keys(userAnswers).length > 0) {
+                if (currentMode.startsWith('exam')) {
+                    if(!confirm("⚠️ 考试正在进行中！\n返回将丢失本次考试全部进度，确定离开吗？")) {
+                        history.pushState(null, '', location.href);
+                        return;
+                    }
+                } else {
+                    // 自动保存进度
+                    saveProgress();
+                }
+            }
+            goHome();
+        }
+        history.pushState(null, '', location.href);
+    });
+    
+    // ================= LocalStorage 安全封装 =================
+    function safeSetItem(key, value) {
+        try {
+            localStorage.setItem(key, value);
+            return true;
+        } catch (e) {
+            if (e.name === 'QuotaExceededError' || e.name === 'NS_ERROR_DOM_QUOTA_REACHED') {
+                console.warn('LocalStorage 存储空间已满，尝试清理旧数据...');
+                // 清理最早的考试记录
+                try {
+                    let records = JSON.parse(localStorage.getItem('radiation_exam_records') || '[]');
+                    if (records.length > 5) {
+                        records = records.slice(0, 5);
+                        localStorage.setItem('radiation_exam_records', JSON.stringify(records));
+                    }
+                    // 再尝试保存
+                    localStorage.setItem(key, value);
+                    return true;
+                } catch (e2) {
+                    console.error('清理后仍然存储失败:', e2);
+                    alert('存储空间已满，请清理浏览器缓存或删除一些考试记录！');
+                    return false;
+                }
+            }
+            return false;
+        }
+    }
 </script>
 </body>
 </html>
