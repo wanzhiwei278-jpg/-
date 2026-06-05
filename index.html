@@ -792,11 +792,12 @@
                 let answerText = q.type === 'single' ? q.correctAnswer : q.correctAnswer.join(", ");
                 noteArea.innerHTML = `<strong>正确答案：${answerText}</strong><br><br>${q.note || '暂无解析'}`; noteArea.style.display = "block";
             } else { noteArea.style.display = "none"; submitBtn.style.display = "block"; }
-            
-            // 更新笔记显示
-            renderNoteArea();
-            updateFavoriteIcon();
-            preloadNextImages();
+        }
+        
+        // 更新笔记显示
+        renderNoteArea();
+        updateFavoriteIcon();
+        preloadNextImages();
     }
 
     function preloadNextImages() {
