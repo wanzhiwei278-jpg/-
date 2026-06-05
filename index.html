@@ -138,37 +138,51 @@
         .batch-btn:hover { opacity: 0.9; transform: translateY(-1px); }
 
         /* 搜索功能样式 */
-        .search-container { margin: 20px auto; padding: 0 10px; }
-        .search-input-wrapper { position: relative; display: flex; gap: 10px; }
-        .search-input { flex: 1; padding: 12px 15px; border: 2px solid #3498db; border-radius: 8px; font-size: 16px; background: var(--card-bg); color: var(--text-color); outline: none; }
-        .search-input:focus { border-color: #2980b9; box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1); }
-        .search-btn { background: #3498db; color: white; border: none; padding: 12px 20px; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 16px; }
-        .search-btn:hover { background: #2980b9; }
-        .search-results { margin-top: 20px; text-align: left; max-height: 60vh; overflow-y: auto; }
-        .search-result-item { padding: 15px; margin: 10px 0; border: 1px solid var(--border-color); border-radius: 8px; background: var(--opt-bg); cursor: pointer; transition: 0.2s; }
-        .search-result-item:hover { border-color: #3498db; background: var(--card-bg); }
-        .search-result-item .q-text { font-size: 15px; font-weight: 500; margin-bottom: 8px; color: var(--text-color); }
-        .search-result-item .q-meta { font-size: 13px; color: #7f8c8d; }
-        .highlight { background: #fff3cd; padding: 2px 4px; border-radius: 3px; font-weight: bold; }
-        body.dark-mode .highlight { background: #4a3b14; }
+        .search-container { margin: 0 auto; padding: 20px 15px; max-width: 600px; }
+        .search-input-wrapper { position: sticky; top: 0; z-index: 10; padding: 10px 0; background: var(--bg-color); border-bottom: 1px solid var(--border-color); }
+        .search-input { flex: 1; padding: 14px 18px; border: 2px solid var(--border-color); border-radius: 12px; font-size: 16px; background: var(--card-bg); color: var(--text-color); outline: none; transition: all 0.3s ease; }
+        .search-input:focus { border-color: #3498db; box-shadow: 0 4px 12px rgba(52, 152, 219, 0.15); }
+        .search-btn { background: linear-gradient(135deg, #3498db, #2980b9); color: white; border: none; padding: 14px 22px; border-radius: 12px; cursor: pointer; font-weight: bold; font-size: 16px; transition: all 0.3s ease; min-width: 90px; }
+        .search-btn:hover { background: linear-gradient(135deg, #2980b9, #1f6aa8); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(52, 152, 219, 0.3); }
+        .search-btn:active { transform: translateY(0); }
+        .search-results { margin-top: 10px; text-align: left; max-height: calc(100vh - 220px); overflow-y: auto; padding-bottom: 30px; }
+        .search-results-empty { text-align: center; padding: 60px 20px; color: #7f8c8d; }
+        .search-results-empty .empty-icon { font-size: 64px; margin-bottom: 20px; display: block; }
+        .search-results-header { padding: 10px 5px; color: #7f8c8d; font-size: 14px; display: flex; justify-content: space-between; align-items: center; }
+        .search-result-item { padding: 16px 18px; margin: 12px 0; border: 1px solid var(--border-color); border-radius: 14px; background: var(--card-bg); cursor: pointer; transition: all 0.3s ease; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .search-result-item:hover { border-color: #3498db; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(52, 152, 219, 0.15); }
+        .search-result-item:active { transform: translateY(0); }
+        .search-result-item .q-text { font-size: 16px; font-weight: 500; margin-bottom: 10px; color: var(--text-color); line-height: 1.5; }
+        .search-result-item .q-meta { display: flex; flex-wrap: wrap; gap: 10px; font-size: 13px; color: #7f8c8d; }
+        .search-result-item .meta-tag { background: var(--opt-bg); padding: 4px 10px; border-radius: 6px; font-size: 12px; }
+        .search-result-item .meta-tag.bank { color: #3498db; }
+        .search-result-item .meta-tag.type { color: #e67e22; }
+        .search-result-item .meta-tag.match { color: #1abc9c; }
+        .search-result-item .status-icons { display: flex; gap: 8px; margin-left: auto; }
+        .highlight { background: linear-gradient(120deg, #ffd700, #ffeb3b); padding: 2px 6px; border-radius: 4px; font-weight: bold; }
+        body.dark-mode .highlight { background: linear-gradient(120deg, #5a4b00, #7a6600); color: #fff; }
+        .search-hint { text-align: center; color: #95a5a6; padding: 40px 20px; font-size: 14px; }
+        .search-hint .hint-icon { font-size: 48px; display: block; margin-bottom: 15px; }
 
         /* 笔记功能样式 */
-        .note-editor { margin-top: 15px; background: var(--note-bg); border: 1px solid var(--opt-border); border-radius: 8px; padding: 15px; }
-        .note-editor textarea { width: 100%; min-height: 80px; padding: 10px; border: 1px solid var(--opt-border); border-radius: 6px; font-size: 14px; resize: vertical; background: var(--card-bg); color: var(--text-color); box-sizing: border-box; font-family: inherit; }
+        .note-editor { margin-top: 15px; background: var(--note-bg); border: 1px solid var(--opt-border); border-radius: 12px; padding: 18px; }
+        .note-editor .note-header { display: flex; align-items: center; margin-bottom: 12px; font-weight: bold; color: #27ae60; font-size: 15px; }
+        .note-editor textarea { width: 100%; min-height: 100px; padding: 12px; border: 2px solid var(--border-color); border-radius: 8px; font-size: 15px; resize: vertical; background: var(--card-bg); color: var(--text-color); box-sizing: border-box; font-family: inherit; transition: border-color 0.3s ease; }
         .note-editor textarea:focus { outline: none; border-color: #3498db; }
-        .note-editor .note-actions { display: flex; gap: 10px; margin-top: 10px; }
-        .note-save-btn { background: #27ae60; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: bold; }
-        .note-save-btn:hover { background: #229954; }
-        .note-display { font-size: 14px; color: #555; line-height: 1.6; white-space: pre-wrap; }
+        .note-editor .note-actions { display: flex; gap: 10px; margin-top: 12px; }
+        .note-save-btn { background: linear-gradient(135deg, #27ae60, #1e8449); color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: bold; transition: all 0.3s ease; }
+        .note-save-btn:hover { background: linear-gradient(135deg, #1e8449, #196f3d); transform: translateY(-1px); }
+        .note-display { font-size: 15px; color: #555; line-height: 1.7; white-space: pre-wrap; padding: 10px 0; }
         body.dark-mode .note-display { color: #ccc; }
+        .note-time { font-size: 12px; color: #95a5a6; margin-top: 8px; }
         .note-icon { font-size: 20px; cursor: pointer; margin-left: 10px; vertical-align: middle; }
         .note-icon:hover { transform: scale(1.1); }
         .has-note { color: #27ae60; }
 
         /* 搜索区域样式 */
         #search-area { display: none; }
-        .back-btn { background: #3498db; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 14px; }
-        .back-btn:hover { background: #2980b9; }
+        .back-btn { background: linear-gradient(135deg, #3498db, #2980b9); color: white; border: none; padding: 10px 18px; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 500; transition: all 0.3s ease; }
+        .back-btn:hover { background: linear-gradient(135deg, #2980b9, #1f6aa8); transform: translateX(-2px); }
     </style>
 </head>
 <body>
@@ -1275,7 +1289,13 @@
         hideAllAreas();
         document.getElementById('search-area').style.display = 'block';
         document.getElementById('search-input').value = '';
-        document.getElementById('search-results').innerHTML = '<div style="text-align:center; color:#95a5a6; padding:40px 0;">💡 输入关键词开始搜索<br><br>支持按题目内容、选项关键词搜索</div>';
+        document.getElementById('search-results').innerHTML = `
+            <div class="search-hint">
+                <span class="hint-icon">🔍</span>
+                输入关键词开始搜索<br><br>
+                <small>支持按题目内容、选项关键词搜索</small>
+            </div>
+        `;
         setTimeout(() => { document.getElementById('search-input').focus(); }, 100);
     }
 
@@ -1337,37 +1357,59 @@
         let resultsDiv = document.getElementById('search-results');
 
         if (results.length === 0) {
-            resultsDiv.innerHTML = `<div style="text-align:center; color:#e74c3c; padding:40px 0;">😕 未找到包含"${keyword}"的题目<br><br>试试其他关键词？</div>`;
+            resultsDiv.innerHTML = `
+                <div class="search-results-empty">
+                    <span class="empty-icon">😕</span>
+                    未找到包含"<strong>${keyword}</strong>"的题目<br><br>
+                    试试其他关键词？
+                </div>
+            `;
             return;
         }
 
-        let html = `<div style="margin-bottom:15px; font-size:14px; color:#7f8c8d;">找到 <strong>${results.length}</strong> 个结果：</div>`;
+        let bankNames = {
+            'bank1': '📚 基础篇',
+            'bank2': '☢️ 伽马射线',
+            'bank3': '⚡ X射线'
+        };
+
+        let html = `
+            <div class="search-results-header">
+                <span>找到 <strong>${results.length}</strong> 个结果</span>
+                ${results.length > 50 ? `<span>显示前50条</span>` : ''}
+            </div>
+        `;
 
         results.slice(0, 50).forEach((result, index) => {
             let q = result.q;
             let uid = getUid(q);
-            let typeText = q.type === 'multiple' ? '【多选题】' : '【单选题】';
+            let typeText = q.type === 'multiple' ? '多选题' : '单选题';
             let hasNote = questionNotes[uid] ? '📝' : '';
             let isFav = favoriteBook.includes(q.id) ? '⭐' : '';
 
             // 高亮搜索关键词
-            let displayText = q.question.length > 80 ? q.question.substring(0, 80) + '...' : q.question;
+            let displayText = q.question.length > 90 ? q.question.substring(0, 90) + '...' : q.question;
             let highlightedText = displayText.replace(new RegExp(keyword, 'gi'), match => `<span class="highlight">${match}</span>`);
 
             html += `
                 <div class="search-result-item" onclick="openQuestionFromSearch('${result.bank.key}', ${q.id})">
-                    <div class="q-text">${index + 1}. ${typeText} ${highlightedText}</div>
+                    <div class="q-text">${index + 1}. ${highlightedText}</div>
                     <div class="q-meta">
-                        📚 ${result.bank.name} | 题号: ${q.id}
-                        <span style="margin-left:10px;">匹配: <strong>${result.matchType}</strong></span>
-                        <span style="margin-left:10px;">${isFav}${hasNote}</span>
+                        <span class="meta-tag bank">${bankNames[result.bank.key]}</span>
+                        <span class="meta-tag type">${typeText}</span>
+                        <span class="meta-tag match">匹配: ${result.matchType}</span>
+                        <span class="status-icons">${isFav}${hasNote}</span>
                     </div>
                 </div>
             `;
         });
 
         if (results.length > 50) {
-            html += `<div style="text-align:center; color:#95a5a6; padding:15px 0;">显示前50条结果，共${results.length}条</div>`;
+            html += `
+                <div style="text-align:center; color:#95a5a6; padding:20px 0 40px; font-size:14px;">
+                    共 ${results.length} 条结果，显示前 50 条
+                </div>
+            `;
         }
 
         resultsDiv.innerHTML = html;
@@ -1438,11 +1480,11 @@
         // 只有在收藏模式下才显示笔记编辑器
         if (currentMode === 'favorite' && isFav) {
             let html = `<div class="note-editor">`;
-            html += `<div style="font-weight:bold; margin-bottom:10px; color:#27ae60;">📝 我的笔记</div>`;
+            html += `<div class="note-header">📝 我的笔记</div>`;
 
             if (note) {
                 html += `<div class="note-display">${note.text}</div>`;
-                html += `<div style="font-size:12px; color:#95a5a6; margin-top:8px;">💾 上次修改：${note.time}</div>`;
+                html += `<div class="note-time">💾 上次修改：${note.time}</div>`;
             }
 
             html += `
