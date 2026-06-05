@@ -1,7 +1,7 @@
 {
     "name": "辐射安全与防护",
     "short_name": "辐射防护",
-    "description": "电离辐射安全与防护学习系统",
+    "description": "电离辐射安全与防护学习系统 - 支持全真模拟考试",
     "version": "1.0.0",
     "manifest_version": 2,
     "start_url": "./index.html",
