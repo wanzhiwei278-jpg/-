@@ -8,7 +8,6 @@
     <link rel="apple-touch-icon" href="images/image1.jpg">
     <title>电离辐射安全与防护 终极系统</title>
     <style>
-        /* ================= 基础变量与模式 ================= */
         :root {
             --bg-color: #f5f7fa; --card-bg: #fff; --text-color: #333;
             --border-color: #eee; --opt-bg: #fafafa; --opt-border: #ddd;
@@ -24,15 +23,14 @@
         body { background-color: var(--bg-color); color: var(--text-color); font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; margin: 0; padding: 10px; transition: background-color 0.3s; }
         .container { max-width: 800px; margin: 0 auto; background: var(--card-bg); border-radius: 12px; padding: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: background-color 0.3s; }
         
-        /* ================= 主页菜单 ================= */
         #home-menu { text-align: center; padding: 20px 0; }
         .menu-title { font-size: 24px; margin-bottom: 10px; font-weight: bold; color: #3498db; }
         .bank-selector { margin: 20px auto; padding: 10px; border-radius: 8px; border: 2px solid #3498db; background: var(--card-bg); color: var(--text-color); font-size: 16px; width: 80%; max-width: 300px; outline: none; font-weight: bold; cursor: pointer;}
         .stats-text { font-size: 14px; color: #7f8c8d; margin-bottom: 20px; line-height: 1.5; }
-        .menu-btn { display: block; width: 80%; max-width: 300px; margin: 15px auto; padding: 15px; border-radius: 8px; border: none; font-size: 18px; cursor: pointer; color: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .btn-seq { background: #3498db; } .btn-rand { background: #9b59b6; } .btn-exam { background: #e67e22; } .btn-wrong { background: #e74c3c; } .btn-record { background: #16a085; } .btn-fav { background: #f39c12; }
+        .menu-btn { display: block; width: 80%; max-width: 300px; margin: 15px auto; padding: 15px; border-radius: 8px; border: none; font-size: 18px; cursor: pointer; color: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1); font-weight: bold;}
+        .btn-seq { background: #3498db; } .btn-rand { background: #9b59b6; } .btn-wrong { background: #e74c3c; } .btn-record { background: #16a085; } .btn-fav { background: #f39c12; }
+        .btn-exam-gamma { background: #d35400; } .btn-exam-xray { background: #8e44ad; }
 
-        /* ================= 答题区 ================= */
         .header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; margin-bottom: 20px; font-size: 14px; }
         .timer { font-weight: bold; color: #e74c3c; font-size: 16px; }
         .nav-btn { background: #95a5a6; color: white; border: none; padding: 6px 12px; border-radius: 5px; cursor: pointer; font-size: 14px; }
@@ -59,7 +57,6 @@
         .action-btn.secondary { background: #3498db; }
         .action-btn:disabled { opacity: 0.5; cursor: not-allowed; }
 
-        /* ================= 答题卡抽屉 ================= */
         .sheet-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 999; }
         .sheet-content { position: absolute; bottom: 0; left: 0; width: 100%; background: var(--sheet-bg); border-radius: 16px 16px 0 0; padding: 20px; box-sizing: border-box; max-height: 80vh; overflow-y: auto; color: var(--text-color); transition: background-color 0.3s; }
         .sheet-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 10px; margin-bottom: 15px; font-weight: bold; font-size: 18px;}
@@ -72,7 +69,6 @@
         .close-sheet-btn { background: #95a5a6; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; }
         .dev-badge { background: #f1c40f; color: #333; padding: 2px 6px; border-radius: 4px; font-size: 12px; margin-left: 10px; vertical-align: middle; }
 
-        /* ================= 考试记录与回放 ================= */
         .record-item { background: var(--opt-bg); border: 1px solid var(--border-color); padding: 15px; margin-bottom: 12px; border-radius: 8px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: 0.2s;}
         .record-item:hover { border-color: #3498db; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
         .record-info { display: flex; flex-direction: column; gap: 5px; }
@@ -94,7 +90,6 @@
         body.dark-mode .review-opt.missed-correct { border: 2px dashed #2ecc71; }
         .review-icon { font-weight: bold; margin-right: 10px; font-size: 16px; }
 
-        /* ================= 新手引导弹窗 ================= */
         .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.6); backdrop-filter: blur(3px); z-index: 1000; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease; }
         .modal-overlay.show { display: flex; opacity: 1; }
         .modal-content { background: var(--card-bg); width: 90%; max-width: 500px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); transform: translateY(20px); transition: transform 0.3s; overflow: hidden; display: flex; flex-direction: column; }
@@ -114,11 +109,9 @@
         .modal-btn { width: 100%; background: #2ecc71; color: white; border: none; padding: 14px; border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer; transition: 0.2s; }
         .modal-btn:hover { background: #27ae60; transform: translateY(-2px); }
 
-        /* ================= 进度条 ================= */
         .progress-bar-container { width: 100%; height: 6px; background: var(--border-color); border-radius: 3px; margin-bottom: 15px; overflow: hidden; }
         .progress-bar-fill { height: 100%; background: linear-gradient(90deg, #3498db, #2ecc71); border-radius: 3px; transition: width 0.3s ease; }
         
-        /* ================= 统计面板 ================= */
         .stats-panel { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 20px 0; }
         .stat-item { background: var(--opt-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 12px; text-align: center; }
         .stat-value { font-size: 24px; font-weight: bold; color: #3498db; }
@@ -126,17 +119,14 @@
         .stat-item.correct .stat-value { color: #2ecc71; }
         .stat-item.wrong .stat-value { color: #e74c3c; }
         
-        /* ================= 快捷键提示 ================= */
         .shortcut-hint { position: fixed; bottom: 20px; right: 20px; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 10px 15px; font-size: 12px; color: #7f8c8d; box-shadow: 0 4px 12px rgba(0,0,0,0.1); z-index: 100; opacity: 0.8; transition: opacity 0.3s; }
         .shortcut-hint:hover { opacity: 1; }
         .shortcut-hint kbd { background: var(--opt-bg); border: 1px solid var(--opt-border); border-radius: 3px; padding: 2px 6px; font-family: monospace; margin: 0 2px; }
         
-        /* ================= 图片加载状态 ================= */
         .question-img.loading { background: linear-gradient(90deg, #e0e0e0 25%, #f0f0f0 50%, #e0e0e0 75%); background-size: 200% 100%; animation: loading 1.5s infinite; }
         body.dark-mode .question-img.loading { background: linear-gradient(90deg, #333 25%, #444 50%, #333 75%); background-size: 200% 100%; }
         @keyframes loading { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
         
-        /* ================= 批量管理弹窗 ================= */
         .batch-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1001; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease; }
         .batch-modal.show { display: flex; opacity: 1; }
         .batch-content { background: var(--card-bg); border-radius: 12px; padding: 20px; width: 90%; max-width: 400px; transform: translateY(20px); transition: transform 0.3s ease; }
@@ -159,9 +149,11 @@
         <div class="menu-title">☢️ 辐射安全与防护 终极版</div>
         
         <select class="bank-selector" id="bank-selector" onchange="changeBank()">
-            <option value="bank1">📚 第一部分：基础篇 (204题)</option>
-            <option value="bank2">📚 第二部分：探伤篇 (530题)</option>
+            <option value="bank1">📚 第一部分：基础篇</option>
+            <option value="bank2">☢️ 第二部分：伽马射线探伤篇</option>
+            <option value="bank3">⚡ 第三部分：X射线探伤篇</option>
         </select>
+        <div id="bank-counts" style="font-size: 12px; color: #7f8c8d; margin-bottom: 15px;"></div>
 
         <div class="stats-text" id="home-stats">当前错题本有 0 道题待攻克<br>重点收藏夹有 0 道题</div>
         
@@ -178,9 +170,13 @@
         <button class="menu-btn btn-rand" onclick="startMode('random')">随机练习</button>
         <button class="menu-btn btn-wrong" onclick="startMode('wrong')">错题回顾</button>
         <button class="menu-btn btn-fav" onclick="startMode('favorite')">⭐ 重点题型 (收藏)</button>
-        <button class="menu-btn btn-exam" onclick="startMode('exam')">全真模拟考试 (45分钟)</button>
-        <button class="menu-btn btn-record" onclick="showRecordsArea()">📈 考试记录</button>
         <button class="menu-btn" onclick="addToHomeScreen()" id="btn-install" style="background: #34495e; display: none;">📱 添加到主屏幕</button>
+        
+        <div style="border-top: 1px dashed var(--border-color); margin: 25px 0; padding-top: 15px; font-size: 14px; color: #7f8c8d; font-weight: bold;">[ 考前冲刺 · 混合组卷 ]</div>
+        <button class="menu-btn btn-exam-gamma" onclick="startMode('exam_gamma')">☢️ 模拟考试 (伽马+基础)</button>
+        <button class="menu-btn btn-exam-xray" onclick="startMode('exam_xray')">⚡ 模拟考试 (X射线+基础)</button>
+        
+        <button class="menu-btn btn-record" onclick="showRecordsArea()" style="margin-top: 25px;">📈 历史考试记录</button>
         
         <div style="margin-top: 30px; margin-bottom: 10px;">
             <span style="color:#3498db; cursor:pointer; font-size:14px; text-decoration:underline; padding: 10px;" onclick="showNotice()">👉 查看系统详细说明</span>
@@ -266,8 +262,8 @@
         <div class="modal-body">
             <p style="margin-top: 0; font-weight: bold;">欢迎使用电离辐射安全与防护系统！为了获得最佳备考体验，请阅读以下说明：</p>
             <div class="notice-section">
-                <h4>📚 1. 两大核心题库</h4>
-                <p>本系统分为<strong>《基础篇》</strong>与<strong>《探伤篇》</strong>。您可以通过首页下拉菜单随时切换当前想复习的模块。</p>
+                <h4>📚 1. 三大核心题库</h4>
+                <p>本系统分为<strong>《基础篇》</strong>、<strong>《伽马射线探伤篇》</strong>与<strong>《X射线探伤篇》</strong>。您可以通过首页下拉菜单随时切换当前想复习的模块。</p>
             </div>
             <div class="notice-section">
                 <h4>🎯 2. 专项突破练习与收藏</h4>
@@ -308,24 +304,17 @@
 <script src="data.js"></script>
 
 <script>
-    // ================= 【核心修补1：给每道题打上全局专属钢印，彻底杜绝考试串题Bug】 =================
     if (typeof bank1 !== 'undefined') { bank1.forEach(q => q._bank = 'bank1'); } 
-    else if (typeof questionBank !== 'undefined') { window.bank1 = questionBank; bank1.forEach(q => q._bank = 'bank1'); }
-    
-    if (typeof bank2 !== 'undefined') { bank2.forEach(q => q._bank = 'bank2'); } 
-    else { window.bank2 = []; }
+    if (typeof bank2 !== 'undefined') { bank2.forEach(q => q._bank = 'bank2'); }
+    if (typeof bank3 !== 'undefined') { bank3.forEach(q => q._bank = 'bank3'); }
 
-    // 生成独一无二的 UID (题库标识 + 题号)，例如：bank1_15
     function getUid(q) {
         return (q._bank || 'bank1') + '_' + q.id;
     }
 
-    function getQuestionById(id) {
-        let q = undefined;
-        if (typeof bank1 !== 'undefined') q = bank1.find(x => x.id === id);
-        if (q) return q;
-        if (typeof bank2 !== 'undefined') q = bank2.find(x => x.id === id);
-        return q;
+    function getQuestionById(id, bank) {
+        let b = bank === 'bank1' ? bank1 : bank === 'bank2' ? bank2 : bank3;
+        return b && b.find(x => x.id === id);
     }
 
     let activeBankKey = 'bank1';
@@ -334,7 +323,6 @@
     let currentList = []; 
     let currentIndex = 0;
     
-    // 【系统级更换】：所有用户答题的缓存字典，全部升级为采用 UID 作为索引
     let userAnswers = {}; 
     let questionStatus = {}; 
     let wrongBook = [];
@@ -350,7 +338,6 @@
     const SCORE_MULTIPLE_FULL = 4;
     const SCORE_MULTIPLE_PARTIAL = 1;
 
-    // ================= 初始化设置 =================
     let isDarkMode = localStorage.getItem('radiation_dark_mode') === 'true';
     if(isDarkMode) document.body.classList.add('dark-mode');
     document.getElementById('dark-btn').innerText = isDarkMode ? "☀️ 日间模式" : "🌙 护眼模式";
@@ -360,6 +347,7 @@
 
     window.addEventListener('DOMContentLoaded', () => {
         if (localStorage.getItem('radiation_notice_read') !== 'true') { setTimeout(showNotice, 500); }
+        updateCheckInDisplay();
     });
 
     window.onload = function() { 
@@ -368,7 +356,6 @@
         changeBank(); 
     };
 
-    // ================= 功能开关 =================
     function toggleDarkMode() {
         isDarkMode = !isDarkMode;
         document.body.classList.toggle('dark-mode', isDarkMode);
@@ -392,21 +379,29 @@
         localStorage.setItem('radiation_notice_read', 'true');
     }
 
-    // ================= 题库与主页 =================
     function changeBank() {
         activeBankKey = document.getElementById('bank-selector').value;
         localStorage.setItem('radiation_last_bank', activeBankKey); 
-        questionBank = (activeBankKey === 'bank1') ? bank1 : bank2;
         
+        if (activeBankKey === 'bank1') questionBank = bank1;
+        else if (activeBankKey === 'bank2') questionBank = bank2;
+        else if (activeBankKey === 'bank3') questionBank = bank3;
+        
+        let bank1Count = typeof bank1 !== 'undefined' ? bank1.length : 0;
+        let bank2Count = typeof bank2 !== 'undefined' ? bank2.length : 0;
+        let bank3Count = typeof bank3 !== 'undefined' ? bank3.length : 0;
+        document.getElementById('bank-counts').innerHTML = 
+            `📊 题目数量：基础篇 ${bank1Count}题 | 伽马探伤 ${bank2Count}题 | X射线探伤 ${bank3Count}题`;
+
         let savedWrong = localStorage.getItem(`radiation_wrong_${activeBankKey}`);
         let parsedWrong = [];
-        try { parsedWrong = savedWrong ? JSON.parse(savedWrong) : []; } catch (e) { console.warn('错题本数据解析失败，已重置:', e); }
+        try { parsedWrong = savedWrong ? JSON.parse(savedWrong) : []; } catch (e) { console.warn('错题本数据解析失败:', e); }
         wrongBook = parsedWrong.filter(id => questionBank.some(q => q.id === id));
         if (parsedWrong.length !== wrongBook.length) { saveWrongBook(); }
 
         let savedFav = localStorage.getItem(`radiation_fav_${activeBankKey}`);
         let parsedFav = [];
-        try { parsedFav = savedFav ? JSON.parse(savedFav) : []; } catch (e) { console.warn('收藏夹数据解析失败，已重置:', e); }
+        try { parsedFav = savedFav ? JSON.parse(savedFav) : []; } catch (e) { console.warn('收藏夹数据解析失败:', e); }
         favoriteBook = parsedFav.filter(id => questionBank.some(q => q.id === id));
         if (parsedFav.length !== favoriteBook.length) { saveFavoriteBook(); }
         
@@ -418,7 +413,8 @@
     function saveFavoriteBook() { localStorage.setItem(`radiation_fav_${activeBankKey}`, JSON.stringify(favoriteBook)); }
     
     function updateHomeStats() { 
-        document.getElementById('home-stats').innerHTML = `当前【${activeBankKey==='bank1'?'基础篇':'探伤篇'}】错题本有 ${wrongBook.length} 道待攻克<br>重点收藏夹有 <span style="color:#f39c12;font-weight:bold;">${favoriteBook.length}</span> 道题`;
+        let bankName = activeBankKey === 'bank1' ? '基础篇' : activeBankKey === 'bank2' ? '伽马探伤篇' : 'X射线探伤篇';
+        document.getElementById('home-stats').innerHTML = `当前【${bankName}】错题本有 ${wrongBook.length} 道待攻克<br>重点收藏夹有 <span style="color:#f39c12;font-weight:bold;">${favoriteBook.length}</span> 道题`;
         
         document.getElementById('batch-wrong-btn').style.display = wrongBook.length > 0 ? 'block' : 'none';
         document.getElementById('batch-fav-btn').style.display = favoriteBook.length > 0 ? 'block' : 'none';
@@ -456,7 +452,7 @@
 
     function goHome() {
         if(document.getElementById('quiz-area').style.display === 'block' && Object.keys(userAnswers).length > 0) {
-            if (currentMode === 'exam') {
+            if (currentMode.startsWith('exam')) {
                 if(!confirm("⚠️ 考试正在进行中！\n返回主页将丢失本次考试全部进度，确定离开吗？")) return;
             } else {
                 if(!confirm("确认返回主页？\n\n💡 放心，您的练习进度已自动保存，下次进入该模式可直接继续。")) return;
@@ -477,7 +473,6 @@
         }
     }
 
-    // ================= 手势滑动逻辑 =================
     let touchstartX = 0; let touchstartY = 0;
     let touchendX = 0; let touchendY = 0;
     const quizArea = document.getElementById('quiz-area');
@@ -486,7 +481,6 @@
         touchstartX = e.changedTouches[0].screenX; touchstartY = e.changedTouches[0].screenY;
     }, {passive: true});
 
-    // ================= 键盘快捷键 =================
     document.addEventListener('keydown', (e) => {
         if (document.getElementById('quiz-area').style.display !== 'block') return;
         if (document.getElementById('sheet-overlay').style.display === 'block') return;
@@ -502,13 +496,13 @@
             prevQuestion();
         } else if (e.key === 'ArrowRight') {
             e.preventDefault();
-            if (currentMode === 'exam' && currentIndex === currentList.length - 1) {
+            if (currentMode.startsWith('exam') && currentIndex === currentList.length - 1) {
                 openSheet();
             } else {
                 nextQuestion();
             }
         } else if (['a', 'A', 'b', 'B', 'c', 'C', 'd', 'D', 'e', 'E'].includes(e.key)) {
-            if (currentMode === 'exam' || !isEvaluated) {
+            if (currentMode.startsWith('exam') || !isEvaluated) {
                 e.preventDefault();
                 let key = e.key.toUpperCase();
                 if (q.options && q.options[key]) {
@@ -516,7 +510,7 @@
                 }
             }
         } else if (e.key === ' ' || e.key === 'Enter') {
-            if (currentMode !== 'exam' && !isEvaluated) {
+            if (!currentMode.startsWith('exam') && !isEvaluated) {
                 e.preventDefault();
                 submitAnswer();
             }
@@ -535,7 +529,6 @@
         }
     }, {passive: true});
 
-    // ================= 答题核心逻辑（含自动存档） =================
     function shuffleArray(array) {
         let arr = [...array];
         for (let i = arr.length - 1; i > 0; i--) {
@@ -546,58 +539,79 @@
     }
 
     function saveProgress() {
-        if (currentMode === 'exam' || !currentMode) return; 
+        if (currentMode.startsWith('exam') || !currentMode) return; 
         let elapsed = Math.floor((Date.now() - startTime) / 1000);
         let saveObj = {
             currentIndex: currentIndex,
-            userAnswers: userAnswers,  // 里面现在存的全是绝对不会串台的 UID
+            userAnswers: userAnswers,
             questionStatus: questionStatus,
-            listIds: currentList.map(q => q.id), // 单库模式下保存纯ID足够
+            listIds: currentList.map(q => q.id),
             elapsedTime: elapsed
         };
         localStorage.setItem(`radiation_save_${activeBankKey}_${currentMode}`, JSON.stringify(saveObj));
     }
 
     function startMode(mode) {
+        if (mode.startsWith('exam')) {
+            currentMode = mode; currentIndex = 0; userAnswers = {}; questionStatus = {};
+            
+            let singles = []; let multiples = [];
+            if (typeof bank1 !== 'undefined') {
+                singles = singles.concat(bank1.filter(q => q.type === 'single'));
+                multiples = multiples.concat(bank1.filter(q => q.type === 'multiple'));
+            }
+            
+            if (mode === 'exam_gamma') {
+                if (typeof bank2 !== 'undefined') {
+                    singles = singles.concat(bank2.filter(q => q.type === 'single'));
+                    multiples = multiples.concat(bank2.filter(q => q.type === 'multiple'));
+                }
+            } else if (mode === 'exam_xray') {
+                if (typeof bank3 !== 'undefined') {
+                    singles = singles.concat(bank3.filter(q => q.type === 'single'));
+                    multiples = multiples.concat(bank3.filter(q => q.type === 'multiple'));
+                }
+            }
+            
+            currentList = [...shuffleArray(singles).slice(0, 40), ...shuffleArray(multiples).slice(0, 10)];
+            
+            hideAllAreas();
+            document.getElementById('quiz-area').style.display = 'block';
+            document.getElementById('shortcut-hint').style.display = 'block';
+            startTimer(false); renderQuestion();
+            return;
+        }
+        
         if (!questionBank || questionBank.length === 0) { alert("⚠️ 该题库尚未导入题目！"); return; }
         
-        if (mode !== 'exam') {
-            let saveKey = `radiation_save_${activeBankKey}_${mode}`;
-            let savedData = localStorage.getItem(saveKey);
-            if (savedData) {
-                let selBox = document.getElementById('bank-selector');
-                let bankNameText = selBox.options[selBox.selectedIndex].text;
-                let modeName = mode === 'sequential' ? '顺序刷题' : mode === 'random' ? '随机练习' : mode === 'favorite' ? '重点题型' : '错题回顾';
+        let saveKey = `radiation_save_${activeBankKey}_${mode}`;
+        let savedData = localStorage.getItem(saveKey);
+        if (savedData) {
+            let selBox = document.getElementById('bank-selector');
+            let bankNameText = selBox.options[selBox.selectedIndex].text;
+            let modeName = mode === 'sequential' ? '顺序刷题' : mode === 'random' ? '随机练习' : mode === 'favorite' ? '重点题型' : '错题回顾';
+            
+            if (confirm(`发现您上次在【${bankNameText} - ${modeName}】有未完成的进度！\n\n👉 点击【确定】继续上次练习\n👉 点击【取消】重新开始`)) {
+                let parsed = null;
+                try { parsed = JSON.parse(savedData); } catch (e) { console.warn('进度数据解析失败:', e); localStorage.removeItem(saveKey); parsed = null; }
+                if (!parsed) { localStorage.removeItem(saveKey); } else {
+                currentMode = mode;
+                currentIndex = parsed.currentIndex;
+                userAnswers = parsed.userAnswers || {};
+                questionStatus = parsed.questionStatus || {};
+                currentList = parsed.listIds.map(id => questionBank.find(q => q.id === id)).filter(q => q !== undefined);
                 
-                if (confirm(`发现您上次在【${bankNameText} - ${modeName}】有未完成的进度！\n\n👉 点击【确定】继续上次练习\n👉 点击【取消】重新开始`)) {
-                    let parsed = null;
-                    try { parsed = JSON.parse(savedData); } catch (e) { console.warn('进度数据解析失败，将重新开始:', e); localStorage.removeItem(saveKey); parsed = null; }
-                    if (!parsed) { localStorage.removeItem(saveKey); } else {
-                    currentMode = mode;
-                    currentIndex = parsed.currentIndex;
-                    userAnswers = parsed.userAnswers || {};
-                    questionStatus = parsed.questionStatus || {};
-                    currentList = parsed.listIds.map(id => questionBank.find(q => q.id === id)).filter(q => q !== undefined);
-                    
-                    hideAllAreas(); document.getElementById('quiz-area').style.display = 'block';
-                    clearInterval(timerInterval); startTime = Date.now() - (parsed.elapsedTime * 1000); startTimer(true); 
-                    renderQuestion(); return; }
-                } else { localStorage.removeItem(saveKey); }
-            }
+                hideAllAreas(); document.getElementById('quiz-area').style.display = 'block';
+                clearInterval(timerInterval); startTime = Date.now() - (parsed.elapsedTime * 1000); startTimer(true); 
+                renderQuestion(); return; }
+            } else { localStorage.removeItem(saveKey); }
         }
 
         currentMode = mode; currentIndex = 0; userAnswers = {}; questionStatus = {};
 
         if (mode === 'sequential') { currentList = [...questionBank]; } 
         else if (mode === 'random') { currentList = shuffleArray(questionBank); } 
-        else if (mode === 'exam') {
-            let allQuestions = [];
-            if (typeof bank1 !== 'undefined') allQuestions = allQuestions.concat(bank1);
-            if (typeof bank2 !== 'undefined') allQuestions = allQuestions.concat(bank2);
-            let singles = shuffleArray(allQuestions.filter(q => q.type === 'single'));
-            let multiples = shuffleArray(allQuestions.filter(q => q.type === 'multiple'));
-            currentList = [...singles.slice(0, 40), ...multiples.slice(0, 10)];
-        } else if (mode === 'wrong') {
+        else if (mode === 'wrong') {
             currentList = questionBank.filter(q => wrongBook.includes(q.id));
             if(currentList.length === 0) { alert("🎉 太棒了，当前题库错题本已清空！快去刷题吧！"); return; }
         } 
@@ -621,7 +635,7 @@
             let elapsed = Math.floor((Date.now() - startTime) / 1000);
             let timerEl = document.getElementById('timer');
             
-            if (currentMode === 'exam') {
+            if (currentMode.startsWith('exam')) {
                 let remaining = EXAM_TIME_LIMIT - elapsed;
                 if (remaining <= 0) {
                     clearInterval(timerInterval); timerEl.innerText = `⏱️ 00:00`;
@@ -662,7 +676,7 @@
         document.getElementById('progress-bar').style.width = progressPercent + '%';
         
         let typeText = q.type === 'multiple' ? "【多选题】" : "【单选题】";
-        let scoreTag = currentMode === 'exam' ? (q.type === 'multiple' ? " (4分)" : " (2分)") : "";
+        let scoreTag = currentMode.startsWith('exam') ? (q.type === 'multiple' ? " (4分)" : " (2分)") : "";
         let devTag = devMode ? `<span class="dev-badge">答案: ${q.correctAnswer}</span>` : "";
         document.getElementById('q-title').innerHTML = `${currentIndex + 1}. ${typeText}${scoreTag} ${q.question} ${devTag}`;
         
@@ -680,7 +694,7 @@
             let opt = q.options[key]; let isSelected = selected.includes(key); let classNames = 'option-btn';
             if (isSelected) classNames += ' selected';
             
-            if (isEvaluated && currentMode !== 'exam') {
+            if (isEvaluated && !currentMode.startsWith('exam')) {
                 if (q.type === 'single') {
                     if (key === q.correctAnswer) classNames += ' correct';
                     else if (isSelected) classNames += ' wrong';
@@ -690,7 +704,7 @@
                 }
             }
 
-            let clickEvent = (isEvaluated && currentMode !== 'exam') ? '' : `onclick="toggleOption('${key}')"`;
+            let clickEvent = (isEvaluated && !currentMode.startsWith('exam')) ? '' : `onclick="toggleOption('${key}')"`;
             if (q.isOptionImage) {
                 let textPart = `${key}.`; let imgPart = '';
                 if (typeof opt === 'object') {
@@ -711,7 +725,7 @@
         prevBtn.style.visibility = currentIndex > 0 ? "visible" : "hidden";
         nextBtn.style.display = "block";
 
-        if (currentMode === 'exam') {
+        if (currentMode.startsWith('exam')) {
             noteArea.style.display = "none"; submitBtn.style.display = "none"; autoJumpTip.style.display = "none";
             favBtn.style.display = "none"; 
             nextBtn.innerText = (currentIndex === currentList.length - 1) ? "打开答题卡交卷" : "下一题";
@@ -758,7 +772,6 @@
         renderQuestion(); saveProgress(); 
     }
 
-    // 【核心修补2：加入智能空格过滤，再也不会因为题库多输入了一个空格而判错了】
     function checkIsCorrect(q, selected) {
         if (!selected || selected.length === 0) return false;
         if (q.type === 'single') return selected[0].trim() === String(q.correctAnswer).trim();
@@ -781,11 +794,12 @@
         let isCorrect = checkIsCorrect(q, selected); 
         questionStatus[uid] = isCorrect ? 'correct' : 'wrong';
         
-        if (currentMode !== 'exam') {
+        if (!currentMode.startsWith('exam')) {
             recordStats(isCorrect);
         }
         
-        if (!isCorrect) { playSound('wrong');
+        if (!isCorrect) { 
+            playSound('wrong');
             if (!wrongBook.includes(q.id)) { 
                 wrongBook.push(q.id); 
                 saveWrongBook(); 
@@ -807,7 +821,7 @@
 
     function prevQuestion() { if (currentIndex > 0) { currentIndex--; renderQuestion(); saveProgress(); } }
     function nextQuestion() {
-        if (currentMode === 'exam' && currentIndex === currentList.length - 1) { openSheet(); return; }
+        if (currentMode.startsWith('exam') && currentIndex === currentList.length - 1) { openSheet(); return; }
         if (currentIndex < currentList.length - 1) { currentIndex++; renderQuestion(); saveProgress(); } 
         else { alert(`恭喜！已完成所有题目。`); }
     }
@@ -817,7 +831,7 @@
         currentList.forEach((q, idx) => {
             let uid = getUid(q);
             let statusClass = ''; let selected = userAnswers[uid] || [];
-            if (currentMode === 'exam') { if (selected.length > 0) { statusClass = 'answered'; answeredCount++; }
+            if (currentMode.startsWith('exam')) { if (selected.length > 0) { statusClass = 'answered'; answeredCount++; }
             } else {
                 if (questionStatus[uid] === 'correct') statusClass = 'correct'; else if (questionStatus[uid] === 'wrong') statusClass = 'wrong'; else if (selected.length > 0) statusClass = 'answered';
             }
@@ -826,7 +840,7 @@
         });
         document.getElementById('sheet-grid').innerHTML = html; document.getElementById('sheet-overlay').style.display = 'block';
         let forceBtn = document.getElementById('force-submit-btn');
-        if (currentMode === 'exam') { forceBtn.style.display = 'block'; forceBtn.innerText = `直接交卷 (${answeredCount}/${currentList.length})`; } else { forceBtn.style.display = 'none'; }
+        if (currentMode.startsWith('exam')) { forceBtn.style.display = 'block'; forceBtn.innerText = `直接交卷 (${answeredCount}/${currentList.length})`; } else { forceBtn.style.display = 'none'; }
     }
 
     function closeSheet(force = false) { 
@@ -842,7 +856,7 @@
 
         clearInterval(timerInterval);
         let elapsed = Math.floor((Date.now() - startTime) / 1000);
-        if (currentMode === 'exam' && elapsed > EXAM_TIME_LIMIT) { elapsed = EXAM_TIME_LIMIT; }
+        if (currentMode.startsWith('exam') && elapsed > EXAM_TIME_LIMIT) { elapsed = EXAM_TIME_LIMIT; }
         let timeSpentText = `${Math.floor(elapsed / 60)}分${elapsed % 60}秒`;
 
         let score = 0;
@@ -887,7 +901,8 @@
         let record = {
             id: Date.now(), date: new Date().toLocaleString(), score: score, timeSpent: timeSpentText, passStatus: passStatus,
             qList: currentList.map(q => ({id: q.id, bank: q._bank})),
-            userAnswers: JSON.parse(JSON.stringify(userAnswers))
+            userAnswers: JSON.parse(JSON.stringify(userAnswers)),
+            examType: currentMode
         };
         let examRecords = [];
         try { examRecords = JSON.parse(localStorage.getItem('radiation_exam_records') || '[]'); } catch (e) { examRecords = []; }
@@ -898,7 +913,6 @@
         closeSheet(true); userAnswers = {}; questionStatus = {}; goHome();
     }
 
-    // ================= 考试记录与复盘模块 =================
     function showRecordsArea() {
         hideAllAreas();
         document.getElementById('records-area').style.display = 'block';
@@ -910,10 +924,11 @@
         } else {
             records.forEach(r => {
                 let badgeClass = r.passStatus === '合格' ? 'badge-pass' : 'badge-fail';
+                let examTypeText = r.examType === 'exam_gamma' ? '伽马+基础' : r.examType === 'exam_xray' ? 'X射线+基础' : '混合组卷';
                 html += `
                     <div class="record-item" onclick="viewRecordDetail(${r.id})">
                         <div class="record-info">
-                            <div style="font-weight:bold; font-size:15px;">全真模拟考试</div>
+                            <div style="font-weight:bold; font-size:15px;">${examTypeText}模拟考试</div>
                             <div class="record-time">⏱️ ${r.timeSpent} | 📅 ${r.date}</div>
                         </div>
                         <div style="text-align:right;">
@@ -950,18 +965,11 @@
 
         let html = '';
         record.qList.forEach((qRef, index) => {
-            let q = undefined;
-            if (typeof qRef === 'object') {
-                let b = qRef.bank === 'bank1' ? bank1 : bank2;
-                q = b && b.find(x => x.id === qRef.id);
-            } else {
-                q = getQuestionById(qRef); 
-            }
-            if(!q) return; 
+            let q = getQuestionById(qRef.id, qRef.bank);
+            if(!q) return;
 
             let uid = getUid(q);
             let typeText = q.type === 'multiple' ? "【多选题】" : "【单选题】";
-            // 兼容读取：优先读 UID 防碰撞答案，读不到再去读以前的老记录
             let userAnswer = record.userAnswers[uid] || record.userAnswers[q.id] || [];
             
             html += `<div class="review-question">`;
@@ -972,7 +980,6 @@
                 let opt = q.options[key];
                 let isUserSelected = userAnswer.includes(key);
                 
-                // 智能空格过滤比对
                 let isCorrectOption = false;
                 if (q.type === 'single') {
                     isCorrectOption = (key.trim() === String(q.correctAnswer).trim());
@@ -1013,7 +1020,6 @@
         window.scrollTo(0, 0); 
     }
     
-    // ================= 批量管理功能 =================
     let batchMode = '';
     
     function showBatchModal(mode) {
@@ -1056,7 +1062,6 @@
         if (e.target.id === 'batch-modal') closeBatchModal();
     });
     
-    // ================= PWA 添加到主屏幕 =================
     let deferredPrompt = null;
     window.addEventListener('beforeinstallprompt', (e) => { e.preventDefault(); deferredPrompt = e; document.getElementById('btn-install').style.display = 'block'; });
     function addToHomeScreen() {
@@ -1076,7 +1081,6 @@
         }
     }
     
-    // ================= 数据备份与恢复 =================
     function exportData() {
         let data = {
             version: '1.0',
@@ -1088,9 +1092,12 @@
             bank1Fav: JSON.parse(localStorage.getItem('radiation_fav_bank1') || '[]'),
             bank2Wrong: JSON.parse(localStorage.getItem('radiation_wrong_bank2') || '[]'),
             bank2Fav: JSON.parse(localStorage.getItem('radiation_fav_bank2') || '[]'),
+            bank3Wrong: JSON.parse(localStorage.getItem('radiation_wrong_bank3') || '[]'),
+            bank3Fav: JSON.parse(localStorage.getItem('radiation_fav_bank3') || '[]'),
             stats: {
                 bank1: JSON.parse(localStorage.getItem('radiation_stats_bank1') || '{}'),
-                bank2: JSON.parse(localStorage.getItem('radiation_stats_bank2') || '{}')
+                bank2: JSON.parse(localStorage.getItem('radiation_stats_bank2') || '{}'),
+                bank3: JSON.parse(localStorage.getItem('radiation_stats_bank3') || '{}')
             },
             checkIn: JSON.parse(localStorage.getItem('radiation_checkin') || '{}')
         };
@@ -1128,9 +1135,12 @@
                 if (data.bank1Fav) localStorage.setItem('radiation_fav_bank1', JSON.stringify(data.bank1Fav));
                 if (data.bank2Wrong) localStorage.setItem('radiation_wrong_bank2', JSON.stringify(data.bank2Wrong));
                 if (data.bank2Fav) localStorage.setItem('radiation_fav_bank2', JSON.stringify(data.bank2Fav));
+                if (data.bank3Wrong) localStorage.setItem('radiation_wrong_bank3', JSON.stringify(data.bank3Wrong));
+                if (data.bank3Fav) localStorage.setItem('radiation_fav_bank3', JSON.stringify(data.bank3Fav));
                 if (data.stats) {
                     if (data.stats.bank1) localStorage.setItem('radiation_stats_bank1', JSON.stringify(data.stats.bank1));
                     if (data.stats.bank2) localStorage.setItem('radiation_stats_bank2', JSON.stringify(data.stats.bank2));
+                    if (data.stats.bank3) localStorage.setItem('radiation_stats_bank3', JSON.stringify(data.stats.bank3));
                 }
                 if (data.checkIn) localStorage.setItem('radiation_checkin', JSON.stringify(data.checkIn));
                 
@@ -1143,7 +1153,6 @@
         reader.readAsText(file);
     }
     
-    // ================= 声音反馈 =================
     let audioCtx = null;
     function playSound(type) {
         try {
@@ -1154,11 +1163,11 @@
             gain.connect(audioCtx.destination);
             
             if (type === 'correct') {
-                osc.frequency.value = 523.25; // C5
+                osc.frequency.value = 523.25;
                 gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
                 osc.start();
-                setTimeout(() => { osc.frequency.value = 659.25; }, 100); // E5
-                setTimeout(() => { osc.frequency.value = 783.99; }, 200); // G5
+                setTimeout(() => { osc.frequency.value = 659.25; }, 100);
+                setTimeout(() => { osc.frequency.value = 783.99; }, 200);
                 setTimeout(() => { gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.4); osc.stop(); }, 350);
             } else if (type === 'wrong') {
                 osc.frequency.value = 200;
@@ -1170,9 +1179,8 @@
         } catch (e) { console.warn('声音播放失败:', e); }
     }
     
-    // ================= 每日学习打卡 =================
     function getTodayKey() {
-        return new Date().toISOString().split('T')[0]; // YYYY-MM-DD
+        return new Date().toISOString().split('T')[0];
     }
     
     function checkIn() {
@@ -1200,11 +1208,6 @@
             btn.style.background = '#e67e22';
         }
     }
-    
-    // 初始化时更新打卡显示
-    window.addEventListener('DOMContentLoaded', () => {
-        updateCheckInDisplay();
-    });
 </script>
 </body>
 </html>
