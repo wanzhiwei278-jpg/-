@@ -136,6 +136,39 @@
         .batch-btn.danger { background: #e74c3c; color: white; }
         .batch-btn.secondary { background: #95a5a6; color: white; }
         .batch-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+        
+        /* 搜索功能样式 */
+        .search-container { margin: 20px auto; padding: 0 10px; }
+        .search-input-wrapper { position: relative; display: flex; gap: 10px; }
+        .search-input { flex: 1; padding: 12px 15px; border: 2px solid #3498db; border-radius: 8px; font-size: 16px; background: var(--card-bg); color: var(--text-color); outline: none; }
+        .search-input:focus { border-color: #2980b9; box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1); }
+        .search-btn { background: #3498db; color: white; border: none; padding: 12px 20px; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 16px; }
+        .search-btn:hover { background: #2980b9; }
+        .search-results { margin-top: 20px; text-align: left; max-height: 60vh; overflow-y: auto; }
+        .search-result-item { padding: 15px; margin: 10px 0; border: 1px solid var(--border-color); border-radius: 8px; background: var(--opt-bg); cursor: pointer; transition: 0.2s; }
+        .search-result-item:hover { border-color: #3498db; background: var(--card-bg); }
+        .search-result-item .q-text { font-size: 15px; font-weight: 500; margin-bottom: 8px; color: var(--text-color); }
+        .search-result-item .q-meta { font-size: 13px; color: #7f8c8d; }
+        .highlight { background: #fff3cd; padding: 2px 4px; border-radius: 3px; font-weight: bold; }
+        body.dark-mode .highlight { background: #5a4a00; }
+        
+        /* 笔记功能样式 */
+        .note-editor { margin-top: 15px; background: var(--note-bg); border: 1px solid var(--opt-border); border-radius: 8px; padding: 15px; }
+        .note-editor textarea { width: 100%; min-height: 80px; padding: 10px; border: 1px solid var(--opt-border); border-radius: 6px; font-size: 14px; resize: vertical; background: var(--card-bg); color: var(--text-color); box-sizing: border-box; font-family: inherit; }
+        .note-editor textarea:focus { outline: none; border-color: #3498db; }
+        .note-editor .note-actions { display: flex; gap: 10px; margin-top: 10px; }
+        .note-save-btn { background: #27ae60; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 14px; font-weight: bold; }
+        .note-save-btn:hover { background: #229954; }
+        .note-display { font-size: 14px; color: #555; line-height: 1.6; white-space: pre-wrap; }
+        body.dark-mode .note-display { color: #ccc; }
+        .note-icon { font-size: 20px; cursor: pointer; margin-left: 10px; vertical-align: middle; }
+        .note-icon:hover { transform: scale(1.1); }
+        .has-note { color: #27ae60; }
+        
+        /* 搜索区域样式 */
+        #search-area { display: none; }
+        .back-btn { background: #3498db; color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 14px; }
+        .back-btn:hover { background: #2980b9; }
     </style>
 </head>
 <body>
@@ -170,6 +203,7 @@
         <button class="menu-btn btn-rand" onclick="startMode('random')">随机练习</button>
         <button class="menu-btn btn-wrong" onclick="startMode('wrong')">错题回顾</button>
         <button class="menu-btn btn-fav" onclick="startMode('favorite')">⭐ 重点题型 (收藏)</button>
+        <button class="menu-btn" onclick="showSearchArea()" style="background: #1abc9c;">🔍 搜索题目</button>
         <button class="menu-btn" onclick="addToHomeScreen()" id="btn-install" style="background: #34495e; display: none;">📱 添加到主屏幕</button>
         
         <div style="border-top: 1px dashed var(--border-color); margin: 25px 0; padding-top: 15px; font-size: 14px; color: #7f8c8d; font-weight: bold;">[ 考前冲刺 · 混合组卷 ]</div>
@@ -210,10 +244,11 @@
         <img id="q-img" class="question-img" src="" alt="题目图片">
         
         <div id="options-area"></div>
+        <div id="note-editor-area"></div>
         <div class="note-box" id="note-area"></div>
 
         <div id="auto-jump-tip" style="text-align: center; color: #95a5a6; font-size: 13px; margin-top: 15px; display: none;">
-            💡 提示：点击“确认提交”，答对将自动跳转下一题
+            💡 提示：点击"确认提交"，答对将自动跳转下一题
         </div>
 
         <div class="footer">
@@ -239,6 +274,21 @@
             <div style="width: 70px;"></div> </div>
         <div id="record-stats" style="text-align:center; margin-bottom: 20px; font-size:16px; padding: 15px; background: var(--opt-bg); border-radius: 8px; border: 1px solid var(--opt-border);"></div>
         <div id="record-detail-list"></div>
+    </div>
+
+    <div id="search-area" style="display: none;">
+        <div class="header">
+            <button class="back-btn" onclick="hideSearchArea()">🔙 返回主页</button>
+            <div style="font-size:18px; font-weight:bold;">🔍 搜索题目</div>
+            <div style="width: 70px;"></div>
+        </div>
+        <div class="search-container">
+            <div class="search-input-wrapper">
+                <input type="text" class="search-input" id="search-input" placeholder="输入关键词搜索题目..." onkeypress="if(event.key==='Enter') performSearch()">
+                <button class="search-btn" onclick="performSearch()">搜索</button>
+            </div>
+            <div id="search-results" class="search-results"></div>
+        </div>
     </div>
 </div>
 
@@ -660,6 +710,7 @@
         }
         saveFavoriteBook();
         renderQuestion(); 
+        updateFavoriteIcon();
     }
 
     function renderQuestion() {
@@ -741,8 +792,11 @@
                 let answerText = q.type === 'single' ? q.correctAnswer : q.correctAnswer.join(", ");
                 noteArea.innerHTML = `<strong>正确答案：${answerText}</strong><br><br>${q.note || '暂无解析'}`; noteArea.style.display = "block";
             } else { noteArea.style.display = "none"; submitBtn.style.display = "block"; }
-        }
-        preloadNextImages();
+            
+            // 更新笔记显示
+            renderNoteArea();
+            updateFavoriteIcon();
+            preloadNextImages();
     }
 
     function preloadNextImages() {
@@ -1083,7 +1137,7 @@
     
     function exportData() {
         let data = {
-            version: '1.0',
+            version: '1.1',
             exportTime: new Date().toISOString(),
             darkMode: isDarkMode,
             swipeEnabled: isSwipeEnabled,
@@ -1099,7 +1153,8 @@
                 bank2: JSON.parse(localStorage.getItem('radiation_stats_bank2') || '{}'),
                 bank3: JSON.parse(localStorage.getItem('radiation_stats_bank3') || '{}')
             },
-            checkIn: JSON.parse(localStorage.getItem('radiation_checkin') || '{}')
+            checkIn: JSON.parse(localStorage.getItem('radiation_checkin') || '{}'),
+            notes: JSON.parse(localStorage.getItem('radiation_notes') || '{}')
         };
         let blob = new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'});
         let url = URL.createObjectURL(blob);
@@ -1108,7 +1163,7 @@
         a.download = `辐射防护备份_${new Date().toLocaleDateString().replace(/\//g,'-')}.json`;
         a.click();
         URL.revokeObjectURL(url);
-        alert('✅ 数据已备份成功！');
+        alert('✅ 数据已备份成功！\n\n📦 备份包含：\n• 错题本、收藏夹\n• 考试记录\n• 学习笔记\n• 每日打卡');
     }
     
     function importData(file) {
@@ -1143,6 +1198,10 @@
                     if (data.stats.bank3) localStorage.setItem('radiation_stats_bank3', JSON.stringify(data.stats.bank3));
                 }
                 if (data.checkIn) localStorage.setItem('radiation_checkin', JSON.stringify(data.checkIn));
+                if (data.notes) {
+                    localStorage.setItem('radiation_notes', JSON.stringify(data.notes));
+                    questionNotes = data.notes;
+                }
                 
                 alert('✅ 数据恢复成功！请刷新页面。');
                 location.reload();
@@ -1206,6 +1265,216 @@
         if (checkInData[today]) {
             btn.innerHTML = '🔥 今日已打卡 (' + checkInData[today].streak + '天)';
             btn.style.background = '#e67e22';
+        }
+    }
+
+    // ================= 题目搜索功能 =================
+    let questionNotes = JSON.parse(localStorage.getItem('radiation_notes') || '{}');
+    
+    function showSearchArea() {
+        hideAllAreas();
+        document.getElementById('search-area').style.display = 'block';
+        document.getElementById('search-input').value = '';
+        document.getElementById('search-results').innerHTML = '<div style="text-align:center; color:#95a5a6; padding:40px 0;">💡 输入关键词开始搜索<br><br>支持按题目内容、选项关键词搜索</div>';
+        setTimeout(() => { document.getElementById('search-input').focus(); }, 100);
+    }
+    
+    function hideSearchArea() {
+        document.getElementById('search-area').style.display = 'none';
+        document.getElementById('home-menu').style.display = 'block';
+    }
+    
+    function performSearch() {
+        let keyword = document.getElementById('search-input').value.trim();
+        if (!keyword) {
+            alert('请输入搜索关键词！');
+            return;
+        }
+        
+        if (keyword.length < 2) {
+            alert('关键词至少需要2个字符！');
+            return;
+        }
+        
+        let keywordLower = keyword.toLowerCase();
+        let results = [];
+        
+        // 搜索所有题库
+        let banks = [
+            { name: '基础篇', data: bank1, key: 'bank1' },
+            { name: '伽马射线探伤篇', data: bank2, key: 'bank2' },
+            { name: 'X射线探伤篇', data: bank3, key: 'bank3' }
+        ];
+        
+        banks.forEach(bank => {
+            if (typeof bank.data !== 'undefined' && bank.data) {
+                bank.data.forEach(q => {
+                    // 搜索题目内容
+                    if (q.question && q.question.toLowerCase().includes(keywordLower)) {
+                        results.push({ q: q, bank: bank, matchType: '题目' });
+                    }
+                    // 搜索选项内容
+                    if (q.options) {
+                        for (let key in q.options) {
+                            let opt = q.options[key];
+                            let optText = typeof opt === 'object' ? (opt.text || '') : opt;
+                            if (optText.toLowerCase().includes(keywordLower)) {
+                                // 避免重复添加
+                                if (!results.some(r => r.q.id === q.id && r.q._bank === bank.key)) {
+                                    results.push({ q: q, bank: bank, matchType: '选项' });
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        });
+        
+        displaySearchResults(results, keyword);
+    }
+    
+    function displaySearchResults(results, keyword) {
+        let resultsDiv = document.getElementById('search-results');
+        
+        if (results.length === 0) {
+            resultsDiv.innerHTML = `<div style="text-align:center; color:#e74c3c; padding:40px 0;">😕 未找到包含"${keyword}"的题目<br><br>试试其他关键词？</div>`;
+            return;
+        }
+        
+        let html = `<div style="margin-bottom:15px; font-size:14px; color:#7f8c8d;">找到 <strong>${results.length}</strong> 个结果：</div>`;
+        
+        results.slice(0, 50).forEach((result, index) => {
+            let q = result.q;
+            let uid = getUid(q);
+            let typeText = q.type === 'multiple' ? '【多选题】' : '【单选题】';
+            let hasNote = questionNotes[uid] ? '📝' : '';
+            let isFav = favoriteBook.includes(q.id) ? '⭐' : '';
+            
+            // 高亮搜索关键词
+            let displayText = q.question.length > 80 ? q.question.substring(0, 80) + '...' : q.question;
+            let highlightedText = displayText.replace(new RegExp(keyword, 'gi'), match => `<span class="highlight">${match}</span>`);
+            
+            html += `
+                <div class="search-result-item" onclick="openQuestionFromSearch('${result.bank.key}', ${q.id})">
+                    <div class="q-text">${index + 1}. ${typeText} ${highlightedText}</div>
+                    <div class="q-meta">
+                        📚 ${result.bank.name} | 题号: ${q.id} 
+                        <span style="margin-left:10px;">匹配: <strong>${result.matchType}</strong></span>
+                        <span style="margin-left:10px;">${isFav}${hasNote}</span>
+                    </div>
+                </div>
+            `;
+        });
+        
+        if (results.length > 50) {
+            html += `<div style="text-align:center; color:#95a5a6; padding:15px 0;">显示前50条结果，共${results.length}条</div>`;
+        }
+        
+        resultsDiv.innerHTML = html;
+    }
+    
+    function openQuestionFromSearch(bankKey, questionId) {
+        // 切换到对应题库
+        document.getElementById('bank-selector').value = bankKey;
+        changeBank();
+        
+        // 查找题目
+        let targetBank = bankKey === 'bank1' ? bank1 : bankKey === 'bank2' ? bank2 : bank3;
+        let questionIndex = targetBank.findIndex(q => q.id === questionId);
+        
+        if (questionIndex === -1) {
+            alert('题目未找到！');
+            return;
+        }
+        
+        // 设置为顺序练习模式
+        currentMode = 'sequential';
+        currentIndex = questionIndex;
+        userAnswers = {};
+        questionStatus = {};
+        currentList = [...targetBank];
+        
+        hideAllAreas();
+        document.getElementById('quiz-area').style.display = 'block';
+        document.getElementById('shortcut-hint').style.display = 'block';
+        startTimer(false);
+        renderQuestion();
+    }
+
+    // ================= 题目笔记功能 =================
+    function saveNote() {
+        let q = currentList[currentIndex];
+        if (!q) return;
+        
+        let uid = getUid(q);
+        let noteText = document.getElementById('note-textarea').value.trim();
+        
+        if (noteText) {
+            questionNotes[uid] = {
+                text: noteText,
+                time: new Date().toLocaleString()
+            };
+            alert('📝 笔记已保存！');
+        } else {
+            // 如果笔记为空，删除笔记
+            delete questionNotes[uid];
+            alert('🗑️ 笔记已删除！');
+        }
+        
+        localStorage.setItem('radiation_notes', JSON.stringify(questionNotes));
+        renderNoteArea();
+        updateFavoriteIcon();
+    }
+    
+    function renderNoteArea() {
+        let q = currentList[currentIndex];
+        if (!q) return;
+        
+        let uid = getUid(q);
+        let note = questionNotes[uid];
+        let isFav = favoriteBook.includes(q.id);
+        let area = document.getElementById('note-editor-area');
+        
+        // 只有在收藏模式下才显示笔记编辑器
+        if (currentMode === 'favorite' && isFav) {
+            let html = `<div class="note-editor">`;
+            html += `<div style="font-weight:bold; margin-bottom:10px; color:#27ae60;">📝 我的笔记</div>`;
+            
+            if (note) {
+                html += `<div class="note-display">${note.text}</div>`;
+                html += `<div style="font-size:12px; color:#95a5a6; margin-top:8px;">💾 上次修改：${note.time}</div>`;
+            }
+            
+            html += `
+                <textarea id="note-textarea" placeholder="在这里写下你的学习笔记、记忆技巧、容易犯错的地方...">${note ? note.text : ''}</textarea>
+                <div class="note-actions">
+                    <button class="note-save-btn" onclick="saveNote()">💾 保存笔记</button>
+                </div>
+            `;
+            html += `</div>`;
+            area.innerHTML = html;
+        } else {
+            area.innerHTML = '';
+        }
+    }
+    
+    function updateFavoriteIcon() {
+        let favBtn = document.getElementById('fav-btn');
+        let q = currentList[currentIndex];
+        if (!q) return;
+        
+        let uid = getUid(q);
+        let isFav = favoriteBook.includes(q.id);
+        let hasNote = questionNotes[uid] ? true : false;
+        
+        favBtn.innerText = isFav ? '★' : '☆';
+        favBtn.style.color = isFav ? '#f39c12' : '#bdc3c7';
+        
+        // 添加笔记指示
+        if (hasNote) {
+            favBtn.title = '已收藏 ⭐ | 有笔记 📝';
+        } else {
+            favBtn.title = isFav ? '已收藏 ⭐' : '收藏该题';
         }
     }
 </script>
