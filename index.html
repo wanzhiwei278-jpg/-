@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#3498db">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="images/image1.jpg">
     <title>电离辐射安全与防护 终极系统</title>
     <style>
         /* ================= 基础变量与模式 ================= */
@@ -179,6 +182,7 @@
         <button class="menu-btn btn-rand" onclick="startMode('random')">随机练习</button>
         <button class="menu-btn btn-wrong" onclick="startMode('wrong')">错题回顾</button>
         <button class="menu-btn btn-fav" onclick="startMode('favorite')">⭐ 重点题型 (收藏)</button>
+        <button class="menu-btn" onclick="addToHomeScreen()" id="btn-install" style="background: #34495e; display: none;">📱 添加到主屏幕</button>
         
         <div style="border-top: 1px dashed var(--border-color); margin: 25px 0; padding-top: 15px; font-size: 14px; color: #7f8c8d; font-weight: bold;">[ 考前冲刺 · 混合组卷 ]</div>
         <button class="menu-btn btn-exam-gamma" onclick="startMode('exam_gamma')">☢️ 模拟考试 (伽马+基础)</button>
@@ -482,6 +486,42 @@
         document.getElementById('shortcut-hint').style.display = 'none';
         document.getElementById('home-menu').style.display = 'block';
         updateHomeStats();
+    }
+    
+    // ================= PWA 添加到主屏幕功能 =================
+    let deferredPrompt = null;
+    
+    window.addEventListener('beforeinstallprompt', (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        document.getElementById('btn-install').style.display = 'block';
+    });
+    
+    function addToHomeScreen() {
+        if (deferredPrompt) {
+            deferredPrompt.prompt();
+            deferredPrompt.userChoice.then((choiceResult) => {
+                if (choiceResult.outcome === 'accepted') {
+                    console.log('用户已添加到主屏幕');
+                    alert('✅ 已成功添加到主屏幕！\n\n现在您可以从桌面直接启动应用。');
+                } else {
+                    console.log('用户取消添加');
+                }
+                deferredPrompt = null;
+                document.getElementById('btn-install').style.display = 'none';
+            });
+        } else {
+            // 显示手动添加指引
+            let instructions = '';
+            if (navigator.userAgent.match(/iPhone|iPad|iPod/i)) {
+                instructions = '📱 iOS 用户：\n\n1. 点击底部 Safari 分享按钮\n2. 选择"添加到主屏幕"\n3. 点击"添加"完成';
+            } else if (navigator.userAgent.match(/Android/i)) {
+                instructions = '🤖 Android 用户：\n\n1. 点击浏览器菜单按钮 (⋮)\n2. 选择"添加到主屏幕"\n3. 点击"添加"完成';
+            } else {
+                instructions = '💻 桌面用户：\n\n1. 在 Chrome 中点击地址栏右侧的 ➕\n2. 或使用菜单 -> 更多工具 -> 创建快捷方式';
+            }
+            alert(`📲 手动添加到主屏幕\n\n${instructions}`);
+        }
     }
 
     function toggleDevMode() {
